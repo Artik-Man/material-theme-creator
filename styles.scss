@@ -1,0 +1,48 @@
+@import 'theme-creator';
+* {
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+.themes {
+  background: white;
+
+  .theme {
+    width: 100%;
+    display: flex;
+
+    $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
+
+    $arr_colors: $mat-red, $mat-pink, $mat-purple, $mat-deep-purple, $mat-indigo, $mat-blue, $mat-light-blue, $mat-cyan,
+      $mat-teal, $mat-green, $mat-light-green, $mat-lime, $mat-yellow, $mat-amber, $mat-orange, $mat-deep-orange,
+      $mat-brown, $mat-grey, $mat-blue-grey;
+    $arr_thresholds: 62%, 58%, 59%, 63%, 63%, 52%, 48%, 45%, 38%, 55%, 50%, 37%, 37%, 40%, 42%, 48%, 40%, 60%, 48%;
+
+    @for $c from 1 through 38 {
+      &:nth-child(#{$c}) {
+        $theme: mat-palette(create-theme-map('--theme-h', '--theme-s', '--theme-l', '--theme-contrast-threshold'));
+        @if ($c%2==0) {
+          @include create-color(mat-color(nth($arr_colors, $c / 2), 500), 'theme');
+          --theme-contrast-threshold: #{nth($arr_thresholds, $c / 2)};
+        } @else {
+          $theme: mat-palette(nth($arr_colors, ($c + 1) / 2));
+          margin-top: 10px;
+        }
+
+        @for $i from 1 through 14 {
+          span:nth-child(14n + #{$i}) {
+            background-color: mat-color($theme, nth($arr_names, $i));
+            color: mat-contrast($theme, nth($arr_names, $i));
+          }
+        }
+      }
+    }
+
+    span {
+      display: block;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      padding-top: 20px;
+    }
+  }
+}
