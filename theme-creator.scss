@@ -66,6 +66,11 @@
 @import 'theming';
 
 @function create-theme-map($theme-h, $theme-s, $theme-l, $contrast-threshold) {
+  $hA100: 0.96;
+  $hA200: 0.96;
+  $hA400: 0.96;
+  $hA700: 1;
+
   $s50: 0.75;
   $s100: 0.8;
   $s200: 0.85;
@@ -89,15 +94,10 @@
   $l700: 0.7;
   $l800: 0.6;
   $l900: 0.5;
-  $lA100: 0.24;
+  $lA100: 0.34;
   $lA200: 0.44;
   $lA400: 0.74;
   $lA700: 0.84;
-
-  $hA100: 0.96;
-  $hA200: 0.96;
-  $hA400: 0.96;
-  $hA700: 1;
 
   @return (
     50:

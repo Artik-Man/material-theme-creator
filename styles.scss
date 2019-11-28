@@ -20,12 +20,26 @@
     @for $c from 1 through 38 {
       &:nth-child(#{$c}) {
         $theme: mat-palette(create-theme-map('--theme-h', '--theme-s', '--theme-l', '--theme-contrast-threshold'));
+        &:after {
+          display: block;
+          height: 30px;
+          text-align: center;
+          padding: 20px 0 0 20px;
+        }
         @if ($c%2==0) {
           @include create-color(mat-color(nth($arr_colors, $c / 2), 500), 'theme');
           --theme-contrast-threshold: #{nth($arr_thresholds, $c / 2)};
+          &:after {
+            content: 'Custom Material';
+            color: teal;
+          }
         } @else {
           $theme: mat-palette(nth($arr_colors, ($c + 1) / 2));
-          margin-top: 10px;
+          margin-top: 20px;
+          &:after {
+            content: 'Google Material';
+            color: blue;
+          }
         }
 
         @for $i from 1 through 14 {
