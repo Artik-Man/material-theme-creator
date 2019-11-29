@@ -1,4 +1,6 @@
-@import 'theme-creator';
+@import 'material-theme-creator';
+@import 'theming';
+
 * {
   box-sizing: border-box;
   font-family: 'Courier New', Courier, monospace;
@@ -10,32 +12,44 @@
     width: 100%;
     display: flex;
 
+    &:after {
+      display: block;
+      height: 30px;
+      text-align: center;
+      padding: 20px 0 0 20px;
+    }
+
+    span {
+      display: block;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      padding-top: 20px;
+    }
+
     $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
 
     $arr_colors: $mat-red, $mat-pink, $mat-purple, $mat-deep-purple, $mat-indigo, $mat-blue, $mat-light-blue, $mat-cyan,
       $mat-teal, $mat-green, $mat-light-green, $mat-lime, $mat-yellow, $mat-amber, $mat-orange, $mat-deep-orange,
       $mat-brown, $mat-grey, $mat-blue-grey;
-    $arr_thresholds: 62%, 58%, 59%, 63%, 63%, 52%, 48%, 45%, 38%, 55%, 50%, 37%, 37%, 40%, 42%, 48%, 40%, 60%, 48%;
+
+    $arr_thresholds: 62%, 58%, 65%, 65%, 65%, 58%, 54%, 45%, 38%, 47%, 47%, 44%, 20%, 20%, 42%, 60%, 60%, 60%, 62%;
 
     @for $c from 1 through 38 {
       &:nth-child(#{$c}) {
-        $theme: mat-palette(create-theme-map('--theme-h', '--theme-s', '--theme-l', '--theme-contrast-threshold'));
-        &:after {
-          display: block;
-          height: 30px;
-          text-align: center;
-          padding: 20px 0 0 20px;
-        }
+        $theme: mat-palette(create-theme-map('theme'));
         @if ($c%2==0) {
           @include create-color(mat-color(nth($arr_colors, $c / 2), 500), 'theme');
           --theme-contrast-threshold: #{nth($arr_thresholds, $c / 2)};
+
           &:after {
             content: 'Custom Material';
             color: teal;
           }
         } @else {
-          $theme: mat-palette(nth($arr_colors, ($c + 1) / 2));
           margin-top: 20px;
+          $theme: mat-palette(nth($arr_colors, ($c + 1) / 2));
+
           &:after {
             content: 'Google Material';
             color: blue;
@@ -49,14 +63,6 @@
           }
         }
       }
-    }
-
-    span {
-      display: block;
-      width: 50px;
-      height: 50px;
-      text-align: center;
-      padding-top: 20px;
     }
   }
 }
