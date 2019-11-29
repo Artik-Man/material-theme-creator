@@ -60,10 +60,6 @@
      color: mat-contrast($primary-palette, 500);
      border-top-color: var(--primary);
      border-left-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
-    }
-
-    // SASS ONLY:
-    .my-block {
      border-bottom-color: map-get($primary-map, 100);
     }
 */
