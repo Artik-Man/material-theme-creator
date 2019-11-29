@@ -1,4 +1,9 @@
 /*
+
+  Author: Artik Man [mail@artik.me, github.com/Artik-Man]
+
+_________________________________________
+
   USING
 
   0. @import 'material.custom.theme'; // Name of this file!
@@ -6,8 +11,10 @@
 
 
 
-  1. @include set-color-variables(#03a9f4, #00acc1, #f44336);
-    -> Creating :root pseudo class with 4*3 CSS Variables.
+  1. :root{
+       @include set-color-variables(#03a9f4, #00acc1, #f44336);
+     }
+    -> Creating 12 CSS Variables
 
     Example:
 
@@ -15,24 +22,26 @@
       --primary-h: 199deg;
       --primary-s: 98%;
       --primary-l: 48%;
-      --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+      --primary: hsl(var(--primary-h), calc(var(--primary-s) * 1%), calc(var(--primary-l) * 1%))
 
       --accent-h: 187deg;
       --accent-s: 100%;
       --accent-l: 38%;
-      --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+      --accent: hsl(var(--accent-h), calc(var(--accent-s) * 1%), calc(var(--accent-l) * 1%))
 
       --warn-h: 4deg;
       --warn-s: 90%;
       --warn-l: 58%;
-      --warn: hsl(var(--warn-h), var(--warn-s), var(--warn-l));
+      --warn: hsl(var(--warn-h), calc(var(--warn-s) * 1%), calc(var(--warn-l) * 1%))
     }
 
 
 
-  2. @include set-contrast-threshold(45%, 50%, 55%);
-    -> Creating :root pseudo class with 3 CSS Variables.
+  2. :root{
+       @include set-contrast-threshold(45%, 50%, 55%);
+     }
     -> Not important step. Default value is 50%.
+    -> Creating 3 CSS Variables
 
     Example:
 
@@ -44,24 +53,65 @@
 
 
 
-  3. @include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light theme
-  OR @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+  3. @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light theme
+  OR @include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
     -> Creating material theme.
 
 
 
   4. Using in main.scss
-   --> You have 5 use cases (see example).
+   --> You have 5 use cases (see example)
 
    Example:
 
    .my-block {
-     background: mat-color($primary-palette, 500);
-     color: mat-contrast($primary-palette, 500);
-     border-top-color: var(--primary);
-     border-left-color: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 10%));
-     border-bottom-color: map-get($primary-map, 100);
+     // scss + angular.material:
+     background:          mat-color($primary-palette, 500);
+     color:               mat-contrast($primary-palette, 500);
+
+     // scss:
+     border-top-color:    map-get($primary-map, 100);
+
+     // css:
+     border-left-color:   var(--primary);
+     border-bottom-color: hsl(var(--accent-h), calc(var(--accent-s) * 1%), calc(var(--accent-l) * 1% + 10%));
     }
+    
+_________________________________________
+    
+  Full example [Angular + Material]:
+  
+  @import '@angular/material/theming';
+  @import 'material.custom.theme'; // Name of this file!
+  
+  :root{
+       @include set-color-variables(#03a9f4, #00acc1, #f44336);
+       @include set-contrast-threshold(45%, 50%, 55%);
+   }
+   
+   @include mat-core();
+   @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
+
+   .my-block {
+     background: mat-color($primary-palette, 500);
+     color:      mat-contrast($primary-palette, 500);
+   }
+
+_________________________________________
+
+  Full example [SASS only]:
+
+  @import 'material.custom.theme'; // Name of this file!
+  
+  :root{
+       @include set-color-variables(#03a9f4, #00acc1, #f44336);
+       @include set-contrast-threshold(45%, 50%, 55%);
+   }
+
+  .my-block {
+     background: map-get($primary-map, 500);
+     color:      map-get(map-get($primary-map, contrast), 500);
+   }
 */
 
 @function create-theme-map($theme-name) {
@@ -105,153 +155,145 @@
 
   @return (
     50:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s50}) * 100 + #{$s50} * var(#{$theme-l})) * 1%),
         calc(((1 - #{$l50}) * 100 + #{$l50} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     100:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s100}) * 100 + #{$s100} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l100}) * 100 + #{$l100} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     200:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s200}) * 100 + #{$s200} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l200}) * 100 + #{$l200} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     300:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s300}) * 100 + #{$s300} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l300}) * 100 + #{$l300} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     400:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s400}) * 100 + #{$s400} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l400}) * 100 + #{$l400} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     500: hsl(var(#{$theme-h}), calc(var(#{$theme-s}) * 1%), calc(var(#{$theme-l}) * 1%)),
     600:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s600}) * 100 + #{$s600} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l600}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l600} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     700:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s700}) * 100 + #{$s700} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l700}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l700} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     800:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s800}) * 100 + #{$s800} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l800}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l800} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     900:
-      hsl(
+    hsl(
         var(#{$theme-h}),
         calc(((1 - #{$s900}) * 100 + #{$s900} * var(#{$theme-s})) * 1%),
         calc(((1 - #{$l900}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l900} * var(#{$theme-l})) * 1%)
-      ),
+    ),
     A100: hsl(calc(var(#{$theme-h}) * #{$hA100}), #{$sA100 * 100%}, #{$lA100 * 100%}),
     A200: hsl(calc(var(#{$theme-h}) * #{$hA200}), #{$sA200 * 100%}, #{$lA200 * 100%}),
     A400: hsl(calc(var(#{$theme-h}) * #{$hA400}), #{$sA400 * 100%}, #{$lA400 * 100%}),
     A700: hsl(calc(var(#{$theme-h}) * #{$hA700}), #{$sA700 * 100%}, #{$lA700 * 100%}),
     contrast: (
       50:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s50}) * 100 + #{$s50} * var(#{$theme-l})) * 1%),
           calc(((((1 - #{$l50}) * 100 + #{$l50} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100))
-        ),
+      ),
       100:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s100}) * 100 + #{$s100} * var(#{$theme-s})) * 1%),
           calc(
             ((((1 - #{$l100}) * 100 + #{$l100} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       200:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s200}) * 100 + #{$s200} * var(#{$theme-s})) * 1%),
           calc(
             ((((1 - #{$l200}) * 100 + #{$l200} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       300:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s300}) * 100 + #{$s300} * var(#{$theme-s})) * 1%),
           calc(
             ((((1 - #{$l300}) * 100 + #{$l300} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       400:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s400}) * 100 + #{$s400} * var(#{$theme-s})) * 1%),
           calc(
             ((((1 - #{$l400}) * 100 + #{$l400} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       500:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(var(#{$theme-s}) * 1%),
           calc(((var(#{$theme-l}) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100))
-        ),
+      ),
       600:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s600}) * 100 + #{$s600} * var(#{$theme-s})) * 1%),
           calc(
-            (
-                (((1 - #{$l600}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l600} * var(#{$theme-l})) * 1%) -
-                  var(#{$contrast-threshold}, 50%)
-              ) * (-100)
+            ((((1 - #{$l600}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l600} * var(#{$theme-l})) * 1%) -
+            var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       700:
-        hsl(
+      hsl(
           var(#{$theme-h}),
           calc(((1 - #{$s700}) * 100 + #{$s700} * var(#{$theme-s})) * 1%),
           calc(
-            (
-                (((1 - #{$l700}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l700} * var(#{$theme-l})) * 1%) -
-                  var(#{$contrast-threshold}, 50%)
-              ) * (-100)
+            ((((1 - #{$l700}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l700} * var(#{$theme-l})) * 1%) -
+            var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       800:
-        hsl(
+      hsl(
           0,
           100%,
           calc(
-            (
-                (((1 - #{$l800}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l800} * var(#{$theme-l})) * 1%) -
-                  var(#{$contrast-threshold}, 50%)
-              ) * (-100)
+            ((((1 - #{$l800}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l800} * var(#{$theme-l})) * 1%) -
+            var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       900:
-        hsl(
+      hsl(
           0,
           100%,
           calc(
-            (
-                (((1 - #{$l900}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l900} * var(#{$theme-l})) * 1%) -
-                  var(#{$contrast-threshold}, 50%)
-              ) * (-100)
+            ((((1 - #{$l900}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l900} * var(#{$theme-l})) * 1%) -
+            var(#{$contrast-threshold}, 50%)) * (-100)
           )
-        ),
+      ),
       A100: hsl(0, 100%, calc((#{$lA100 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
       A200: hsl(0, 100%, calc((#{$lA200 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
       A400: hsl(0, 100%, calc((#{$lA400 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
@@ -260,27 +302,25 @@
   );
 }
 
-@mixin set-contrast-threshold($primary: 50%, $accent: 50%, $warn: 50%) {
-  :root {
-    --primary-contrast-threshold: #{$primary};
-    --accent-contrast-threshold: #{$accent};
-    --warn-contrast-threshold: #{$warn};
-  }
-}
-
-@mixin set-color-variables($primary, $accent, $warn) {
-  :root {
-    @include create-color($primary, 'primary');
-    @include create-color($accent, 'accent');
-    @include create-color($warn, 'warn');
-  }
-}
-
 @mixin create-color($color, $name) {
   --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};
   --#{$name}-s: #{str-slice(saturation($color) + '', 0, -2)};
   --#{$name}-l: #{str-slice(lightness($color) + '', 0, -2)};
-  --#{$name}: hsl(var(--#{$name}-h), var(--#{$name}-s), var(--#{$name}-l));
+  --#{$name}: hsl(var(--#{$name}-h), calc(var(--#{$name}-s) * 1%), calc(var(--#{$name}-l) * 1%));
+}
+
+/* Step 1 */
+@mixin set-color-variables($primary, $accent, $warn) {
+  @include create-color($primary, 'primary');
+  @include create-color($accent, 'accent');
+  @include create-color($warn, 'warn');
+}
+
+/* Step 2 */
+@mixin set-contrast-threshold($primary: 50%, $accent: 50%, $warn: 50%) {
+  --primary-contrast-threshold: #{$primary};
+  --accent-contrast-threshold: #{$accent};
+  --warn-contrast-threshold: #{$warn};
 }
 
 $primary-map: create-theme-map('primary');
