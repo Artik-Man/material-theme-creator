@@ -294,10 +294,10 @@ _________________________________________
             var(#{$contrast-threshold}, 50%)) * (-100)
           )
       ),
-      A100: hsl(0, 100%, calc((#{$lA100 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
-      A200: hsl(0, 100%, calc((#{$lA200 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
-      A400: hsl(0, 100%, calc((#{$lA400 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
-      A700: hsl(0, 100%, calc((#{$lA700 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A100: hsl(0, 0%, calc((#{$lA100 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A200: hsl(0, 0%, calc((#{$lA200 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A400: hsl(0, 0%, calc((#{$lA400 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A700: hsl(0, 0%, calc((#{$lA700 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
     )
   );
 }
