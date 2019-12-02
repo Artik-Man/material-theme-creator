@@ -22,23 +22,55 @@ body {
 
 .themes {
   background: white;
-  max-width: 920px;
+  max-width: 880px;
+  width: 100%;
+  font-size: 12px;
   .theme {
     width: 100%;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr 1fr;
+    align-items: stretch;
+    border-bottom: 5px solid white;
+    position: relative;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(14, 1fr) auto;
+      grid-template-rows: 1fr;
+      border-bottom: none;
+    }
 
     &:after {
-      padding: 0 50px 0 20px;
+      text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
+      padding: 0;
+      font-size: 16px;
       display: flex;
       height: 50px;
       align-items: center;
       justify-content: center;
-    }
+      position: absolute;
+      bottom: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
 
+      @media (min-width: 600px) {
+        position: static;
+        transform: none;
+        padding: 0 50px 0 20px;
+      }
+    }
+    &:nth-child(2n + 1) {
+      &:after {
+        content: 'Google Material';
+      }
+    }
+    &:nth-child(2n) {
+      &:after {
+        content: 'Custom Material';
+      }
+    }
     span {
       display: flex;
-      width: 50px;
       height: 50px;
       align-items: center;
       justify-content: center;
@@ -58,19 +90,9 @@ body {
         @if ($c%2==0) {
           @include create-color(mat-color(nth($arr_colors, $c / 2), 500), 'theme');
           --theme-contrast-threshold: #{nth($arr_thresholds, $c / 2)};
-
-          &:after {
-            content: 'Custom Material';
-            color: teal;
-          }
         } @else {
           margin-top: 20px;
           $theme: mat-palette(nth($arr_colors, ($c + 1) / 2));
-
-          &:after {
-            content: 'Google Material';
-            color: blue;
-          }
         }
 
         @for $i from 1 through 14 {
