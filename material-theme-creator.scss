@@ -74,7 +74,16 @@ _________________________________________
 
      // css:
      border-left-color:   var(--primary);
-     border-bottom-color: hsl(var(--accent-h), calc(var(--accent-s) * 1%), calc(var(--accent-l) * 1% + 10%));
+     border-bottom-color: hsl(var(--accent-h), calc(var(--accent-s) * 1%), calc(var(--accent-l) * 1%));
+
+     // You can affect the color:
+     border-right-color: 
+       hsla(
+         calc(var(--accent-h) + 12),       // Hue
+         calc(var(--accent-s) * 1% + 5%),  // Saturation
+         calc(var(--accent-l) * 1% + 23%), // Lightness
+         .5                                // Alpha-channel (opacity)
+       );
     }
     
 _________________________________________
@@ -93,8 +102,8 @@ _________________________________________
    @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
 
    .my-block {
-     background: mat-color($primary-palette, 500);
-     color:      mat-contrast($primary-palette, 500);
+     background: mat-color($primary-map, 500);
+     color:      mat-contrast($primary-map, 500);
    }
 
 _________________________________________
@@ -114,190 +123,211 @@ _________________________________________
    }
 */
 
+:root {
+  --hA100: 0.96;
+  --hA200: 0.96;
+  --hA400: 0.96;
+  --hA700: 1;
+  
+  --s50: 0.75;
+  --s100: 0.8;
+  --s200: 0.85;
+  --s300: 0.9;
+  --s400: 0.95;
+  --s600: 0.95;
+  --s700: 0.9;
+  --s800: 0.85;
+  --s900: 0.8;
+  --sA100: 0.8;
+  --sA200: 0.8;
+  --sA400: 1;
+  --sA700: 1;
+
+  --l50: 0.15;
+  --l100: 0.3;
+  --l200: 0.5;
+  --l300: 0.7;
+  --l400: 0.85;
+  --l600: 0.8;
+  --l700: 0.6;
+  --l800: 0.4;
+  --l900: 0.2;
+  --lA100: 0.65;
+  --lA200: 0.55;
+  --lA400: 0.45;
+  --lA700: 0.4;
+
+  --light-h:0;
+  --light-s:0;
+  --light-l:100;
+}
+
 @function create-theme-map($theme-name) {
   $theme-h: '--' + $theme-name + '-h';
   $theme-s: '--' + $theme-name + '-s';
   $theme-l: '--' + $theme-name + '-l';
   $contrast-threshold: '--' + $theme-name + '-contrast-threshold';
 
-  $hA100: 0.96;
-  $hA200: 0.96;
-  $hA400: 0.96;
-  $hA700: 1;
-
-  $s50: 0.75;
-  $s100: 0.8;
-  $s200: 0.85;
-  $s300: 0.9;
-  $s400: 0.95;
-  $s600: 0.95;
-  $s700: 0.9;
-  $s800: 0.85;
-  $s900: 0.8;
-  $sA100: 0.8;
-  $sA200: 0.8;
-  $sA400: 1;
-  $sA700: 1;
-
-  $l50: 0.15;
-  $l100: 0.3;
-  $l200: 0.5;
-  $l300: 0.7;
-  $l400: 0.85;
-  $l600: 0.8;
-  $l700: 0.6;
-  $l800: 0.4;
-  $l900: 0.2;
-  $lA100: 0.65;
-  $lA200: 0.55;
-  $lA400: 0.45;
-  $lA700: 0.4;
-
   @return (
     50:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s50}) * 100 + #{$s50} * var(#{$theme-l})) * 1%),
-        calc(((1 - #{$l50}) * 100 + #{$l50} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((var(#{$theme-s}) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%),
+        calc(((var(#{$theme-l}) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%)
+      ),
     100:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s100}) * 100 + #{$s100} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l100}) * 100 + #{$l100} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((var(#{$theme-s}) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%),
+        calc(((var(#{$theme-l}) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%)
+      ),
     200:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s200}) * 100 + #{$s200} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l200}) * 100 + #{$l200} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((var(#{$theme-s}) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%),
+        calc(((var(#{$theme-l}) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%)
+      ),
     300:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s300}) * 100 + #{$s300} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l300}) * 100 + #{$l300} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((var(#{$theme-s}) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%),
+        calc(((var(#{$theme-l}) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%)
+      ),
     400:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s400}) * 100 + #{$s400} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l400}) * 100 + #{$l400} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((var(#{$theme-s}) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%),
+        calc(((var(#{$theme-l}) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%)
+      ),
     500: hsl(var(#{$theme-h}), calc(var(#{$theme-s}) * 1%), calc(var(#{$theme-l}) * 1%)),
     600:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s600}) * 100 + #{$s600} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l600}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l600} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((1 - var(--s600)) * 100 + var(--s600) * var(#{$theme-s})) * 1%),
+        calc(((1 - var(--l600)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l600) * var(#{$theme-l})) * 1%)
+      ),
     700:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s700}) * 100 + #{$s700} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l700}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l700} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((1 - var(--s700)) * 100 + var(--s700) * var(#{$theme-s})) * 1%),
+        calc(((1 - var(--l700)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l700) * var(#{$theme-l})) * 1%)
+      ),
     800:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s800}) * 100 + #{$s800} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l800}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l800} * var(#{$theme-l})) * 1%)
-    ),
+        calc(((1 - var(--s800)) * 100 + var(--s800) * var(#{$theme-s})) * 1%),
+        calc(((1 - var(--l800)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l800) * var(#{$theme-l})) * 1%)
+      ),
     900:
-    hsl(
+      hsl(
         var(#{$theme-h}),
-        calc(((1 - #{$s900}) * 100 + #{$s900} * var(#{$theme-s})) * 1%),
-        calc(((1 - #{$l900}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l900} * var(#{$theme-l})) * 1%)
-    ),
-    A100: hsl(calc(var(#{$theme-h}) * #{$hA100}), #{$sA100 * 100%}, #{$lA100 * 100%}),
-    A200: hsl(calc(var(#{$theme-h}) * #{$hA200}), #{$sA200 * 100%}, #{$lA200 * 100%}),
-    A400: hsl(calc(var(#{$theme-h}) * #{$hA400}), #{$sA400 * 100%}, #{$lA400 * 100%}),
-    A700: hsl(calc(var(#{$theme-h}) * #{$hA700}), #{$sA700 * 100%}, #{$lA700 * 100%}),
+        calc(((1 - var(--s900)) * 100 + var(--s900) * var(#{$theme-s})) * 1%),
+        calc(((1 - var(--l900)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l900) * var(#{$theme-l})) * 1%)
+      ),
+    A100: hsl(calc(var(#{$theme-h}) * var(--hA100)), calc(var(--sA100) * 100%), calc(var(--lA100) * 100%)),
+    A200: hsl(calc(var(#{$theme-h}) * var(--hA200)), calc(var(--sA200) * 100%), calc(var(--lA200) * 100%)),
+    A400: hsl(calc(var(#{$theme-h}) * var(--hA400)), calc(var(--sA400) * 100%), calc(var(--lA400) * 100%)),
+    A700: hsl(calc(var(#{$theme-h}) * var(--hA700)), calc(var(--sA700) * 100%), calc(var(--lA700) * 100%)),
     contrast: (
       50:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s50}) * 100 + #{$s50} * var(#{$theme-l})) * 1%),
-          calc(((((1 - #{$l50}) * 100 + #{$l50} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100))
-      ),
+          calc(((1 - var(--s50)) * 100 + var(--s50) * var(#{$theme-l})) * 1%),
+          calc(
+            ((((1 - var(--l50)) * 100 + var(--l50) * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) *
+              (-100)
+          )
+        ),
       100:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s100}) * 100 + #{$s100} * var(#{$theme-s})) * 1%),
+          calc(((1 - var(--s100)) * 100 + var(--s100) * var(#{$theme-s})) * 1%),
           calc(
-            ((((1 - #{$l100}) * 100 + #{$l100} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
+            ((((1 - var(--l100)) * 100 + var(--l100) * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) *
+              (-100)
           )
-      ),
+        ),
       200:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s200}) * 100 + #{$s200} * var(#{$theme-s})) * 1%),
+          calc(((1 - var(--s200)) * 100 + var(--s200) * var(#{$theme-s})) * 1%),
           calc(
-            ((((1 - #{$l200}) * 100 + #{$l200} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
+            ((((1 - var(--l200)) * 100 + var(--l200) * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) *
+              (-100)
           )
-      ),
+        ),
       300:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s300}) * 100 + #{$s300} * var(#{$theme-s})) * 1%),
+          calc(((1 - var(--s300)) * 100 + var(--s300) * var(#{$theme-s})) * 1%),
           calc(
-            ((((1 - #{$l300}) * 100 + #{$l300} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
+            ((((1 - var(--l300)) * 100 + var(--l300) * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) *
+              (-100)
           )
-      ),
+        ),
       400:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s400}) * 100 + #{$s400} * var(#{$theme-s})) * 1%),
+          calc(((1 - var(--s400)) * 100 + var(--s400) * var(#{$theme-s})) * 1%),
           calc(
-            ((((1 - #{$l400}) * 100 + #{$l400} * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100)
+            ((((1 - var(--l400)) * 100 + var(--l400) * var(#{$theme-l})) * 1%) - var(#{$contrast-threshold}, 50%)) *
+              (-100)
           )
-      ),
+        ),
       500:
-      hsl(
+        hsl(
           var(#{$theme-h}),
           calc(var(#{$theme-s}) * 1%),
           calc(((var(#{$theme-l}) * 1%) - var(#{$contrast-threshold}, 50%)) * (-100))
-      ),
+        ),
       600:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s600}) * 100 + #{$s600} * var(#{$theme-s})) * 1%),
+          calc(((1 - var(--s600)) * 100 + var(--s600) * var(#{$theme-s})) * 1%),
           calc(
-            ((((1 - #{$l600}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l600} * var(#{$theme-l})) * 1%) -
-            var(#{$contrast-threshold}, 50%)) * (-100)
+            (
+                (((1 - var(--l600)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l600) * var(#{$theme-l})) * 1%) -
+                  var(#{$contrast-threshold}, 50%)
+              ) * (-100)
           )
-      ),
+        ),
       700:
-      hsl(
+        hsl(
           var(#{$theme-h}),
-          calc(((1 - #{$s700}) * 100 + #{$s700} * var(#{$theme-s})) * 1%),
+          calc(((1 - var(--s700)) * 100 + var(--s700) * var(#{$theme-s})) * 1%),
           calc(
-            ((((1 - #{$l700}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l700} * var(#{$theme-l})) * 1%) -
-            var(#{$contrast-threshold}, 50%)) * (-100)
+            (
+                (((1 - var(--l700)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l700) * var(#{$theme-l})) * 1%) -
+                  var(#{$contrast-threshold}, 50%)
+              ) * (-100)
           )
-      ),
+        ),
       800:
-      hsl(
+        hsl(
           0,
           100%,
           calc(
-            ((((1 - #{$l800}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l800} * var(#{$theme-l})) * 1%) -
-            var(#{$contrast-threshold}, 50%)) * (-100)
+            (
+                (((1 - var(--l800)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l800) * var(#{$theme-l})) * 1%) -
+                  var(#{$contrast-threshold}, 50%)
+              ) * (-100)
           )
-      ),
+        ),
       900:
-      hsl(
+        hsl(
           0,
           100%,
           calc(
-            ((((1 - #{$l900}) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + #{$l900} * var(#{$theme-l})) * 1%) -
-            var(#{$contrast-threshold}, 50%)) * (-100)
+            (
+                (((1 - var(--l900)) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(--l900) * var(#{$theme-l})) * 1%) -
+                  var(#{$contrast-threshold}, 50%)
+              ) * (-100)
           )
-      ),
-      A100: hsl(0, 0%, calc((#{$lA100 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
-      A200: hsl(0, 0%, calc((#{$lA200 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
-      A400: hsl(0, 0%, calc((#{$lA400 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
-      A700: hsl(0, 0%, calc((#{$lA700 * 100%} - var(#{$contrast-threshold}, 50%)) * (-100))),
+        ),
+      A100: hsl(0, 0%, calc((var(--lA100) * 100% - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A200: hsl(0, 0%, calc((var(--lA200) * 100% - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A400: hsl(0, 0%, calc((var(--lA400) * 100% - var(#{$contrast-threshold}, 50%)) * (-100))),
+      A700: hsl(0, 0%, calc((var(--lA700) * 100% - var(#{$contrast-threshold}, 50%)) * (-100))),
     )
   );
 }
