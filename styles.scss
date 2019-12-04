@@ -3,62 +3,126 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+section {
+  width: 100%;
+  max-width: 95vw;
+  margin-bottom: 72px;
+  &:last-child {
+    width: auto;
+  }
+}
+
+pre {
+  overflow: auto;
+}
+
+form {
+  margin-bottom: 16px;
+  display: table;
+  label {
+    display: table-row;
+    span,
+    input {
+      display: table-cell;
+    }
+  }
 }
 
 .main {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  pre {
-    max-width: 900px;
-    overflow: auto;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.creator {
+  .theme {
+    &::after {
+      content: 'Your theme' !important;
+    }
+
+    $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
+    $theme: mat-palette(create-theme-map('primary'));
+
+    @include create-color(map-get($mat-blue, 500), 'primary');
+    --primary-contrast-threshold: 50%;
+
+    @for $i from 1 through 14 {
+      span:nth-child(14n + #{$i}) {
+        background-color: map-get($theme, nth($arr_names, $i));
+        color: map-get(map-get($theme, contrast), nth($arr_names, $i));
+      }
+    }
+  }
+}
+
+.theme {
+  font-size: 12px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: stretch;
+  border-bottom: 5px solid white;
+  position: relative;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(14, 1fr) auto;
+    grid-template-rows: 1fr;
+    border-bottom: none;
+  }
+
+  &:after {
+    text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
+    padding: 0;
+    font-size: 16px;
+    display: flex;
+    width: 150px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+
+    @media (min-width: 600px) {
+      position: static;
+      transform: none;
+      padding: 0 50px 0 20px;
+    }
+  }
+
+  span {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 .themes {
-  background: white;
-  max-width: 880px;
-  width: 100%;
-  font-size: 12px;
   .theme {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 1fr 1fr;
-    align-items: stretch;
-    border-bottom: 5px solid white;
-    position: relative;
-
-    @media (min-width: 600px) {
-      grid-template-columns: repeat(14, 1fr) auto;
-      grid-template-rows: 1fr;
-      border-bottom: none;
-    }
-
-    &:after {
-      text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
-      padding: 0;
-      font-size: 16px;
-      display: flex;
-      height: 50px;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      bottom: 50%;
-      right: 50%;
-      transform: translate(50%, 50%);
-
-      @media (min-width: 600px) {
-        position: static;
-        transform: none;
-        padding: 0 50px 0 20px;
-      }
-    }
     &:nth-child(2n + 1) {
       &:after {
         content: 'Google Material';
@@ -66,14 +130,8 @@ body {
     }
     &:nth-child(2n) {
       &:after {
-        content: 'Custom Material';
+        content: 'Theme Creator';
       }
-    }
-    span {
-      display: flex;
-      height: 50px;
-      align-items: center;
-      justify-content: center;
     }
 
     $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
