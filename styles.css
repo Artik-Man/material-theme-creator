@@ -153,9 +153,9 @@ _________________________________________
   --lA200: 0.55;
   --lA400: 0.45;
   --lA700: 0.4;
-  --light-h:0;
-  --light-s:0;
-  --light-l:100;
+  --light-h: 0;
+  --light-s: 0;
+  --light-l: 100;
 }
 
 /* Step 1 */
@@ -244,52 +244,52 @@ form label input {
 
 .creator .theme span:nth-child(14n + 1) {
   background-color: hsl(var(--primary-h), calc(((var(--primary-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--primary-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--primary-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 2) {
   background-color: hsl(var(--primary-h), calc(((var(--primary-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--primary-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--primary-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 3) {
   background-color: hsl(var(--primary-h), calc(((var(--primary-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--primary-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--primary-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 4) {
   background-color: hsl(var(--primary-h), calc(((var(--primary-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--primary-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--primary-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 5) {
   background-color: hsl(var(--primary-h), calc(((var(--primary-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--primary-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--primary-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 6) {
   background-color: hsl(var(--primary-h), calc(var(--primary-s) * 1%), calc(var(--primary-l) * 1%));
-  color: hsl(var(--primary-h), calc(var(--primary-s) * 1%), calc(((var(--primary-l) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--primary-l) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 7) {
   background-color: hsl(var(--primary-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--primary-s)) * 1%), calc(((1 - var(--l600)) * var(--primary-l) * var(--primary-l) / 100 + var(--l600) * var(--primary-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--primary-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--primary-l) * var(--primary-l) / 100 + var(--l600) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--primary-l) * var(--primary-l) / 100 + var(--l600) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 8) {
   background-color: hsl(var(--primary-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--primary-s)) * 1%), calc(((1 - var(--l700)) * var(--primary-l) * var(--primary-l) / 100 + var(--l700) * var(--primary-l)) * 1%));
-  color: hsl(var(--primary-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--primary-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--primary-l) * var(--primary-l) / 100 + var(--l700) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--primary-l) * var(--primary-l) / 100 + var(--l700) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 9) {
   background-color: hsl(var(--primary-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--primary-s)) * 1%), calc(((1 - var(--l800)) * var(--primary-l) * var(--primary-l) / 100 + var(--l800) * var(--primary-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--primary-l) * var(--primary-l) / 100 + var(--l800) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--primary-l) * var(--primary-l) / 100 + var(--l800) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 10) {
   background-color: hsl(var(--primary-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--primary-s)) * 1%), calc(((1 - var(--l900)) * var(--primary-l) * var(--primary-l) / 100 + var(--l900) * var(--primary-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--primary-l) * var(--primary-l) / 100 + var(--l900) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--primary-l) * var(--primary-l) / 100 + var(--l900) * var(--primary-l)) * 1%) - var(--primary-contrast-threshold, 50%) ) * (-100)));
 }
 
 .creator .theme span:nth-child(14n + 11) {
@@ -474,52 +474,52 @@ form label input {
 
 .themes .theme:nth-child(2) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(2) span:nth-child(14n + 11) {
@@ -626,52 +626,52 @@ form label input {
 
 .themes .theme:nth-child(4) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(4) span:nth-child(14n + 11) {
@@ -778,52 +778,52 @@ form label input {
 
 .themes .theme:nth-child(6) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(6) span:nth-child(14n + 11) {
@@ -930,52 +930,52 @@ form label input {
 
 .themes .theme:nth-child(8) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(8) span:nth-child(14n + 11) {
@@ -1082,52 +1082,52 @@ form label input {
 
 .themes .theme:nth-child(10) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(10) span:nth-child(14n + 11) {
@@ -1234,52 +1234,52 @@ form label input {
 
 .themes .theme:nth-child(12) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(12) span:nth-child(14n + 11) {
@@ -1386,52 +1386,52 @@ form label input {
 
 .themes .theme:nth-child(14) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(14) span:nth-child(14n + 11) {
@@ -1538,52 +1538,52 @@ form label input {
 
 .themes .theme:nth-child(16) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(16) span:nth-child(14n + 11) {
@@ -1690,52 +1690,52 @@ form label input {
 
 .themes .theme:nth-child(18) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(18) span:nth-child(14n + 11) {
@@ -1842,52 +1842,52 @@ form label input {
 
 .themes .theme:nth-child(20) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(20) span:nth-child(14n + 11) {
@@ -1994,52 +1994,52 @@ form label input {
 
 .themes .theme:nth-child(22) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(22) span:nth-child(14n + 11) {
@@ -2146,52 +2146,52 @@ form label input {
 
 .themes .theme:nth-child(24) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(24) span:nth-child(14n + 11) {
@@ -2298,52 +2298,52 @@ form label input {
 
 .themes .theme:nth-child(26) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(26) span:nth-child(14n + 11) {
@@ -2450,52 +2450,52 @@ form label input {
 
 .themes .theme:nth-child(28) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(28) span:nth-child(14n + 11) {
@@ -2602,52 +2602,52 @@ form label input {
 
 .themes .theme:nth-child(30) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(30) span:nth-child(14n + 11) {
@@ -2754,52 +2754,52 @@ form label input {
 
 .themes .theme:nth-child(32) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(32) span:nth-child(14n + 11) {
@@ -2906,52 +2906,52 @@ form label input {
 
 .themes .theme:nth-child(34) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(34) span:nth-child(14n + 11) {
@@ -3058,52 +3058,52 @@ form label input {
 
 .themes .theme:nth-child(36) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(36) span:nth-child(14n + 11) {
@@ -3210,52 +3210,52 @@ form label input {
 
 .themes .theme:nth-child(38) span:nth-child(14n + 1) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s50) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l50) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s50)) * 100 + var(--s50) * var(--theme-l)) * 1%), calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l50)) * 100 + var(--l50) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 2) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s100) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l100) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s100)) * 100 + var(--s100) * var(--theme-s)) * 1%), calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l100)) * 100 + var(--l100) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 3) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s200) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l200) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s200)) * 100 + var(--s200) * var(--theme-s)) * 1%), calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l200)) * 100 + var(--l200) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 4) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s300) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l300) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s300)) * 100 + var(--s300) * var(--theme-s)) * 1%), calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l300)) * 100 + var(--l300) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 5) {
   background-color: hsl(var(--theme-h), calc(((var(--theme-s) - var(--light-s)) * var(--s400) + var(--light-s)) * 1%), calc(((var(--theme-l) - var(--light-l)) * var(--l400) + var(--light-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s400)) * 100 + var(--s400) * var(--theme-s)) * 1%), calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc( ((((1 - var(--l400)) * 100 + var(--l400) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 6) {
   background-color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(var(--theme-l) * 1%));
-  color: hsl(var(--theme-h), calc(var(--theme-s) * 1%), calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
+  color: hsl(0, 0%, calc(((var(--theme-l) * 1%) - var(--theme-contrast-threshold, 50%)) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 7) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc(((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s600)) * 100 + var(--s600) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l600)) * var(--theme-l) * var(--theme-l) / 100 + var(--l600) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 8) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc(((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%));
-  color: hsl(var(--theme-h), calc(((1 - var(--s700)) * 100 + var(--s700) * var(--theme-s)) * 1%), calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l700)) * var(--theme-l) * var(--theme-l) / 100 + var(--l700) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 9) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s800)) * 100 + var(--s800) * var(--theme-s)) * 1%), calc(((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l800)) * var(--theme-l) * var(--theme-l) / 100 + var(--l800) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 10) {
   background-color: hsl(var(--theme-h), calc(((1 - var(--s900)) * 100 + var(--s900) * var(--theme-s)) * 1%), calc(((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%));
-  color: hsl(0, 100%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
+  color: hsl(0, 0%, calc( ( (((1 - var(--l900)) * var(--theme-l) * var(--theme-l) / 100 + var(--l900) * var(--theme-l)) * 1%) - var(--theme-contrast-threshold, 50%) ) * (-100)));
 }
 
 .themes .theme:nth-child(38) span:nth-child(14n + 11) {
