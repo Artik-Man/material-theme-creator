@@ -182,6 +182,10 @@ h2 {
   font-weight: normal;
 }
 
+h3 {
+  font-weight: normal;
+}
+
 section {
   width: 100%;
   max-width: 95vw;
@@ -198,16 +202,20 @@ pre {
 
 form {
   margin-bottom: 16px;
-  display: table;
 }
 
 form label {
-  display: table-row;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 85px 40px 1fr;
+      grid-template-columns: 85px 40px 1fr;
 }
 
-form label span,
-form label input {
-  display: table-cell;
+@media (min-width: 600px) {
+  form label {
+    -ms-grid-columns: 150px 50px 1fr;
+        grid-template-columns: 150px 50px 1fr;
+  }
 }
 
 .main {
@@ -231,9 +239,9 @@ form label input {
 }
 
 .creator .theme {
-  --primary-h: 206.57143;
-  --primary-s: 89.74359;
-  --primary-l: 54.11765;
+  --primary-h: 200;
+  --primary-s: 70;
+  --primary-l: 40;
   --primary: hsl(var(--primary-h), calc(var(--primary-s) * 1%), calc(var(--primary-l) * 1%));
   --primary-contrast-threshold: 50%;
 }
@@ -310,6 +318,12 @@ form label input {
 .creator .theme span:nth-child(14n + 14) {
   background-color: hsl(calc(var(--primary-h) * var(--hA700)), calc(var(--sA700) * 100%), calc(var(--lA700) * 100%));
   color: hsl(0, 0%, calc((var(--lA700) * 100% - var(--primary-contrast-threshold, 50%)) * (-100)));
+}
+
+.creator .theme span:nth-child(6) {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  border-radius: 4px;
 }
 
 .theme {

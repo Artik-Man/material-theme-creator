@@ -327,6 +327,10 @@ _________________________________________
   );
 }
 
+@function map-contrast($map, $name) {
+  @return map-get(map-get($map, contrast), $name);
+}
+
 @mixin create-color($color, $name) {
   --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};
   --#{$name}-s: #{str-slice(saturation($color) + '', 0, -2)};

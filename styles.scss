@@ -19,6 +19,10 @@ h2 {
   font-weight: normal;
 }
 
+h3 {
+  font-weight: normal;
+}
+
 section {
   width: 100%;
   max-width: 95vw;
@@ -34,12 +38,12 @@ pre {
 
 form {
   margin-bottom: 16px;
-  display: table;
+
   label {
-    display: table-row;
-    span,
-    input {
-      display: table-cell;
+    display: grid;
+    grid-template-columns: 85px 40px 1fr;
+    @media (min-width: 600px) {
+      grid-template-columns: 150px 50px 1fr;
     }
   }
 }
@@ -62,9 +66,9 @@ form {
     }
 
     $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
-    $theme: mat-palette(create-theme-map('primary'));
+    $theme: create-theme-map('primary');
 
-    @include create-color(map-get($mat-blue, 500), 'primary');
+    @include create-color(hsl(200, 70%, 40%), 'primary');
     --primary-contrast-threshold: 50%;
 
     @for $i from 1 through 14 {
@@ -72,6 +76,10 @@ form {
         background-color: map-get($theme, nth($arr_names, $i));
         color: map-get(map-get($theme, contrast), nth($arr_names, $i));
       }
+    }
+    span:nth-child(6) {
+      transform: scale(1.1);
+      border-radius: 4px;
     }
   }
 }

@@ -8,26 +8,18 @@ document.addEventListener('DOMContentLoaded', event => {
         hljs.highlightBlock(block);
       });
     });
-
-  const hue = document.getElementById('hue');
-  const sat = document.getElementById('sat');
-  const lig = document.getElementById('lig');
-  const con = document.getElementById('con');
+ 
   const thm = document.getElementById('your-theme');
 
-  hue.addEventListener('input', e => {
-    thm.style.setProperty('--primary-h', e.target.value);
-  });
+ 
+  document.querySelectorAll('[data-range]').forEach(label => {
+    const [v, theme, unit] = label.dataset.range.split(',');
+    const input = label.querySelector('input');
+    const output = label.querySelector('output');
 
-  sat.addEventListener('input', e => {
-    thm.style.setProperty('--primary-s', e.target.value);
-  });
-
-  lig.addEventListener('input', e => {
-    thm.style.setProperty('--primary-l', e.target.value);
-  });
-
-  con.addEventListener('input', e => {
-    thm.style.setProperty('--primary-contrast-threshold', e.target.value + '%');
+    input.addEventListener('input', e => {
+      thm.style.setProperty(`--${theme}-${v}`, e.target.value + (unit || ''));
+      output.value = e.target.value;
+    });
   });
 });

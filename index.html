@@ -17,21 +17,25 @@
         <h2>Create custom theme in real time</h2>
         <div class="creator">
           <form>
-            <label>
-              <span>HUE</span>
-              <input type="range" min="0" max="360" value="206" id="hue" />
+            <label data-range="h,primary">
+              <span>Hue</span>
+              <output>200</output>
+              <input type="range" min="0" max="360" value="200" />
             </label>
-            <label>
+            <label data-range="s,primary">
               <span>Saturation</span>
-              <input type="range" min="0" max="100" value="90" id="sat" />
+              <output>70</output>
+              <input type="range" min="0" max="100" value="70" />
             </label>
-            <label>
+            <label data-range="l,primary">
               <span>Lightness</span>
-              <input type="range" min="0" max="100" value="54" id="lig" />
+              <output>40</output>
+              <input type="range" min="0" max="100" value="40" />
             </label>
-            <label>
+            <label data-range="contrast-threshold,primary,%">
               <span>Contrast threshold</span>
-              <input type="range" min="0" max="100" value="50" id="con" />
+              <output>50</output>
+              <input type="range" min="0" max="100" value="50" />
             </label>
           </form>
           <div class="theme" id="your-theme">
@@ -51,6 +55,68 @@
             <span>A700</span>
           </div>
         </div>
+      </section>
+
+      <section>
+        <h2>Usage</h2>
+
+        <article>
+          <h3>Simple</h3>
+          <ol>
+            <li>
+              Create theme from one color
+              <pre><code class="scss">
+$theme: create-theme-map('primary');
+:root {
+  @include create-color(#1f7ead, 'primary');
+  --primary-contrast-threshold: 50%;
+}
+            </code></pre>
+            </li>
+            <li>
+              Use your theme
+              <pre><code class="scss"> 
+div {
+  background: map-get($theme, 500);
+  color: map-contrast($theme, 500);
+}
+            </code></pre>
+            </li>
+          </ol>
+        </article>
+
+        <article>
+          <h3>Tree-color themes</h3>
+
+          <ol>
+            <li>
+              Create tree-color theme
+              <pre><code class="scss">
+:root {
+  @include set-color-variables(#03a9f4, #00acc1, #f44336);
+  @include set-contrast-threshold(45%, 50%, 55%);
+}
+            </code></pre>
+            </li>
+            <li>
+              Use theme
+              <pre><code class="scss">
+.primary {
+  background: map-get($primary-map, 500);
+  color: map-contrast($primary-map, 500);
+}
+.accent {
+  background: map-get($accent-map, 500);
+  color: map-contrast($accent-map, 500);
+}
+.warn {
+  background: map-get($warn-map, 500);
+  color: map-contrast($warn-map, 500);
+}
+            </code></pre>
+            </li>
+          </ol>
+        </article>
       </section>
 
       <section>
