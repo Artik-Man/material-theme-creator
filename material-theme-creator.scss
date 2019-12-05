@@ -6,7 +6,7 @@ _________________________________________
 
   USING
 
-  0. @import 'material.custom.theme'; // Name of this file!
+  0. @import 'material-theme-creator'; // Name of this file!
     -> Import this file
 
 
@@ -91,7 +91,7 @@ _________________________________________
   Full example [Angular + Material]:
   
   @import '@angular/material/theming';
-  @import 'material.custom.theme'; // Name of this file!
+  @import 'material-theme-creator'; // Name of this file!
   
   :root{
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
@@ -110,7 +110,7 @@ _________________________________________
 
   Full example [SASS only]:
 
-  @import 'material.custom.theme'; // Name of this file!
+  @import 'material-theme-creator'; // Name of this file!
   
   :root{
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
@@ -327,9 +327,14 @@ _________________________________________
   );
 }
 
-@function map-contrast($map, $name) {
+@function mtc-get($map, $name) {
+  @return map-get($map, $name);
+}
+
+@function mtc-contrast($map, $name) {
   @return map-get(map-get($map, contrast), $name);
 }
+
 
 @mixin create-color($color, $name) {
   --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};

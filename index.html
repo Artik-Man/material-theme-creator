@@ -66,6 +66,8 @@
             <li>
               Create theme from one color
               <pre><code class="scss">
+@import "material-theme-creator"; // Name of this file!
+
 $theme: create-theme-map('primary');
 :root {
   @include create-color(#1f7ead, 'primary');
@@ -74,7 +76,7 @@ $theme: create-theme-map('primary');
             </code></pre>
             </li>
             <li>
-              Use your theme
+              Use theme
               <pre><code class="scss"> 
 div {
   background: map-get($theme, 500);
@@ -86,12 +88,14 @@ div {
         </article>
 
         <article>
-          <h3>Tree-color themes</h3>
+          <h3>Three-color themes</h3>
 
           <ol>
             <li>
-              Create tree-color theme
+              Create three-color theme
               <pre><code class="scss">
+@import "material-theme-creator"; // Name of this file!
+
 :root {
   @include set-color-variables(#03a9f4, #00acc1, #f44336);
   @include set-contrast-threshold(45%, 50%, 55%);
@@ -102,18 +106,102 @@ div {
               Use theme
               <pre><code class="scss">
 .primary {
-  background: map-get($primary-map, 500);
-  color: map-contrast($primary-map, 500);
+  background: mtc-get($primary-map, 500);
+  color: mtc-contrast($primary-map, 500);
 }
 .accent {
-  background: map-get($accent-map, 500);
-  color: map-contrast($accent-map, 500);
+  background: mtc-get($accent-map, 500);
+  color: mtc-contrast($accent-map, 500);
 }
 .warn {
-  background: map-get($warn-map, 500);
-  color: map-contrast($warn-map, 500);
+  background: mtc-get($warn-map, 500);
+  color: mtc-contrast($warn-map, 500);
 }
             </code></pre>
+            </li>
+          </ol>
+        </article>
+        <article>
+          <h3>Using with Angular Material</h3>
+          <ol>
+            <li>
+              Setup
+              <pre><code class="scss">
+@import '~@angular/material/theming';
+@import "material-theme-creator"; // Name of this file!
+
+:root {
+  @include set-color-variables(#03a9f4, #00acc1, #f44336);
+  @include set-contrast-threshold(45%, 50%, 55%);
+}
+
+// Light theme
+@include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
+// Dark theme
+//@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
+              </code></pre>
+            </li>
+            <li>
+              Use theme
+              <pre><code class="scss">
+.primary {
+  background: mat-get($primary-map, 500);
+  color: mat-contrast($primary-map, 500);
+}
+.accent {
+  background: mat-get($accent-map, 500);
+  color: mat-contrast($accent-map, 500);
+}
+.warn {
+  background: mat-get($warn-map, 500);
+  color: mat-contrast($warn-map, 500);
+}
+              </code></pre>
+            </li>
+          </ol>
+        </article>
+
+        <article>
+          <h2>Pure CSS</h2>
+          <ol>
+            <li>Compile the code (*.scss -> *.css):
+              <pre><code class="scss"> 
+@import "material-theme-creator"; // Name of this file!
+
+:root {
+  @include set-color-variables(#03a9f4, #00acc1, #f44336);
+  @include set-contrast-threshold(45%, 50%, 55%);
+}
+      </code></pre>
+            </li>
+            <li>
+              Use theme
+              <pre><code class="scss">
+.primary {
+  background: var(--primary);
+  color: hsl(0, 0%, calc(((var(--primary-l) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+}
+.accent {
+  background-color: hsla(var(--accent-h), calc(var(--accent-s) * 1%), calc(var(--accent-l) * 1%), .5);
+}
+.warn {
+  color: hsla(calc(var(--accent-h) + 10), calc(var(--accent-s) * 1% + 10%), calc(var(--accent-l) * 1% - 10%), 1);
+}
+              </code></pre>
+            </li>
+            <li>
+              Change theme for element
+              <pre><code class="scss">
+.teal {
+  --primary-h: 170;
+  --primary-s: 100%;
+  --primary-l: 30%;
+  --primary-contrast-threshold: 35%;
+
+  background: var(--primary);
+  color: hsl(0, 0%, calc(((var(--primary-l) * 1%) - var(--primary-contrast-threshold, 50%)) * (-100)));
+}
+              </code></pre>
             </li>
           </ol>
         </article>

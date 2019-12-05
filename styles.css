@@ -6,7 +6,7 @@ _________________________________________
 
   USING
 
-  0. @import 'material.custom.theme'; // Name of this file!
+  0. @import 'material-theme-creator'; // Name of this file!
     -> Import this file
 
 
@@ -91,7 +91,7 @@ _________________________________________
   Full example [Angular + Material]:
   
   @import '@angular/material/theming';
-  @import 'material.custom.theme'; // Name of this file!
+  @import 'material-theme-creator'; // Name of this file!
   
   :root{
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
@@ -110,7 +110,7 @@ _________________________________________
 
   Full example [SASS only]:
 
-  @import 'material.custom.theme'; // Name of this file!
+  @import 'material-theme-creator'; // Name of this file!
   
   :root{
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
@@ -174,16 +174,19 @@ body {
 }
 
 h1 {
+  margin-top: 3em;
   text-align: center;
   font-weight: normal;
 }
 
 h2 {
   font-weight: normal;
+  margin-top: 3em;
 }
 
 h3 {
   font-weight: normal;
+  margin-top: 3em;
 }
 
 section {
