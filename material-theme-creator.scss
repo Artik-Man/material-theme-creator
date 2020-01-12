@@ -1,8 +1,9 @@
 /*
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
+  Docs: https://artik-man.github.io/material-theme-creator/
 
-_________________________________________
+  _________________________________________
 
   USING
 
@@ -11,7 +12,7 @@ _________________________________________
 
 
 
-  1. :root{
+  1. :root {
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
      }
     -> Creating 12 CSS Variables
@@ -37,7 +38,7 @@ _________________________________________
 
 
 
-  2. :root{
+  2. :root {
        @include set-contrast-threshold(45%, 50%, 55%);
      }
     -> Not important step. Default value is 50%.
@@ -86,14 +87,14 @@ _________________________________________
        );
     }
     
-_________________________________________
+  _________________________________________
     
   Full example [Angular + Material]:
   
   @import '@angular/material/theming';
   @import 'material-theme-creator'; // Name of this file!
   
-  :root{
+  :root {
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
        @include set-contrast-threshold(45%, 50%, 55%);
    }
@@ -112,7 +113,7 @@ _________________________________________
 
   @import 'material-theme-creator'; // Name of this file!
   
-  :root{
+  :root {
        @include set-color-variables(#03a9f4, #00acc1, #f44336);
        @include set-contrast-threshold(45%, 50%, 55%);
    }
