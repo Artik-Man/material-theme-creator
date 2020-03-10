@@ -1,8 +1,8 @@
-#Material Theme Creator
+# Material Theme Creator
 Converting Angular Material themes to CSS Custom Properties (Variables)
 
 ```scss
-@import '~material-theme-creator';
+@import '~material-theme-creator/core';
 
 body.theme-1 {
     @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
@@ -22,13 +22,13 @@ button {
 }
 ```
 
-##1 Installation
+## 1 Installation
   ```
 npm install material-theme-creator
   ```
 
-##2 Create theme
-###Angular Material: Create theme from color
+## 2 Create theme
+### Angular Material: Create theme from color
 ```scss
   @import '~@angular/material/theming';
   @import "~material-theme-creator/core";
@@ -49,7 +49,7 @@ npm install material-theme-creator
   //@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
 ```
 
-###Angular Material: Create theme from color map
+### Angular Material: Create theme from color map
 ```scss
 
   @import '~@angular/material/theming';
@@ -71,7 +71,7 @@ npm install material-theme-creator
   //@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
 ```
 
-##3 Usage
+## 3 Usage
 ```scss
   // Material get color (https://material.angular.io/guide/theming-your-components)
   .primary {
