@@ -22,12 +22,12 @@ button {
 }
 ```
 
-##Installation
+##1 Installation
   ```
 npm install material-theme-creator
   ```
 
-##Create theme
+##2 Create theme
 ###Angular Material: Create theme from color
 ```scss
   @import '~@angular/material/theming';
@@ -71,7 +71,7 @@ npm install material-theme-creator
   //@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
 ```
 
-##Usage
+##3 Usage
 ```scss
   // Material get color (https://material.angular.io/guide/theming-your-components)
   .primary {
