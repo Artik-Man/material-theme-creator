@@ -11,8 +11,8 @@
 </head>
 <body>
 <h1>Material Theme Creator</h1>
-
 <div class="main">
+    <a href="https://github.com/Artik-Man/material-theme-creator">GitHub</a>
     <section>
         <h2>Create custom theme from one color in real time</h2>
         <div class="creator">
@@ -55,7 +55,7 @@
                 <span>A700</span>
             </div>
             <pre><code class="scss">
-  @import 'material-theme-creator';
+  @import '~material-theme-creator';
 
   body.theme-1 {
       @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
@@ -88,7 +88,7 @@
             <h3>Angular Material: Create theme from color</h3>
             <pre><code class="scss">
   @import '~@angular/material/theming';
-  @import "material-theme-creator";
+  @import "~material-theme-creator";
 
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');
@@ -113,7 +113,7 @@
             <h3>Angular Material: Create theme from color map</h3>
             <pre><code class="scss">
   @import '~@angular/material/theming';
-  @import "material-theme-creator";
+  @import "~material-theme-creator";
 
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');
@@ -781,7 +781,7 @@
     </section>
 
     <section>
-        <h2>Code <small>[scss]</small></h2>
+        <h2>Source code <small>[scss]</small></h2>
         <pre><code class="scss" id="code"></code></pre>
     </section>
 </div>
