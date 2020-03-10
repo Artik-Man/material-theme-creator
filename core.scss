@@ -67,35 +67,35 @@ body {
 */
 @function create-theme-map($theme-name) {
   @return (
-          50: #{'var(--' +$theme-name+ '-50, #eee)'},
-          100:#{'var(--' +$theme-name+ '-100, #ddd)'},
-          200:#{'var(--' +$theme-name+ '-200, #ccc)'},
-          300:#{'var(--' +$theme-name+ '-300, #aaa)'},
-          400:#{'var(--' +$theme-name+ '-400, #999)'},
-          500:#{'var(--' +$theme-name+ '-500, #777)'},
-          600:#{'var(--' +$theme-name+ '-600, #666)'},
-          700:#{'var(--' +$theme-name+ '-700, #555)'},
-          800:#{'var(--' +$theme-name+ '-800, #333)'},
-          900:#{'var(--' +$theme-name+ '-900, #222)'},
-          A100:#{'var(--' +$theme-name+ '-A100, #c00)'},
-          A200:#{'var(--' +$theme-name+ '-A200, #900)'},
-          A400:#{'var(--' +$theme-name+ '-A400, #700)'},
-          A700:#{'var(--' +$theme-name+ '-A700, #500)'},
+          50: #{'var(--' + $theme-name + '-50, #eee)'},
+          100:#{'var(--' + $theme-name + '-100, #ddd)'},
+          200:#{'var(--' + $theme-name + '-200, #ccc)'},
+          300:#{'var(--' + $theme-name + '-300, #aaa)'},
+          400:#{'var(--' + $theme-name + '-400, #999)'},
+          500:#{'var(--' + $theme-name + '-500, #777)'},
+          600:#{'var(--' + $theme-name + '-600, #666)'},
+          700:#{'var(--' + $theme-name + '-700, #555)'},
+          800:#{'var(--' + $theme-name + '-800, #333)'},
+          900:#{'var(--' + $theme-name + '-900, #222)'},
+          A100:#{'var(--' + $theme-name + '-A100, #c00)'},
+          A200:#{'var(--' + $theme-name + '-A200, #900)'},
+          A400:#{'var(--' + $theme-name + '-A400, #700)'},
+          A700:#{'var(--' + $theme-name + '-A700, #500)'},
           contrast: (
-                  50: #{'var(--' +$theme-name+ '-50-contrast, 50%)'},
-                  200:#{'var(--' +$theme-name+ '-200-contrast, 50%)'},
-                  300:#{'var(--' +$theme-name+ '-300-contrast, 50%)'},
-                  100:#{'var(--' +$theme-name+ '-100-contrast, 50%)'},
-                  400:#{'var(--' +$theme-name+ '-400-contrast, 50%)'},
-                  500:#{'var(--' +$theme-name+ '-500-contrast, 50%)'},
-                  600:#{'var(--' +$theme-name+ '-600-contrast, 50%)'},
-                  700:#{'var(--' +$theme-name+ '-700-contrast, 50%)'},
-                  800:#{'var(--' +$theme-name+ '-800-contrast, 50%)'},
-                  900:#{'var(--' +$theme-name+ '-900-contrast, 50%)'},
-                  A100:#{'var(--' +$theme-name+ '-A100-contrast, 50%)'},
-                  A200:#{'var(--' +$theme-name+ '-A200-contrast, 50%)'},
-                  A400:#{'var(--' +$theme-name+ '-A400-contrast, 50%)'},
-                  A700:#{'var(--' +$theme-name+ '-A700-contrast, 50%)'},
+                  50: #{'var(--' + $theme-name + '-50-contrast, 50%)'},
+                  200:#{'var(--' + $theme-name + '-200-contrast, 50%)'},
+                  300:#{'var(--' + $theme-name + '-300-contrast, 50%)'},
+                  100:#{'var(--' + $theme-name + '-100-contrast, 50%)'},
+                  400:#{'var(--' + $theme-name + '-400-contrast, 50%)'},
+                  500:#{'var(--' + $theme-name + '-500-contrast, 50%)'},
+                  600:#{'var(--' + $theme-name + '-600-contrast, 50%)'},
+                  700:#{'var(--' + $theme-name + '-700-contrast, 50%)'},
+                  800:#{'var(--' + $theme-name + '-800-contrast, 50%)'},
+                  900:#{'var(--' + $theme-name + '-900-contrast, 50%)'},
+                  A100:#{'var(--' + $theme-name + '-A100-contrast, 50%)'},
+                  A200:#{'var(--' + $theme-name + '-A200-contrast, 50%)'},
+                  A400:#{'var(--' + $theme-name + '-A400-contrast, 50%)'},
+                  A700:#{'var(--' + $theme-name + '-A700-contrast, 50%)'},
           )
   );
 }
@@ -184,7 +184,7 @@ body {
   @include create-color($color, $theme-name);
   @include hsl-variables();
 
-  --#{$theme-name+'-contrast-threshold'}: #{$contrast-threshold};
+  --#{$theme-name + '-contrast-threshold'}: #{$contrast-threshold};
 
   $theme-h: '--' + $theme-name + '-h';
   $theme-s: '--' + $theme-name + '-s';
@@ -195,33 +195,33 @@ body {
     $index: nth($arr_50_400, $i);
     --#{$theme-name}-#{$index}: hsl(
                     var(#{$theme-h}),
-                    calc(((var(#{$theme-s}) - var(--light-s)) * var(#{'--s'+$index}) + var(--light-s)) * 1%),
-                    calc(((var(#{$theme-l}) - var(--light-l)) * var(#{'--l'+$index}) + var(--light-l)) * 1%)
+                    calc(((var(#{$theme-s}) - var(--light-s)) * var(#{'--s' + $index}) + var(--light-s)) * 1%),
+                    calc(((var(#{$theme-l}) - var(--light-l)) * var(#{'--l' + $index}) + var(--light-l)) * 1%)
     );
     --#{$theme-name}-#{$index}-contrast: hsl(
                     0,
                     0%,
-                    calc(((((1 - var(#{'--l'+$index})) * 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%) - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100))
+                    calc(((((1 - var(#{'--l' + $index})) * 100 + var(#{'--l' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100))
     );
   }
 
-  --#{$theme-name+'-500'}: var(--#{$theme-name});
-  --#{$theme-name+'-500-contrast'}: hsl(0, 0%, calc(((var(#{$theme-l}) * 1%) - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100)));
+  --#{$theme-name + '-500'}: var(--#{$theme-name});
+  --#{$theme-name + '-500-contrast'}: hsl(0, 0%, calc(((var(#{$theme-l}) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
 
   $arr_600_900: 600, 700, 800, 900;
   @for $i from 1 through 4 {
     $index: nth($arr_600_900, $i);
     --#{$theme-name}-#{$index}: hsl(
                     var(#{$theme-h}),
-                    calc(((1 - var(#{'--s'+$index})) * 100 + var(#{'--s'+$index}) * var(#{$theme-s})) * 1%),
-                    calc(((1 - var(#{'--l'+$index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%)
+                    calc(((1 - var(#{'--s' + $index})) * 100 + var(#{'--s' + $index}) * var(#{$theme-s})) * 1%),
+                    calc(((1 - var(#{'--l' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l' + $index}) * var(#{$theme-l})) * 1%)
     );
     --#{$theme-name}-#{$index}-contrast: hsl(
                     0,
                     0%,
                     calc(
-                            ((((1 - var(#{'--l'+$index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%) -
-                            var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100)
+                            ((((1 - var(#{'--l' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l' + $index}) * var(#{$theme-l})) * 1%) -
+                            var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)
                     )
     );
   }
@@ -229,8 +229,8 @@ body {
   $arr_A00_A700: A100, A200, A400, A700;
   @for $i from 1 through 4 {
     $index: nth($arr_A00_A700, $i);
-    --#{$theme-name}-#{$index}: hsl(calc(var(#{$theme-h}) * var(#{'--h'+$index})), calc(var(#{'--s'+$index}) * 100%), calc(var(#{'--l'+$index}) * 100%));
-    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--l'+$index}) * 100% - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100)));
+    --#{$theme-name}-#{$index}: hsl(calc(var(#{$theme-h}) * var(#{'--h' + $index})), calc(var(#{'--s' + $index}) * 100%), calc(var(#{'--l' + $index}) * 100%));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--l' + $index}) * 100% - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
   }
 }
 
@@ -299,6 +299,6 @@ body {
 }
 
 // FIX: "Could not find Angular Material core theme. Most Material components may not work as expected."
-.mat-theme-loaded-marker{
+.mat-theme-loaded-marker {
   display: none;
 }

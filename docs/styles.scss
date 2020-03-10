@@ -133,6 +133,10 @@ form {
 }
 
 .themes {
+  $arr_colors: $mat-red, $mat-pink, $mat-purple, $mat-deep-purple, $mat-indigo, $mat-blue, $mat-light-blue, $mat-cyan, $mat-teal, $mat-green, $mat-light-green, $mat-lime, $mat-yellow, $mat-amber, $mat-orange, $mat-deep-orange, $mat-brown, $mat-grey, $mat-blue-grey;
+  $arr_thresholds: 62%, 58%, 65%, 65%, 65%, 58%, 54%, 45%, 38%, 47%, 47%, 38%, 20%, 20%, 38%, 60%, 60%, 60%, 62%;
+  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
+
   .theme {
     &:nth-child(2n + 1) {
       &:after {
@@ -146,13 +150,6 @@ form {
       }
     }
 
-    $arr_colors: $mat-red, $mat-pink, $mat-purple, $mat-deep-purple, $mat-indigo, $mat-blue, $mat-light-blue, $mat-cyan,
-    $mat-teal, $mat-green, $mat-light-green, $mat-lime, $mat-yellow, $mat-amber, $mat-orange, $mat-deep-orange,
-    $mat-brown, $mat-grey, $mat-blue-grey;
-
-    $arr_thresholds: 62%, 58%, 65%, 65%, 65%, 58%, 54%, 45%, 38%, 47%, 47%, 38%, 20%, 20%, 38%, 60%, 60%, 60%, 62%;
-
-    $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
 
     @for $c from 1 through 38 {
 

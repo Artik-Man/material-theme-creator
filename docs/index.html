@@ -78,6 +78,32 @@
     </section>
 
     <section>
+        <h2>How it works?</h2>
+        <pre><code class="scss">
+    :root {
+      --primary-h: 200;
+      --primary-s: 70;
+      --primary-l: 40;
+      --primary: hsl(
+        var(--primary-h),
+        var(--primary-s),
+        var(--primary-l)
+      );
+
+      --x: 0.99;
+      --y: 0.95;
+      --z: 0.85;
+
+      --primary-400: hsl(
+        calc( var(--primary-h) * var(--x) ),
+        calc( var(--primary-s) * var(--y) ),
+        calc( var(--primary-l) * var(--z) )
+      )
+    }
+        </code></pre>
+    </section>
+
+    <section>
         <h2>Installation</h2>
         <pre>npm install material-theme-creator</pre>
     </section>
