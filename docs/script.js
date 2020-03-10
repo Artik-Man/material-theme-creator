@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', event => {
-  fetch('./material-theme-creator.scss')
+  fetch('https://raw.githubusercontent.com/Artik-Man/material-theme-creator/master/core.scss')
     .then(resp => resp.text())
     .then(resp => {
       document.getElementById('code').innerHTML = resp;
