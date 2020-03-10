@@ -33,6 +33,8 @@ npm install material-theme-creator
   @import '~@angular/material/theming';
   @import "~material-theme-creator/core";
 
+  @include mat-core();
+
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
@@ -54,6 +56,8 @@ npm install material-theme-creator
 
   @import '~@angular/material/theming';
   @import "~material-theme-creator/core";
+
+  @include mat-core();
 
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');
