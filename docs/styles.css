@@ -146,6 +146,10 @@ body {
     --primary-l: 80;
     --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
 */
+.mat-theme-loaded-marker {
+  display: none;
+}
+
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */
 /* stylelint-enable */

@@ -1,5 +1,5 @@
-@import 'material-theme-creator';
-@import 'theming';
+@import '../core';
+@import './theming';
 
 * {
   box-sizing: border-box;

@@ -31,7 +31,7 @@ npm install material-theme-creator
 ###Angular Material: Create theme from color
 ```scss
   @import '~@angular/material/theming';
-  @import "~material-theme-creator";
+  @import "~material-theme-creator/core";
 
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');
@@ -53,7 +53,7 @@ npm install material-theme-creator
 ```scss
 
   @import '~@angular/material/theming';
-  @import "material-theme-creator";
+  @import "~material-theme-creator/core";
 
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');

@@ -297,3 +297,8 @@ body {
   --#{$name}-l: #{str-slice(lightness($color) + '', 0, -2)};
   --#{$name}: hsl(var(--#{$name}-h), calc(var(--#{$name}-s) * 1%), calc(var(--#{$name}-l) * 1%));
 }
+
+// FIX: "Could not find Angular Material core theme. Most Material components may not work as expected."
+.mat-theme-loaded-marker{
+  display: none;
+}
