@@ -1,0 +1,30 @@
+{
+  "name": "material-theme-creator",
+  "version": "2.0.0",
+  "description": "Converting Angular Material themes to CSS Custom Properties (Variables)",
+  "main": "material-theme-creator.scss",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artik-Man/material-theme-creator.git"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "theme",
+    "css",
+    "variables",
+    "custom",
+    "properties",
+    "var"
+  ],
+  "author": "Artik Man [mail@artik.me]",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Artik-Man/material-theme-creator/issues"
+  },
+  "homepage": "https://github.com/Artik-Man/material-theme-creator#readme",
+  "devDependencies": {
+    "scss": "^0.2.4"
+  }
+}

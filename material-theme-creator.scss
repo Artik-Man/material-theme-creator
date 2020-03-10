@@ -7,7 +7,7 @@
   Docs: https://artik-man.github.io/material-theme-creator/
   GitHub: https://github.com/Artik-Man/material-theme-creator
 
- */
+*/
 
 /*
 // Using with pure css
@@ -49,8 +49,8 @@ body {
 // Using with angular material (create theme from 3 color maps)
 body {
   @include create-variables-from-map('primary', $mat-teal);
-  @include create-variables-from-color('accent', $mat-purple);
-  @include create-variables-from-color('warn', $mat-red);
+  @include create-variables-from-map('accent', $mat-purple);
+  @include create-variables-from-map('warn', $mat-red);
 
   $primary-map: create-theme-map('primary');
   $accent-map: create-theme-map('accent');
@@ -61,41 +61,183 @@ body {
 }
  */
 
+/*
+  Description:
+    Creates a theme-map for use in Angular Material
+*/
 @function create-theme-map($theme-name) {
   @return (
-          50: #{'var(--' +$theme-name+ '-50)'},
-          100:#{'var(--' +$theme-name+ '-100)'},
-          200:#{'var(--' +$theme-name+ '-200)'},
-          300:#{'var(--' +$theme-name+ '-300)'},
-          400:#{'var(--' +$theme-name+ '-400)'},
-          500:#{'var(--' +$theme-name+ '-500)'},
-          600:#{'var(--' +$theme-name+ '-600)'},
-          700:#{'var(--' +$theme-name+ '-700)'},
-          800:#{'var(--' +$theme-name+ '-800)'},
-          900:#{'var(--' +$theme-name+ '-900)'},
-          A100:#{'var(--' +$theme-name+ '-A100)'},
-          A200:#{'var(--' +$theme-name+ '-A200)'},
-          A400:#{'var(--' +$theme-name+ '-A400)'},
-          A700:#{'var(--' +$theme-name+ '-A700)'},
+          50: #{'var(--' +$theme-name+ '-50, #eee)'},
+          100:#{'var(--' +$theme-name+ '-100, #ddd)'},
+          200:#{'var(--' +$theme-name+ '-200, #ccc)'},
+          300:#{'var(--' +$theme-name+ '-300, #aaa)'},
+          400:#{'var(--' +$theme-name+ '-400, #999)'},
+          500:#{'var(--' +$theme-name+ '-500, #777)'},
+          600:#{'var(--' +$theme-name+ '-600, #666)'},
+          700:#{'var(--' +$theme-name+ '-700, #555)'},
+          800:#{'var(--' +$theme-name+ '-800, #333)'},
+          900:#{'var(--' +$theme-name+ '-900, #222)'},
+          A100:#{'var(--' +$theme-name+ '-A100, #c00)'},
+          A200:#{'var(--' +$theme-name+ '-A200, #900)'},
+          A400:#{'var(--' +$theme-name+ '-A400, #700)'},
+          A700:#{'var(--' +$theme-name+ '-A700, #500)'},
           contrast: (
-                  50: #{'var(--' +$theme-name+ '-50-contrast)'},
-                  100:#{'var(--' +$theme-name+ '-100-contrast)'},
-                  200:#{'var(--' +$theme-name+ '-200-contrast)'},
-                  300:#{'var(--' +$theme-name+ '-300-contrast)'},
-                  400:#{'var(--' +$theme-name+ '-400-contrast)'},
-                  500:#{'var(--' +$theme-name+ '-500-contrast)'},
-                  600:#{'var(--' +$theme-name+ '-600-contrast)'},
-                  700:#{'var(--' +$theme-name+ '-700-contrast)'},
-                  800:#{'var(--' +$theme-name+ '-800-contrast)'},
-                  900:#{'var(--' +$theme-name+ '-900-contrast)'},
-                  A100:#{'var(--' +$theme-name+ '-A100-contrast)'},
-                  A200:#{'var(--' +$theme-name+ '-A200-contrast)'},
-                  A400:#{'var(--' +$theme-name+ '-A400-contrast)'},
-                  A700:#{'var(--' +$theme-name+ '-A700-contrast)'},
+                  50: #{'var(--' +$theme-name+ '-50-contrast, 50%)'},
+                  200:#{'var(--' +$theme-name+ '-200-contrast, 50%)'},
+                  300:#{'var(--' +$theme-name+ '-300-contrast, 50%)'},
+                  100:#{'var(--' +$theme-name+ '-100-contrast, 50%)'},
+                  400:#{'var(--' +$theme-name+ '-400-contrast, 50%)'},
+                  500:#{'var(--' +$theme-name+ '-500-contrast, 50%)'},
+                  600:#{'var(--' +$theme-name+ '-600-contrast, 50%)'},
+                  700:#{'var(--' +$theme-name+ '-700-contrast, 50%)'},
+                  800:#{'var(--' +$theme-name+ '-800-contrast, 50%)'},
+                  900:#{'var(--' +$theme-name+ '-900-contrast, 50%)'},
+                  A100:#{'var(--' +$theme-name+ '-A100-contrast, 50%)'},
+                  A200:#{'var(--' +$theme-name+ '-A200-contrast, 50%)'},
+                  A400:#{'var(--' +$theme-name+ '-A400-contrast, 50%)'},
+                  A700:#{'var(--' +$theme-name+ '-A700-contrast, 50%)'},
           )
   );
 }
 
+/*
+  Input:
+    $theme-name: string (example: 'primary');
+    $theme-map: SASS Map (https://sass-lang.com/documentation/values/maps);
+
+  You can use theme-map from ~@angular/material/theming (e.g. $mat-orange or $mat-light-green...)
+
+  Theme Map Example:
+    (
+       50: #ffebee,
+      100: #ffcdd2,
+      200: #ef9a9a,
+      300: #e57373,
+      400: #ef5350,
+      500: #f44336,
+      600: #e53935,
+      700: #d32f2f,
+      800: #c62828,
+      900: #b71c1c,
+      A100: #ff8a80,
+      A200: #ff5252,
+      A400: #ff1744,
+      A700: #d50000,
+      contrast: (
+         50: #000,
+        100: #000,
+        200: #000,
+        300: #000,
+        400: #000,
+        500: #fff,
+        600: #fff,
+        700: #fff,
+        800: #fff,
+        900: #fff,
+        A100: #000,
+        A200: #fff,
+        A400: #fff,
+        A700: #fff,
+      )
+    )
+
+  Output:
+    --primary: hsl(...);
+    --primary-50: hsl(...);
+    --primary-50-contrast: hsl(...);
+    --primary-100: hsl(...);
+    --primary-100-contrast: hsl(...);
+    ...
+    --primary-A700: hsl(...);
+    --primary-A700-contrast: hsl(...);
+*/
+@mixin create-variables-from-map($theme-name, $theme-map) {
+  // color: var(--primary)
+  --#{$theme-name}: #{map-get($theme-map,500)};
+
+  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
+  @for $i from 1 through 14 {
+    // color: var(--primary-300)
+    $index: nth($arr_names, $i);
+    --#{$theme-name}-#{$index}: #{map-get($theme-map, $index)};
+    --#{$theme-name}-#{$index}-contrast: #{map-get(map-get($theme-map, contrast), $index)};
+  }
+}
+
+/*
+  Input:
+    $theme-name: string (example: 'primary');
+    $color: CSS Color (#hex/rgb,hsl);
+    $contrast-threshold: 0%..100% (default: 50%);
+
+  Output:
+    --primary: hsl(...);
+    --primary-50: hsl(...);
+    --primary-50-contrast: hsl(...);
+    --primary-100: hsl(...);
+    --primary-100-contrast: hsl(...);
+    ...
+    --primary-A700: hsl(...);
+    --primary-A700-contrast: hsl(...);
+*/
+@mixin create-variables-from-color($theme-name, $color, $contrast-threshold:50%) {
+  @include create-color($color, $theme-name);
+  @include hsl-variables();
+
+  --#{$theme-name+'-contrast-threshold'}: #{$contrast-threshold};
+
+  $theme-h: '--' + $theme-name + '-h';
+  $theme-s: '--' + $theme-name + '-s';
+  $theme-l: '--' + $theme-name + '-l';
+
+  $arr_50_400: 50, 100, 200, 300, 400;
+  @for $i from 1 through 5 {
+    $index: nth($arr_50_400, $i);
+    --#{$theme-name}-#{$index}: hsl(
+                    var(#{$theme-h}),
+                    calc(((var(#{$theme-s}) - var(--light-s)) * var(#{'--s'+$index}) + var(--light-s)) * 1%),
+                    calc(((var(#{$theme-l}) - var(--light-l)) * var(#{'--l'+$index}) + var(--light-l)) * 1%)
+    );
+    --#{$theme-name}-#{$index}-contrast: hsl(
+                    0,
+                    0%,
+                    calc(((((1 - var(#{'--l'+$index})) * 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%) - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100))
+    );
+  }
+
+  --#{$theme-name+'-500'}: var(--#{$theme-name});
+  --#{$theme-name+'-500-contrast'}: hsl(0, 0%, calc(((var(#{$theme-l}) * 1%) - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100)));
+
+  $arr_600_900: 600, 700, 800, 900;
+  @for $i from 1 through 4 {
+    $index: nth($arr_600_900, $i);
+    --#{$theme-name}-#{$index}: hsl(
+                    var(#{$theme-h}),
+                    calc(((1 - var(#{'--s'+$index})) * 100 + var(#{'--s'+$index}) * var(#{$theme-s})) * 1%),
+                    calc(((1 - var(#{'--l'+$index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%)
+    );
+    --#{$theme-name}-#{$index}-contrast: hsl(
+                    0,
+                    0%,
+                    calc(
+                            ((((1 - var(#{'--l'+$index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%) -
+                            var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100)
+                    )
+    );
+  }
+
+  $arr_A00_A700: A100, A200, A400, A700;
+  @for $i from 1 through 4 {
+    $index: nth($arr_A00_A700, $i);
+    --#{$theme-name}-#{$index}: hsl(calc(var(#{$theme-h}) * var(#{'--h'+$index})), calc(var(#{'--s'+$index}) * 100%), calc(var(#{'--l'+$index}) * 100%));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--l'+$index}) * 100% - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100)));
+  }
+}
+
+/*
+  Description:
+    Creates CSS Variables used in the "create-variables-from-color" mixin
+*/
 @mixin hsl-variables() {
   --hA100: 0.96;
   --hA200: 0.96;
@@ -135,48 +277,23 @@ body {
   --light-l: 100;
 }
 
+/*
+  Description:
+    Returns the Hue, Lightness and Saturation for CSS Color
+
+  Input:
+    $color: CSS Color (#hex/rgb,hsl);
+    $name: string (example: 'primary');
+
+  Output:
+    --primary-h: 212;
+    --primary-s: 95;
+    --primary-l: 80;
+    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+*/
 @mixin create-color($color, $name) {
   --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};
   --#{$name}-s: #{str-slice(saturation($color) + '', 0, -2)};
   --#{$name}-l: #{str-slice(lightness($color) + '', 0, -2)};
   --#{$name}: hsl(var(--#{$name}-h), calc(var(--#{$name}-s) * 1%), calc(var(--#{$name}-l) * 1%));
-}
-
-@mixin create-variables-from-map($theme-name, $theme-map) {
-  // color: var(--primary)
-  --#{$theme-name}: #{map-get($theme-map,500)};
-
-  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
-  @for $i from 1 through 14 {
-    // color: var(--primary-300)
-    $index: nth($arr_names, $i);
-    --#{$theme-name}-#{$index}: #{map-get($theme-map, $index)};
-    --#{$theme-name}-#{$index}-contrast: #{map-get(map-get($theme-map, contrast), $index)};
-  }
-}
-
-@mixin create-variables-from-color($theme-name, $color, $contrast-threshold:50%) {
-  @include create-color($color, $theme-name);
-  @include hsl-variables();
-
-  --#{$theme-name+'-contrast-threshold'}: $contrast-threshold;
-
-  $theme-h: '--' + $theme-name + '-h';
-  $theme-s: '--' + $theme-name + '-s';
-  $theme-l: '--' + $theme-name + '-l';
-
-  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
-  @for $i from 1 through 14 {
-    $index: nth($arr_names, $i);
-    --#{$theme-name}-#{$index}: hsl(
-                    var(#{$theme-h}),
-                    calc(((var(#{$theme-s}) - var(--light-s)) * var(#{'--s'+$index}) + var(--light-s)) * 1%),
-                    calc(((var(#{$theme-l}) - var(--light-l)) * var(#{'--l'+$index}) + var(--light-l)) * 1%)
-    );
-    --#{$theme-name}-#{$index}-contrast: hsl(
-                    0,
-                    0%,
-                    calc(((((1 - var(#{'--l'+$index})) * 100 + var(#{'--l'+$index}) * var(#{$theme-l})) * 1%) - var(#{'--'+$theme-name+'-contrast-threshold'}, 50%)) * (-100))
-    );
-  }
 }

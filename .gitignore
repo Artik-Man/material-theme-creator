@@ -2,3 +2,5 @@
 *.map
 material-theme-creator.css
 theming.css
+node_modules
+.idea
