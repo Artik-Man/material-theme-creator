@@ -1,6 +1,6 @@
 {
   "name": "material-theme-creator",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Converting Angular Material themes to CSS Custom Properties (Variables)",
   "main": "core.scss",
   "scripts": {},
