@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 2.0.0
+  Version: 2.0.5
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -9,62 +9,62 @@
 
 */
 
-/*
-// Using with pure css
-body {
-  @include create-variables-from-color('primary', #149c75, 52%);
-  @include create-variables-from-color('warn', #d61f0c);
+///*
+//// Using with pure css
+//body {
+//  @include create-variables-from-color('primary', #149c75, 52%);
+//  @include create-variables-from-color('warn', #d61f0c);
+//
+//  a {
+//    color: var(--primary);
+//    &:hover{
+//      color: var(--primary-900);
+//    }
+//  }
+//
+//  .warning {
+//    background: var(--warn-100);
+//    color: var(--warn-700);
+//  }
+//}
+//*/
 
-  a {
-    color: var(--primary);
-    &:hover{
-      color: var(--primary-900);
-    }
-  }
+///*
+//// Using with angular material (create theme from 3 colors)
+//body {
+//  @include create-variables-from-color('primary', #149c75, 52%);
+//  @include create-variables-from-color('accent', #19a4b6, 52%);
+//  @include create-variables-from-color('warn', #d61f0c, 52%);
+//
+//  $primary-map: create-theme-map('primary');
+//  $accent-map: create-theme-map('accent');
+//  $warn-map: create-theme-map('warn');
+//
+//  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
+////@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+//}
+// */
 
-  .warning {
-    background: var(--warn-100);
-    color: var(--warn-700);
-  }
-}
-*/
+///*
+//// Using with angular material (create theme from 3 color maps)
+//body {
+//  @include create-variables-from-map('primary', $mat-teal);
+//  @include create-variables-from-map('accent', $mat-purple);
+//  @include create-variables-from-map('warn', $mat-red);
+//
+//  $primary-map: create-theme-map('primary');
+//  $accent-map: create-theme-map('accent');
+//  $warn-map: create-theme-map('warn');
+//
+//  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
+//  //@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+//}
+// */
 
-/*
-// Using with angular material (create theme from 3 colors)
-body {
-  @include create-variables-from-color('primary', #149c75, 52%);
-  @include create-variables-from-color('accent', #19a4b6, 52%);
-  @include create-variables-from-color('warn', #d61f0c, 52%);
-
-  $primary-map: create-theme-map('primary');
-  $accent-map: create-theme-map('accent');
-  $warn-map: create-theme-map('warn');
-
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
-//@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
-}
- */
-
-/*
-// Using with angular material (create theme from 3 color maps)
-body {
-  @include create-variables-from-map('primary', $mat-teal);
-  @include create-variables-from-map('accent', $mat-purple);
-  @include create-variables-from-map('warn', $mat-red);
-
-  $primary-map: create-theme-map('primary');
-  $accent-map: create-theme-map('accent');
-  $warn-map: create-theme-map('warn');
-
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
-  //@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
-}
- */
-
-/*
-  Description:
-    Creates a theme-map for use in Angular Material
-*/
+///*
+//  Description:
+//    Creates a theme-map for use in Angular Material
+//*/
 @function create-theme-map($theme-name) {
   @return (
           50: #{'var(--' + $theme-name + '-50, #eee)'},
@@ -100,57 +100,57 @@ body {
   );
 }
 
-/*
-  Input:
-    $theme-name: string (example: 'primary');
-    $theme-map: SASS Map (https://sass-lang.com/documentation/values/maps);
-
-  You can use theme-map from ~@angular/material/theming (e.g. $mat-orange or $mat-light-green...)
-
-  Theme Map Example:
-    (
-       50: #ffebee,
-      100: #ffcdd2,
-      200: #ef9a9a,
-      300: #e57373,
-      400: #ef5350,
-      500: #f44336,
-      600: #e53935,
-      700: #d32f2f,
-      800: #c62828,
-      900: #b71c1c,
-      A100: #ff8a80,
-      A200: #ff5252,
-      A400: #ff1744,
-      A700: #d50000,
-      contrast: (
-         50: #000,
-        100: #000,
-        200: #000,
-        300: #000,
-        400: #000,
-        500: #fff,
-        600: #fff,
-        700: #fff,
-        800: #fff,
-        900: #fff,
-        A100: #000,
-        A200: #fff,
-        A400: #fff,
-        A700: #fff,
-      )
-    )
-
-  Output:
-    --primary: hsl(...);
-    --primary-50: hsl(...);
-    --primary-50-contrast: hsl(...);
-    --primary-100: hsl(...);
-    --primary-100-contrast: hsl(...);
-    ...
-    --primary-A700: hsl(...);
-    --primary-A700-contrast: hsl(...);
-*/
+///*
+//  Input:
+//    $theme-name: string (example: 'primary');
+//    $theme-map: SASS Map (https://sass-lang.com/documentation/values/maps);
+//
+//  You can use theme-map from ~@angular/material/theming (e.g. $mat-orange or $mat-light-green...)
+//
+//  Theme Map Example:
+//    (
+//       50: #ffebee,
+//      100: #ffcdd2,
+//      200: #ef9a9a,
+//      300: #e57373,
+//      400: #ef5350,
+//      500: #f44336,
+//      600: #e53935,
+//      700: #d32f2f,
+//      800: #c62828,
+//      900: #b71c1c,
+//      A100: #ff8a80,
+//      A200: #ff5252,
+//      A400: #ff1744,
+//      A700: #d50000,
+//      contrast: (
+//         50: #000,
+//        100: #000,
+//        200: #000,
+//        300: #000,
+//        400: #000,
+//        500: #fff,
+//        600: #fff,
+//        700: #fff,
+//        800: #fff,
+//        900: #fff,
+//        A100: #000,
+//        A200: #fff,
+//        A400: #fff,
+//        A700: #fff,
+//      )
+//    )
+//
+//  Output:
+//    --primary: hsl(...);
+//    --primary-50: hsl(...);
+//    --primary-50-contrast: hsl(...);
+//    --primary-100: hsl(...);
+//    --primary-100-contrast: hsl(...);
+//    ...
+//    --primary-A700: hsl(...);
+//    --primary-A700-contrast: hsl(...);
+//*/
 @mixin create-variables-from-map($theme-name, $theme-map) {
   // color: var(--primary)
   --#{$theme-name}: #{map-get($theme-map,500)};
@@ -164,25 +164,24 @@ body {
   }
 }
 
-/*
-  Input:
-    $theme-name: string (example: 'primary');
-    $color: CSS Color (#hex/rgb,hsl);
-    $contrast-threshold: 0%..100% (default: 50%);
-
-  Output:
-    --primary: hsl(...);
-    --primary-50: hsl(...);
-    --primary-50-contrast: hsl(...);
-    --primary-100: hsl(...);
-    --primary-100-contrast: hsl(...);
-    ...
-    --primary-A700: hsl(...);
-    --primary-A700-contrast: hsl(...);
-*/
+///*
+//  Input:
+//    $theme-name: string (example: 'primary');
+//    $color: CSS Color (#hex/rgb,hsl);
+//    $contrast-threshold: 0%..100% (default: 50%);
+//
+//  Output:
+//    --primary: hsl(...);
+//    --primary-50: hsl(...);
+//    --primary-50-contrast: hsl(...);
+//    --primary-100: hsl(...);
+//    --primary-100-contrast: hsl(...);
+//    ...
+//    --primary-A700: hsl(...);
+//    --primary-A700-contrast: hsl(...);
+//*/
 @mixin create-variables-from-color($theme-name, $color, $contrast-threshold:50%) {
   @include create-color($color, $theme-name);
-  @include hsl-variables();
 
   --#{$theme-name + '-contrast-threshold'}: #{$contrast-threshold};
 
@@ -195,13 +194,13 @@ body {
     $index: nth($arr_50_400, $i);
     --#{$theme-name}-#{$index}: hsl(
                     var(#{$theme-h}),
-                    calc(((var(#{$theme-s}) - var(--light-s)) * var(#{'--s' + $index}) + var(--light-s)) * 1%),
-                    calc(((var(#{$theme-l}) - var(--light-l)) * var(#{'--l' + $index}) + var(--light-l)) * 1%)
+                    calc(((var(#{$theme-s}) - var(--mtc-light-s)) * var(#{'--mtc-s-' + $index}) + var(--mtc-light-s)) * 1%),
+                    calc(((var(#{$theme-l}) - var(--mtc-light-l)) * var(#{'--mtc-l-' + $index}) + var(--mtc-light-l)) * 1%)
     );
     --#{$theme-name}-#{$index}-contrast: hsl(
                     0,
                     0%,
-                    calc(((((1 - var(#{'--l' + $index})) * 100 + var(#{'--l' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100))
+                    calc(((((1 - var(#{'--mtc-l-' + $index})) * 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100))
     );
   }
 
@@ -213,14 +212,14 @@ body {
     $index: nth($arr_600_900, $i);
     --#{$theme-name}-#{$index}: hsl(
                     var(#{$theme-h}),
-                    calc(((1 - var(#{'--s' + $index})) * 100 + var(#{'--s' + $index}) * var(#{$theme-s})) * 1%),
-                    calc(((1 - var(#{'--l' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l' + $index}) * var(#{$theme-l})) * 1%)
+                    calc(((1 - var(#{'--mtc-s-' + $index})) * 100 + var(#{'--mtc-s-' + $index}) * var(#{$theme-s})) * 1%),
+                    calc(((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%)
     );
     --#{$theme-name}-#{$index}-contrast: hsl(
                     0,
                     0%,
                     calc(
-                            ((((1 - var(#{'--l' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--l' + $index}) * var(#{$theme-l})) * 1%) -
+                            ((((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) -
                             var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)
                     )
     );
@@ -229,68 +228,25 @@ body {
   $arr_A00_A700: A100, A200, A400, A700;
   @for $i from 1 through 4 {
     $index: nth($arr_A00_A700, $i);
-    --#{$theme-name}-#{$index}: hsl(calc(var(#{$theme-h}) * var(#{'--h' + $index})), calc(var(#{'--s' + $index}) * 100%), calc(var(#{'--l' + $index}) * 100%));
-    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--l' + $index}) * 100% - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
+    --#{$theme-name}-#{$index}: hsl(calc(var(#{$theme-h}) * var(#{'--mtc-h-' + $index})), calc(var(#{'--mtc-s-' + $index}) * 100%), calc(var(#{'--mtc-l-' + $index}) * 100%));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--mtc-l-' + $index}) * 100% - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
   }
 }
 
-/*
-  Description:
-    Creates CSS Variables used in the "create-variables-from-color" mixin
-*/
-@mixin hsl-variables() {
-  --hA100: 1;
-  --hA200: 1;
-  --hA400: 1;
-  --hA700: 1.01;
-
-  --s50: 0.91;
-  --s100: 0.98;
-  --s200: 0.96;
-  --s300: 0.95;
-  --s400: 0.96;
-  --s600: 1;
-  --s700: 0.99;
-  --s800: 0.89;
-  --s900: 0.86;
-  --sA100: 0.89;
-  --sA200: 0.98;
-  --sA400: 0.97;
-  --sA700: 0.95;
-
-  --l50: 0.12;
-  --l100: 0.3;
-  --l200: 0.5;
-  --l300: 0.7;
-  --l400: 0.86;
-  --l600: 0.87;
-  --l700: 0.66;
-  --l800: 0.45;
-  --l900: 0.16;
-  --lA100: 0.76;
-  --lA200: 0.64;
-  --lA400: 0.49;
-  --lA700: 0.44;
-
-  --light-h: 0;
-  --light-s: 0;
-  --light-l: 100;
-}
-
-/*
-  Description:
-    Returns the Hue, Lightness and Saturation for CSS Color
-
-  Input:
-    $color: CSS Color (#hex/rgb,hsl);
-    $name: string (example: 'primary');
-
-  Output:
-    --primary-h: 212;
-    --primary-s: 95;
-    --primary-l: 80;
-    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
-*/
+///*
+//  Description:
+//    Returns the Hue, Lightness and Saturation for CSS Color
+//
+//  Input:
+//    $color: CSS Color (#hex/rgb,hsl);
+//    $name: string (example: 'primary');
+//
+//  Output:
+//    --primary-h: 212;
+//    --primary-s: 95;
+//    --primary-l: 80;
+//    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+//*/
 @mixin create-color($color, $name) {
   --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};
   --#{$name}-s: #{str-slice(saturation($color) + '', 0, -2)};
@@ -301,4 +257,47 @@ body {
 // FIX: "Could not find Angular Material core theme. Most Material components may not work as expected."
 .mat-theme-loaded-marker {
   display: none;
+}
+
+///*
+//  Description:
+//    Creates CSS Variables used in the "create-variables-from-color" mixin
+//*/
+:root {
+  --mtc-h-A100: 1;
+  --mtc-h-A200: 1;
+  --mtc-h-A400: 1;
+  --mtc-h-A700: 1.01;
+
+  --mtc-s-50: 0.91;
+  --mtc-s-100: 0.98;
+  --mtc-s-200: 0.96;
+  --mtc-s-300: 0.95;
+  --mtc-s-400: 0.96;
+  --mtc-s-600: 1;
+  --mtc-s-700: 0.99;
+  --mtc-s-800: 0.89;
+  --mtc-s-900: 0.86;
+  --mtc-s-A100: 0.89;
+  --mtc-s-A200: 0.98;
+  --mtc-s-A400: 0.97;
+  --mtc-s-A700: 0.95;
+
+  --mtc-l-50: 0.12;
+  --mtc-l-100: 0.3;
+  --mtc-l-200: 0.5;
+  --mtc-l-300: 0.7;
+  --mtc-l-400: 0.86;
+  --mtc-l-600: 0.87;
+  --mtc-l-700: 0.66;
+  --mtc-l-800: 0.45;
+  --mtc-l-900: 0.16;
+  --mtc-l-A100: 0.76;
+  --mtc-l-A200: 0.64;
+  --mtc-l-A400: 0.49;
+  --mtc-l-A700: 0.44;
+
+  --mtc-light-h: 0;
+  --mtc-light-s: 0;
+  --mtc-light-l: 100;
 }

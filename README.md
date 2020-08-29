@@ -28,7 +28,8 @@ npm install material-theme-creator
   ```
 
 ## 2 Create theme
-### Angular Material: Create theme from color
+You can create a theme from one color or from color-map
+### 2.1 Angular Material: Create a theme from color
 ```scss
   @import '~@angular/material/theming';
   @import "~material-theme-creator/core";
@@ -51,7 +52,7 @@ npm install material-theme-creator
   //@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
 ```
 
-### Angular Material: Create theme from color map
+### 2.2 Angular Material: Create a theme from color map
 ```scss
 
   @import '~@angular/material/theming';
