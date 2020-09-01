@@ -4,6 +4,7 @@ Converting Angular Material themes to CSS Custom Properties (Variables)
 ```scss
 @import '~material-theme-creator/core';
 
+@include mtc-init();
 body.theme-1 {
     @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
 }
@@ -40,6 +41,7 @@ You can create a theme from one color or from color-map
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
 
+  @include mtc-init();
   :root {
     @include create-variables-from-color('primary', #009688, 38%);
     @include create-variables-from-color('accent', #2196f3, 58%);
@@ -64,6 +66,7 @@ You can create a theme from one color or from color-map
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
 
+  @include mtc-init();
   :root {
     @include create-variables-from-map('primary', $mat-teal);
     @include create-variables-from-map('accent', $mat-deep-purple);
