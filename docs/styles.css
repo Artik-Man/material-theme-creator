@@ -217,6 +217,46 @@ form label {
   margin: 0 auto;
 }
 
+.mat-theme-loaded-marker {
+  display: none;
+}
+
+:root {
+  --mtc-h-A100: 1;
+  --mtc-h-A200: 1;
+  --mtc-h-A400: 1;
+  --mtc-h-A700: 1.01;
+  --mtc-s-50: 0.91;
+  --mtc-s-100: 0.98;
+  --mtc-s-200: 0.96;
+  --mtc-s-300: 0.95;
+  --mtc-s-400: 0.96;
+  --mtc-s-600: 1;
+  --mtc-s-700: 0.99;
+  --mtc-s-800: 0.89;
+  --mtc-s-900: 0.86;
+  --mtc-s-A100: 0.89;
+  --mtc-s-A200: 0.98;
+  --mtc-s-A400: 0.97;
+  --mtc-s-A700: 0.95;
+  --mtc-l-50: 0.12;
+  --mtc-l-100: 0.3;
+  --mtc-l-200: 0.5;
+  --mtc-l-300: 0.7;
+  --mtc-l-400: 0.86;
+  --mtc-l-600: 0.87;
+  --mtc-l-700: 0.66;
+  --mtc-l-800: 0.45;
+  --mtc-l-900: 0.16;
+  --mtc-l-A100: 0.76;
+  --mtc-l-A200: 0.64;
+  --mtc-l-A400: 0.49;
+  --mtc-l-A700: 0.44;
+  --mtc-light-h: 0;
+  --mtc-light-s: 0;
+  --mtc-light-l: 100;
+}
+
 .creator .theme {
   --my-theme-h: 200;
   --my-theme-s: 70;

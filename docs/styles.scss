@@ -63,6 +63,8 @@ form {
   margin: 0 auto;
 }
 
+@include mtc-init();
+
 .creator {
   .theme {
     @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
