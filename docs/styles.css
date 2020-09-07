@@ -155,68 +155,6 @@ body {
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */
 /* stylelint-enable */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-}
-
-h1 {
-  margin-top: 3em;
-  text-align: center;
-  font-weight: normal;
-}
-
-h2 {
-  font-weight: normal;
-  margin-top: 3em;
-}
-
-h3 {
-  font-weight: normal;
-  margin-top: 3em;
-}
-
-section {
-  width: 100%;
-  max-width: 95vw;
-  margin-bottom: 72px;
-}
-section:last-child {
-  width: auto;
-}
-
-pre {
-  overflow: auto;
-}
-
-form {
-  margin-bottom: 16px;
-}
-form label {
-  display: grid;
-  grid-template-columns: 85px 40px 1fr;
-}
-@media (min-width: 600px) {
-  form label {
-    grid-template-columns: 150px 50px 1fr;
-  }
-}
-
-.main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 16px;
-  width: 100%;
-  max-width: 880px;
-  margin: 0 auto;
-}
-
 .mat-theme-loaded-marker {
   display: none;
 }
@@ -257,8 +195,12 @@ form label {
   --mtc-light-l: 100;
 }
 
-.creator .theme {
-  --my-theme-h: 200;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --my-theme-h: 190;
   --my-theme-s: 70;
   --my-theme-l: 40;
   --my-theme: hsl(var(--my-theme-h), calc(var(--my-theme-s) * 1%), calc(var(--my-theme-l) * 1%));
@@ -375,7 +317,103 @@ form label {
   --my-theme-A400-contrast: hsl(0, 0%, calc((var(--mtc-l-A400) * 100% - var(--my-theme-contrast-threshold, 50%)) * (-100)));
   --my-theme-A700: hsl(calc(var(--my-theme-h) * var(--mtc-h-A700)), calc(var(--mtc-s-A700) * 100%), calc(var(--mtc-l-A700) * 100%));
   --my-theme-A700-contrast: hsl(0, 0%, calc((var(--mtc-l-A700) * 100% - var(--my-theme-contrast-threshold, 50%)) * (-100)));
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: var(--my-theme-500);
+  color: var(--my-theme-500-contrast);
 }
+
+h1 {
+  margin-top: 3em;
+  text-align: center;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+  margin-top: 3em;
+}
+
+h3 {
+  font-weight: normal;
+  margin-top: 3em;
+}
+
+a {
+  color: var(--my-theme-500-contrast);
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+section {
+  width: 100%;
+  max-width: 95vw;
+  margin-bottom: 72px;
+}
+section:last-child {
+  width: auto;
+}
+
+pre {
+  overflow: auto;
+}
+
+.creator-form {
+  margin-bottom: 16px;
+}
+.creator-form label {
+  display: grid;
+  grid-template-columns: 85px 40px 1fr;
+}
+@media (min-width: 600px) {
+  .creator-form label {
+    grid-template-columns: 150px 50px 1fr;
+  }
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.download-form {
+  margin: 32px 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.download-form label {
+  flex-grow: 1;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.download-form label input {
+  padding: 8px 12px;
+  flex-grow: 1;
+  background: var(--my-theme-50);
+  color: var(--my-theme-50-contrast);
+  border-color: var(--my-theme-600);
+}
+.download-form button {
+  padding: 8px 12px;
+  background: var(--my-theme-300);
+  color: var(--my-theme-300-contrast);
+  border-color: var(--my-theme-600);
+  cursor: pointer;
+}
+.download-form button:hover, .download-form button:focus {
+  background: var(--my-theme-600);
+  color: var(--my-theme-600-contrast);
+}
+
 .creator .theme::after {
   content: "Your theme" !important;
 }
@@ -448,6 +486,7 @@ form label {
   grid-template-rows: 1fr 1fr;
   align-items: stretch;
   border-bottom: 5px solid white;
+  box-shadow: 0 0 0 5px white;
   position: relative;
 }
 @media (min-width: 600px) {
@@ -458,7 +497,6 @@ form label {
   }
 }
 .theme:after {
-  text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
   padding: 0;
   font-size: 16px;
   display: flex;
@@ -485,6 +523,9 @@ form label {
   justify-content: center;
 }
 
+.themes .theme {
+  box-shadow: none;
+}
 .themes .theme:nth-child(2n+1):after {
   content: "Google Material";
 }

@@ -1,13 +1,19 @@
 @import '../core';
 @import './theming';
 
+@include mtc-init();
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  @include create-variables-from-color('my-theme', hsl(190, 70%, 40%), 50%);
+
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background: var(--my-theme-500);
+  color: var(--my-theme-500-contrast);
 }
 
 h1 {
@@ -26,6 +32,14 @@ h3 {
   margin-top: 3em;
 }
 
+a {
+  color: var(--my-theme-500-contrast);
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
 section {
   width: 100%;
   max-width: 95vw;
@@ -40,7 +54,7 @@ pre {
   overflow: auto;
 }
 
-form {
+.creator-form {
   margin-bottom: 16px;
 
   label {
@@ -63,11 +77,43 @@ form {
   margin: 0 auto;
 }
 
-@include mtc-init();
+.download-form {
+  margin: 32px 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  label {
+    flex-grow: 1;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    input {
+      padding: 8px 12px;
+      flex-grow: 1;
+      background: var(--my-theme-50);
+      color: var(--my-theme-50-contrast);
+      border-color: var(--my-theme-600);
+    }
+  }
+
+  button {
+    padding: 8px 12px;
+    background: var(--my-theme-300);
+    color: var(--my-theme-300-contrast);
+    border-color: var(--my-theme-600);
+    cursor: pointer;
+
+    &:hover, &:focus {
+      background: var(--my-theme-600);
+      color: var(--my-theme-600-contrast);
+    }
+  }
+}
 
 .creator {
   .theme {
-    @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
 
     &::after {
       content: 'Your theme' !important;
@@ -97,6 +143,7 @@ form {
   grid-template-rows: 1fr 1fr;
   align-items: stretch;
   border-bottom: 5px solid white;
+  box-shadow: 0 0 0 5px white;
   position: relative;
 
   @media (min-width: 600px) {
@@ -106,7 +153,6 @@ form {
   }
 
   &:after {
-    text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
     padding: 0;
     font-size: 16px;
     display: flex;
@@ -140,6 +186,8 @@ form {
   $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
 
   .theme {
+    box-shadow: none;
+
     &:nth-child(2n + 1) {
       &:after {
         content: 'Google Material';
@@ -188,3 +236,4 @@ form {
     }
   }
 }
+

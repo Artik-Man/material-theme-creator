@@ -16,11 +16,11 @@
     <section>
         <h2>Create custom theme from one color in real time</h2>
         <div class="creator">
-            <form>
+            <form class="creator-form">
                 <label data-range="h,my-theme">
                     <span>Hue</span>
-                    <output>200</output>
-                    <input type="range" min="0" max="360" value="200"/>
+                    <output>190</output>
+                    <input type="range" min="0" max="360" value="190"/>
                 </label>
                 <label data-range="s,my-theme">
                     <span>Saturation</span>
@@ -54,11 +54,23 @@
                 <span>A400</span>
                 <span>A700</span>
             </div>
+
+            <form onsubmit="downloadTheme(this); return false" class="download-form">
+                <label>
+                    Theme name:
+                    <input type="text" value="my-theme" name="theme"
+                           placeholder="Example: primary, accent, warn, ... (don't use color names)">
+                </label>
+                <button type="submit">Download only one CSS theme</button>
+            </form>
+
             <pre><code class="scss">
   @import '~material-theme-creator/core';
 
+  @include mtc-init();
+
   body.theme-1 {
-      @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
+      @include create-variables-from-color('my-theme', hsl(190, 70%, 40%), 50%);
   }
 
   body.theme-2 {
@@ -81,7 +93,7 @@
         <h2>How it works?</h2>
         <pre><code class="scss">
     :root {
-      --primary-h: 200;
+      --primary-h: 190;
       --primary-s: 70;
       --primary-l: 40;
       --primary: hsl(
