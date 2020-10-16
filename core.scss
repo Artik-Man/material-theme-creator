@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 2.0.6
+  Version: 2.1.0
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -35,6 +35,12 @@ body {
 // Using with angular material (create theme from 3 colors)
 
 @include mtc-init();
+
+:root {
+  @include mtc-base-light-theme();
+  // @include mtc-base-dark-theme();
+}
+
 body {
   @include create-variables-from-color('primary', #149c75, 52%);
   @include create-variables-from-color('accent', #19a4b6, 52%);
@@ -44,15 +50,31 @@ body {
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
 
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
-//@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+  @include angular-material-theme(
+      mtc-custom-theme(
+          mat-palette($primary-map),
+          mat-palette($accent-map),
+          mat-palette($warn-map)
+      )
+  );
+}
+
+body.dark {
+  @include mtc-base-dark-theme();
 }
  */
 
 /*
 // Using with angular material (create theme from 3 color maps)
 
+
 @include mtc-init();
+
+:root {
+  @include mtc-base-light-theme();
+  // @include mtc-base-dark-theme();
+}
+
 body {
   @include create-variables-from-map('primary', $mat-teal);
   @include create-variables-from-map('accent', $mat-purple);
@@ -62,8 +84,17 @@ body {
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
 
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
-  //@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+  @include angular-material-theme(
+      mtc-custom-theme(
+          mat-palette($primary-map),
+          mat-palette($accent-map),
+          mat-palette($warn-map)
+      )
+  );
+}
+
+body.dark {
+  @include mtc-base-dark-theme();
 }
  */
 
@@ -186,7 +217,7 @@ body {
     --primary-A700: hsl(...);
     --primary-A700-contrast: hsl(...);
 */
-@mixin create-variables-from-color($theme-name, $color, $contrast-threshold:50%) {
+@mixin create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
   @include create-color($color, $theme-name);
 
   --#{$theme-name + '-contrast-threshold'}: #{$contrast-threshold};
@@ -244,7 +275,7 @@ body {
     Returns the Hue, Lightness and Saturation for CSS Color
 
   Input:
-    $color: CSS Color (#hex/rgb,hsl);
+    $color: CSS Color (#hex/rgb/hsl);
     $name: string (example: 'primary');
 
   Output:
@@ -265,11 +296,6 @@ body {
     Creates CSS Variables used in the "create-variables-from-color" mixin
 */
 @mixin mtc-init() {
-  // FIX: "Could not find Angular Material core theme. Most Material components may not work as expected."
-  .mat-theme-loaded-marker {
-    display: none;
-  }
-
   :root {
     --mtc-h-A100: 1;
     --mtc-h-A200: 1;
@@ -308,4 +334,127 @@ body {
     --mtc-light-s: 0;
     --mtc-light-l: 100;
   }
+}
+
+/*
+  Description:
+    Creates base colors CSS Variables for angular material theme (light)
+*/
+@mixin mtc-base-light-theme() {
+  --mtc-foreground-base: black;
+  --mtc-foreground-divider: #{rgba(black, 0.12)};
+  --mtc-foreground-dividers: #{rgba(black, 0.12)};
+  --mtc-foreground-disabled: #{rgba(black, 0.38)};
+  --mtc-foreground-disabled-button: #{rgba(black, 0.26)};
+  --mtc-foreground-disabled-text: #{rgba(black, 0.38)};
+  --mtc-foreground-elevation: #{rgba(black, 0.26)};
+  --mtc-foreground-hint-text: #{rgba(black, 0.38)};
+  --mtc-foreground-secondary-text: #{rgba(black, 0.54)};
+  --mtc-foreground-icon: #{rgba(black, 0.54)};
+  --mtc-foreground-icons: #{rgba(black, 0.54)};
+  --mtc-foreground-text: #{rgba(black, 0.87)};
+  --mtc-foreground-slider-min: #{rgba(black, 0.87)};
+  --mtc-foreground-slider-off: #{rgba(black, 0.26)};
+  --mtc-foreground-slider-off-active: #{rgba(black, 0.38)};
+
+  --mtc-background-status-bar: #e0e0e0;
+  --mtc-background-app-bar: #f5f5f5;
+  --mtc-background-background: #fafafa;
+  --mtc-background-hover: #{ rgba(black, 0.04)};
+  --mtc-background-card: white;
+  --mtc-background-dialog: white;
+  --mtc-background-disabled-button: #{rgba(black, 0.12)};
+  --mtc-background-raised-button: white;
+  --mtc-background-focused-button: #{rgba(black, 0.12)};
+  --mtc-background-selected-button: #e0e0e0;
+  --mtc-background-selected-disabled-button: #bdbdbd;
+  --mtc-background-disabled-button-toggle: #eeeeee;
+  --mtc-background-unselected-chip: #e0e0e0;
+  --mtc-background-disabled-list-option: #eeeeee;
+  --mtc-background-tooltip: #616161;
+}
+
+/*
+  Description:
+    Creates base colors CSS Variables for angular material theme (dark)
+*/
+@mixin mtc-base-dark-theme() {
+  --mtc-foreground-base: white;
+  --mtc-foreground-divider: #{rgba(white, 0.12)};
+  --mtc-foreground-dividers: #{rgba(white, 0.12)};
+  --mtc-foreground-disabled: #{rgba(white, 0.5)};
+  --mtc-foreground-disabled-button: #{ rgba(white, 0.3)};
+  --mtc-foreground-disabled-text: #{rgba(white, 0.5)};
+  --mtc-foreground-elevation: #{rgba(black, 0.26)};
+  --mtc-foreground-hint-text: #{rgba(white, 0.5)};
+  --mtc-foreground-secondary-text: #{rgba(white, 0.7)};
+  --mtc-foreground-icon: white;
+  --mtc-foreground-icons: white;
+  --mtc-foreground-text: white;
+  --mtc-foreground-slider-min: white;
+  --mtc-foreground-slider-off: #{rgba(white, 0.3)};
+  --mtc-foreground-slider-off-active: #{rgba(white, 0.3)};
+
+  --mtc-background-status-bar: black;
+  --mtc-background-app-bar: #212121;
+  --mtc-background-background: #303030;
+  --mtc-background-hover: #{rgba(white, 0.04)};
+  --mtc-background-card: #424242;
+  --mtc-background-dialog: #424242;
+  --mtc-background-disabled-button: #{rgba(white, 0.12)};
+  --mtc-background-raised-button: #424242;
+  --mtc-background-focused-button: #{rgba(white, 0.12)};
+  --mtc-background-selected-button: #212121;
+  --mtc-background-selected-disabled-button: #424242;
+  --mtc-background-disabled-button-toggle: #000;
+  --mtc-background-unselected-chip: #616161;
+  --mtc-background-disabled-list-option: #000;
+  --mtc-background-tooltip: #616161;
+}
+
+/*
+  Description:
+    Set base colors CSS Variables into angular material
+*/
+@function mtc-custom-theme($primary, $accent, $warn, $is-dark: false) {
+  @return (
+          primary: $primary,
+          accent: $accent,
+          warn: $warn,
+          is-dark: $is-dark,
+          foreground: (
+                  base: var(--mtc-foreground-base),
+                  divider: var(--mtc-foreground-divider),
+                  dividers: var(--mtc-foreground-dividers),
+                  disabled: var(--mtc-foreground-disabled),
+                  disabled-button: var(--mtc-foreground-disabled-button),
+                  disabled-text: var(--mtc-foreground-disabled-text),
+                  elevation: var(--mtc-foreground-elevation),
+                  hint-text: var(--mtc-foreground-hint-text),
+                  secondary-text: var(--mtc-foreground-secondary-text),
+                  icon: var(--mtc-foreground-icon),
+                  icons: var(--mtc-foreground-icons),
+                  text: var(--mtc-foreground-text),
+                  slider-min: var(--mtc-foreground-slider-min),
+                  slider-off: var(--mtc-foreground-slider-off),
+                  slider-off-active: var(--mtc-foreground-slider-off-active),
+          ),
+          background: (
+                  status-bar: var(--mtc-background-status-bar),
+                  app-bar: var(--mtc-background-app-bar),
+                  background: var(--mtc-background-background),
+                  hover: var(--mtc-background-hover),
+                  card: var(--mtc-background-card),
+                  dialog: var(--mtc-background-dialog),
+                  disabled-button: var(--mtc-background-disabled-button),
+                  raised-button: var(--mtc-background-raised-button),
+                  focused-button: var(--mtc-background-focused-button),
+                  selected-button: var(--mtc-background-selected-button),
+                  selected-disabled-button: var(--mtc-background-selected-disabled-button),
+                  disabled-button-toggle: var(--mtc-background-disabled-button-toggle),
+                  unselected-chip: var(--mtc-background-unselected-chip),
+                  disabled-list-option: var(--mtc-background-disabled-list-option),
+                  tooltip: var(--mtc-background-tooltip),
+          )
+  );
 }

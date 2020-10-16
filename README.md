@@ -32,51 +32,73 @@ npm install material-theme-creator
 You can create a theme from one color or from color-map
 ### 2.1 Angular Material: Create a theme from color
 ```scss
-  @import '~@angular/material/theming';
-  @import "~material-theme-creator/core";
+    @import '~@angular/material/theming';
+    @import "~material-theme-creator/core";
 
-  @include mat-core();
+    @include mtc-init();
 
-  $primary-map: create-theme-map('primary');
-  $accent-map: create-theme-map('accent');
-  $warn-map: create-theme-map('warn');
+    :root {
+        @include mtc-base-light-theme();
+     // @include mtc-base-dark-theme();
+    }
 
-  @include mtc-init();
-  :root {
-    @include create-variables-from-color('primary', #009688, 38%);
-    @include create-variables-from-color('accent', #2196f3, 58%);
-    @include create-variables-from-color('warn', #f44336, 62%);
-  }
+    body {
+        @include create-variables-from-color('primary', #149c75, 52%);
+        @include create-variables-from-color('accent', #19a4b6, 52%);
+        @include create-variables-from-color('warn', #d61f0c, 52%);
+        
+        $primary-map: create-theme-map('primary');
+        $accent-map: create-theme-map('accent');
+        $warn-map: create-theme-map('warn');
+        
+        @include angular-material-theme(
+            mtc-custom-theme(
+                mat-palette($primary-map),
+                mat-palette($accent-map),
+                mat-palette($warn-map)
+            )
+        );
+    }
 
-  // Light theme
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
-  // Dark theme
-  //@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
+    body.dark {
+      @include mtc-base-dark-theme();
+    }
 ```
 
 ### 2.2 Angular Material: Create a theme from color map
 ```scss
 
-  @import '~@angular/material/theming';
-  @import "~material-theme-creator/core";
+    @import '~@angular/material/theming';
+    @import "~material-theme-creator/core";
 
-  @include mat-core();
+    @include mtc-init();
 
-  $primary-map: create-theme-map('primary');
-  $accent-map: create-theme-map('accent');
-  $warn-map: create-theme-map('warn');
+    :root {
+        @include mtc-base-light-theme();
+     // @include mtc-base-dark-theme();
+    }
 
-  @include mtc-init();
-  :root {
-    @include create-variables-from-map('primary', $mat-teal);
-    @include create-variables-from-map('accent', $mat-deep-purple);
-    @include create-variables-from-map('warn', $mat-red);
-  }
-
-  // Light theme
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
-  // Dark theme
-  //@include angular-material-theme(mat-dark-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map)));
+    body {
+        @include create-variables-from-map('primary', $mat-teal);
+        @include create-variables-from-map('accent', $mat-purple);
+        @include create-variables-from-map('warn', $mat-red);
+        
+        $primary-map: create-theme-map('primary');
+        $accent-map: create-theme-map('accent');
+        $warn-map: create-theme-map('warn');
+        
+        @include angular-material-theme(
+          mtc-custom-theme(
+              mat-palette($primary-map),
+              mat-palette($accent-map),
+              mat-palette($warn-map)
+          )
+        );
+    }
+    
+    body.dark {
+        @include mtc-base-dark-theme();
+    }
 ```
 
 ## 3 Usage
@@ -97,8 +119,10 @@ You can create a theme from one color or from color-map
 ```
 
 ```scss
-
   // Pure CSS
+  body {
+    background-color: var(--mtc-background-background);
+  }
   button {
     background-color: var(--primary);
     color: var(--primary-contrast);

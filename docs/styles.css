@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 2.0.6
+  Version: 2.1.0
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -33,6 +33,12 @@ body {
 // Using with angular material (create theme from 3 colors)
 
 @include mtc-init();
+
+:root {
+  @include mtc-base-light-theme();
+  // @include mtc-base-dark-theme();
+}
+
 body {
   @include create-variables-from-color('primary', #149c75, 52%);
   @include create-variables-from-color('accent', #19a4b6, 52%);
@@ -42,14 +48,30 @@ body {
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
 
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
-//@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+  @include angular-material-theme(
+      mtc-custom-theme(
+          mat-palette($primary-map),
+          mat-palette($accent-map),
+          mat-palette($warn-map)
+      )
+  );
+}
+
+body.dark {
+  @include mtc-base-dark-theme();
 }
  */
 /*
 // Using with angular material (create theme from 3 color maps)
 
+
 @include mtc-init();
+
+:root {
+  @include mtc-base-light-theme();
+  // @include mtc-base-dark-theme();
+}
+
 body {
   @include create-variables-from-map('primary', $mat-teal);
   @include create-variables-from-map('accent', $mat-purple);
@@ -59,8 +81,17 @@ body {
   $accent-map: create-theme-map('accent');
   $warn-map: create-theme-map('warn');
 
-  @include angular-material-theme(mat-light-theme(mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Light them
-  //@include angular-material-theme(mat-dark-theme( mat-palette($primary-map), mat-palette($accent-map), mat-palette($warn-map))); // Dark theme
+  @include angular-material-theme(
+      mtc-custom-theme(
+          mat-palette($primary-map),
+          mat-palette($accent-map),
+          mat-palette($warn-map)
+      )
+  );
+}
+
+body.dark {
+  @include mtc-base-dark-theme();
 }
  */
 /*
@@ -139,7 +170,7 @@ body {
     Returns the Hue, Lightness and Saturation for CSS Color
 
   Input:
-    $color: CSS Color (#hex/rgb,hsl);
+    $color: CSS Color (#hex/rgb/hsl);
     $name: string (example: 'primary');
 
   Output:
@@ -152,13 +183,21 @@ body {
   Description:
     Creates CSS Variables used in the "create-variables-from-color" mixin
 */
+/*
+  Description:
+    Creates base colors CSS Variables for angular material theme (light)
+*/
+/*
+  Description:
+    Creates base colors CSS Variables for angular material theme (dark)
+*/
+/*
+  Description:
+    Set base colors CSS Variables into angular material
+*/
 /* Theme for the ripple elements.*/
 /* stylelint-disable material/no-prefixes */
 /* stylelint-enable */
-.mat-theme-loaded-marker {
-  display: none;
-}
-
 :root {
   --mtc-h-A100: 1;
   --mtc-h-A200: 1;
