@@ -221,16 +221,11 @@
   $arr_50_400: 50, 100, 200, 300, 400;
   @for $i from 1 through 5 {
     $index: nth($arr_50_400, $i);
-    --#{$theme-name}-#{$index}: hsl(
-                    var(#{$theme-h}),
-                    calc(((var(#{$theme-s}) - var(--mtc-light-s)) * var(#{'--mtc-s-' + $index}) + var(--mtc-light-s)) * 1%),
-                    calc(((var(#{$theme-l}) - var(--mtc-light-l)) * var(#{'--mtc-l-' + $index}) + var(--mtc-light-l)) * 1%)
-    );
-    --#{$theme-name}-#{$index}-contrast: hsl(
-                    0,
-                    0%,
-                    calc(((((1 - var(#{'--mtc-l-' + $index})) * 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100))
-    );
+    --#{$theme-name}-#{$index}-h: var(#{$theme-h});
+    --#{$theme-name}-#{$index}-s: calc(((var(#{$theme-s}) - var(--mtc-light-s)) * var(#{'--mtc-s-' + $index}) + var(--mtc-light-s)) * 1%);
+    --#{$theme-name}-#{$index}-l: calc(((var(#{$theme-l}) - var(--mtc-light-l)) * var(#{'--mtc-l-' + $index}) + var(--mtc-light-l)) * 1%);
+    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc(((((1 - var(#{'--mtc-l-' + $index})) * 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
   }
 
   --#{$theme-name + '-500'}: var(--#{$theme-name});
@@ -239,25 +234,20 @@
   $arr_600_900: 600, 700, 800, 900;
   @for $i from 1 through 4 {
     $index: nth($arr_600_900, $i);
-    --#{$theme-name}-#{$index}: hsl(
-                    var(#{$theme-h}),
-                    calc(((1 - var(#{'--mtc-s-' + $index})) * 100 + var(#{'--mtc-s-' + $index}) * var(#{$theme-s})) * 1%),
-                    calc(((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%)
-    );
-    --#{$theme-name}-#{$index}-contrast: hsl(
-                    0,
-                    0%,
-                    calc(
-                            ((((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) -
-                            var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)
-                    )
-    );
+    --#{$theme-name}-#{$index}-h: var(#{$theme-h});
+    --#{$theme-name}-#{$index}-s: calc(((1 - var(#{'--mtc-s-' + $index})) * 100 + var(#{'--mtc-s-' + $index}) * var(#{$theme-s})) * 1%);
+    --#{$theme-name}-#{$index}-l: calc(((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%);
+    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc(((((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
   }
 
   $arr_A00_A700: A100, A200, A400, A700;
   @for $i from 1 through 4 {
     $index: nth($arr_A00_A700, $i);
-    --#{$theme-name}-#{$index}: hsl(calc(var(#{$theme-h}) * var(#{'--mtc-h-' + $index})), calc(var(#{'--mtc-s-' + $index}) * 100%), calc(var(#{'--mtc-l-' + $index}) * 100%));
+    --#{$theme-name}-#{$index}-h: calc(var(#{$theme-h}) * var(#{'--mtc-h-' + $index}));
+    --#{$theme-name}-#{$index}-s: calc(var(#{'--mtc-s-' + $index}) * 100%);
+    --#{$theme-name}-#{$index}-l: calc(var(#{'--mtc-l-' + $index}) * 100%);
+    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
     --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--mtc-l-' + $index}) * 100% - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
   }
 }
@@ -265,16 +255,17 @@
 /// Returns the Hue, Lightness and Saturation for CSS Color
 /// @param {color} $color CSS Color (#hex/rgb/hsl);
 /// @param {string} $name (example: 'primary');
+/// @param {number} $alpha - color opacity [0% - 100%] / [0.0 - 1.0]
 /// @return CSS Custom Properties:
 ///  --primary-h: 212;
 ///  --primary-s: 95;
 ///  --primary-l: 80;
-///  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
-@mixin create-color($color, $name) {
+///  --primary: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 100%);
+@mixin create-color($color, $name, $alpha: 100%) {
   --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};
   --#{$name}-s: #{str-slice(saturation($color) + '', 0, -2)};
   --#{$name}-l: #{str-slice(lightness($color) + '', 0, -2)};
-  --#{$name}: hsl(var(--#{$name}-h), calc(var(--#{$name}-s) * 1%), calc(var(--#{$name}-l) * 1%));
+  --#{$name}: hsla(var(--#{$name}-h), calc(var(--#{$name}-s) * 1%), calc(var(--#{$name}-l) * 1%), #{$alpha});
 }
 
 /// Creates CSS Variables used in the "create-variables-from-color" mixin

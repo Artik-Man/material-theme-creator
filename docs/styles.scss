@@ -1,25 +1,32 @@
 @import '../core';
 @import './theming';
+@import "switch-theme";
+@import "common";
 
 @include mtc-init();
+
+body {
+  @include create-variables-from-color('my-theme', hsl(190, 70%, 40%), 50%);
+  //background: var(--my-theme-500);
+  //color: var(--my-theme-500-contrast);
+}
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  @include create-variables-from-color('my-theme', hsl(190, 70%, 40%), 50%);
-
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: var(--my-theme-500);
-  color: var(--my-theme-500-contrast);
+  font-weight: 300;
+  background-color: #f6f6f6;
 }
+
 
 h1 {
   margin-top: 3em;
   text-align: center;
-  font-weight: normal;
+  font-weight: lighter;
 }
 
 h2 {
@@ -33,7 +40,8 @@ h3 {
 }
 
 a {
-  color: var(--my-theme-500-contrast);
+  color: var(--my-theme-500);
+  font-weight: normal;
 
   &:hover, &:focus {
     text-decoration: none;
@@ -71,10 +79,6 @@ pre {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 16px;
-  width: 100%;
-  max-width: 880px;
-  margin: 0 auto;
 }
 
 .download-form {

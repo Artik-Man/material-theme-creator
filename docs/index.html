@@ -6,65 +6,77 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Material theme creator</title>
     <link rel="stylesheet" href="styles.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
 </head>
 <body>
-<h1>Material Theme Creator</h1>
-<div class="main">
-    <a href="https://github.com/Artik-Man/material-theme-creator">GitHub</a>
-    <section>
-        <h2>Create custom theme from one color in real time</h2>
-        <div class="creator">
-            <form class="creator-form">
-                <label data-range="h,my-theme">
-                    <span>Hue</span>
-                    <output>190</output>
-                    <input type="range" min="0" max="360" value="190"/>
-                </label>
-                <label data-range="s,my-theme">
-                    <span>Saturation</span>
-                    <output>70</output>
-                    <input type="range" min="0" max="100" value="70"/>
-                </label>
-                <label data-range="l,my-theme">
-                    <span>Lightness</span>
-                    <output>40</output>
-                    <input type="range" min="0" max="100" value="40"/>
-                </label>
-                <label data-range="contrast-threshold,my-theme,%">
-                    <span>Contrast threshold</span>
-                    <output>50</output>
-                    <input type="range" min="0" max="100" value="50"/>
-                </label>
-            </form>
-            <div class="theme" id="your-theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
+<input type="checkbox" id="switch-theme" class="visually-hidden">
+<div class="page">
+    <div class="theme-background"></div>
+    <label class="switch-theme" for="switch-theme" title="Switch theme">
+        <svg width="128" height="128" class="moon">
+            <use href="./sprite.svg#moon"></use>
+        </svg>
+        <svg width="128" height="128" class="sun">
+            <use href="./sprite.svg#sun"></use>
+        </svg>
+    </label>
+    <div class="main">
+        <h1>Material Theme Creator</h1>
+        <a href="https://github.com/Artik-Man/material-theme-creator">GitHub</a>
+        <section>
+            <h2>Create custom theme from one color in real time</h2>
+            <div class="creator">
+                <form class="creator-form">
+                    <label data-range="h,my-theme">
+                        <span>Hue</span>
+                        <output>190</output>
+                        <input type="range" min="0" max="360" value="190"/>
+                    </label>
+                    <label data-range="s,my-theme">
+                        <span>Saturation</span>
+                        <output>70</output>
+                        <input type="range" min="0" max="100" value="70"/>
+                    </label>
+                    <label data-range="l,my-theme">
+                        <span>Lightness</span>
+                        <output>40</output>
+                        <input type="range" min="0" max="100" value="40"/>
+                    </label>
+                    <label data-range="contrast-threshold,my-theme,%">
+                        <span>Contrast threshold</span>
+                        <output>50</output>
+                        <input type="range" min="0" max="100" value="50"/>
+                    </label>
+                </form>
+                <div class="theme" id="your-theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
 
-            <form onsubmit="downloadTheme(this); return false" class="download-form">
-                <label>
-                    Theme name:
-                    <input type="text" value="my-theme" name="theme"
-                           placeholder="Example: primary, accent, warn, ... (don't use color names)">
-                </label>
-                <button type="submit">Download only one CSS theme</button>
-            </form>
+                <form onsubmit="downloadTheme(this); return false" class="download-form">
+                    <label>
+                        Theme name:
+                        <input type="text" value="my-theme" name="theme"
+                               placeholder="Example: primary, accent, warn, ... (don't use color names)">
+                    </label>
+                    <button type="submit">Download only one CSS theme</button>
+                </form>
 
-            <pre><code class="scss">
+                <pre><code class="scss">
   @import '~material-theme-creator/core';
 
   @include mtc-init();
@@ -86,12 +98,12 @@
     }
   }
           </code></pre>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section>
-        <h2>How it works?</h2>
-        <pre><code class="scss">
+        <section>
+            <h2>How it works?</h2>
+            <pre><code class="scss">
     :root {
       --primary-h: 190;
       --primary-s: 70;
@@ -113,18 +125,18 @@
       )
     }
         </code></pre>
-    </section>
+        </section>
 
-    <section>
-        <h2>Installation</h2>
-        <pre>npm install material-theme-creator</pre>
-    </section>
-    <section>
-        <h2>Create theme</h2>
+        <section>
+            <h2>Installation</h2>
+            <pre>npm install material-theme-creator</pre>
+        </section>
+        <section>
+            <h2>Create theme</h2>
 
-        <article>
-            <h3>Angular Material: Create theme from color</h3>
-            <pre><code class="scss">
+            <article>
+                <h3>Angular Material: Create theme from color</h3>
+                <pre><code class="scss">
   @import '~@angular/material/theming';
   @import "~material-theme-creator/core";
 
@@ -147,11 +159,11 @@
 
             </code></pre>
 
-        </article>
+            </article>
 
-        <article>
-            <h3>Angular Material: Create theme from color map</h3>
-            <pre><code class="scss">
+            <article>
+                <h3>Angular Material: Create theme from color map</h3>
+                <pre><code class="scss">
   @import '~@angular/material/theming';
   @import "~material-theme-creator/core";
 
@@ -174,11 +186,11 @@
 
             </code></pre>
 
-        </article>
-    </section>
-    <section>
-        <h2>Usage</h2>
-        <pre><code class="scss">
+            </article>
+        </section>
+        <section>
+            <h2>Usage</h2>
+            <pre><code class="scss">
   // Material get color (https://material.angular.io/guide/theming-your-components)
   .primary {
     background: mat-color($primary-map, 400);
@@ -206,628 +218,628 @@
     background-color: var(--accent);
   }
           </code></pre>
-    </section>
-    <section>
-        <h2>Testing [<code>@mixin create-variables-from-color</code>]</h2>
-        <div class="themes">
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
+        </section>
+        <section>
+            <h2>Testing [<code>@mixin create-variables-from-color</code>]</h2>
+            <div class="themes">
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
 
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
+                <div class="theme">
+                    <span>50</span>
+                    <span>100</span>
+                    <span>200</span>
+                    <span>300</span>
+                    <span>400</span>
+                    <span>500</span>
+                    <span>600</span>
+                    <span>700</span>
+                    <span>800</span>
+                    <span>900</span>
+                    <span>A100</span>
+                    <span>A200</span>
+                    <span>A400</span>
+                    <span>A700</span>
+                </div>
             </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-            <div class="theme">
-                <span>50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>300</span>
-                <span>400</span>
-                <span>500</span>
-                <span>600</span>
-                <span>700</span>
-                <span>800</span>
-                <span>900</span>
-                <span>A100</span>
-                <span>A200</span>
-                <span>A400</span>
-                <span>A700</span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <h2>Source code <small>[scss]</small></h2>
-        <pre><code class="scss" id="code"></code></pre>
-    </section>
+        <section>
+            <h2>Source code <small>[scss]</small></h2>
+            <pre><code class="scss" id="code"></code></pre>
+        </section>
+    </div>
 </div>
-
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
 <script src="script.js"></script>
 </body>
