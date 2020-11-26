@@ -1,137 +1,125 @@
 # Material Theme Creator
-Converting Angular Material themes to CSS Custom Properties (Variables)
+How to use themes correctly on your site.
 
-```scss
-@import '~material-theme-creator/core';
+PLUS Converting Angular Material themes to CSS Custom Properties (Variables)
 
-@include mtc-init();
-body.theme-1 {
-    @include create-variables-from-color('my-theme', hsl(200, 70%, 40%), 50%);
-}
+[Full Documentation: artik-man.github.io/material-theme-creator](https://artik-man.github.io/material-theme-creator/)
 
-body.theme-2 {
-    @include create-variables-from-color('my-theme', #cc3300, 50%);
-}
-
-button {
-    background-color: var(--my-theme);
-    color: var(--my-theme-contrast);
-    &:hover {
-        background-color: var(--my-theme-700);
-        color: var(--my-theme-700-contrast);
-    }
+## How it works?
+Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления цветов темы.
+```css
+:root {
+    --primary-h: 260;
+    --primary-s: 80%;
+    --primary-l: 40%;
+    --primary: hsl( var(--primary-h), var(--primary-s), var(--primary-l) );
 }
 ```
-
-## 1 Installation
+Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру? Для этого нужно произвести некие вычисления.
+```css
+ :root {
+   --primary-400: hsl(
+                       calc( var(--primary-h) * var(--h-400) ),
+                       calc( var(--primary-s) * var(--s-400) ),
+                       calc( var(--primary-l) * var(--l-400) )
+                   );
+   --primary-500: hsl(
+                       calc( var(--primary-h) * var(--h-500) ),
+                       calc( var(--primary-s) * var(--s-500) ),
+                       calc( var(--primary-l) * var(--l-500) )
+                   );
+ }
+```
+## Installation
   ```
 npm install material-theme-creator
   ```
 
-## 2 Create theme
-You can create a theme from one color or from color-map
-### 2.1 Angular Material: Create a theme from color
+## 2 Create theme (SCSS)
+
 ```scss
-    @import '~@angular/material/theming';
-    @import "~material-theme-creator/core";
+ @import "~material-theme-creator/core";
 
-    @include mtc-init();
+ // Инициализируем root переменные
+ @include mtc-init();
 
-    :root {
-        @include mtc-base-light-theme();
-     // @include mtc-base-dark-theme();
-    }
+ body {
+   // Создадим тему на основе какого-то цвета
+   // Для этого передадим:
+   //   1. название темы
+   //   2. цвет, на основе которого мы будем строить тему
+   //   3. порог контрастности темы
+   @include mtc-create-variables-from-color('primary', #cc3300, 50%);
+ }
 
-    body {
-        @include create-variables-from-color('primary', #149c75, 52%);
-        @include create-variables-from-color('accent', #19a4b6, 52%);
-        @include create-variables-from-color('warn', #d61f0c, 52%);
-        
-        $primary-map: create-theme-map('primary');
-        $accent-map: create-theme-map('accent');
-        $warn-map: create-theme-map('warn');
-        
-        @include angular-material-theme(
-            mtc-custom-theme(
-                mat-palette($primary-map),
-                mat-palette($accent-map),
-                mat-palette($warn-map)
-            )
-        );
-    }
+ body.secondary-theme {
+   @include mtc-update-theme('primary', #6200ee, 55%);
+ }
 
-    body.dark {
-      @include mtc-base-dark-theme();
-    }
+ button {
+   color: mtc-color-contrast('primary');
+   background-color: mtc-color('primary');
+   &:hover {
+     color: mtc-color-contrast('primary', 700);
+     background-color: mtc-color('primary', 700, 92%);
+   }
+ }
 ```
 
-### 2.2 Angular Material: Create a theme from color map
+## 3 Create theme (Angular)
+### Initialization
 ```scss
+@import "~material-theme-creator/ngx-mtc";
+@import '~@angular/material/theming';
 
-    @import '~@angular/material/theming';
-    @import "~material-theme-creator/core";
+@include mat-core();
+@include ngx-mtc-init();
 
-    @include mtc-init();
-
-    :root {
-        @include mtc-base-light-theme();
-     // @include mtc-base-dark-theme();
-    }
-
-    body {
-        @include create-variables-from-map('primary', $mat-teal);
-        @include create-variables-from-map('accent', $mat-purple);
-        @include create-variables-from-map('warn', $mat-red);
-        
-        $primary-map: create-theme-map('primary');
-        $accent-map: create-theme-map('accent');
-        $warn-map: create-theme-map('warn');
-        
-        @include angular-material-theme(
-          mtc-custom-theme(
-              mat-palette($primary-map),
-              mat-palette($accent-map),
-              mat-palette($warn-map)
-          )
-        );
-    }
-    
-    body.dark {
-        @include mtc-base-dark-theme();
-    }
+$primary-map: ngx-mtc-create-theme-map('primary');
+$accent-map: ngx-mtc-create-theme-map('accent');
+$warn-map: ngx-mtc-create-theme-map('warn');
 ```
 
-## 3 Usage
+### Set up main theme
 ```scss
-  // Material get color (https://material.angular.io/guide/theming-your-components)
-  .primary {
-    background: mat-color($primary-map, 400);
-    color: mat-contrast($primary-map, 400);
-  }
-  .accent {
-    background: mat-color($accent-map);
-    color: mat-contrast($accent-map);
-  }
-  .warn {
-    background: mat-color($warn-map, A100);
-    color: mat-contrast($warn-map, A100);
-  }
+body {
+   --is-dark-theme: 1; // Is dark theme? 1 or 0;
+   @include ngx-mtc-theme-base(); // Creates base colors
+
+   // Creates theme colors
+   @include ngx-mtc-create-variables-from-color('primary', #009688, 38%);
+   @include ngx-mtc-create-variables-from-color('accent', #2196f3, 57%);
+   @include ngx-mtc-create-variables-from-color('warn', #f44336, 62%);
+ }
+
+ // Creates Angular Material Theme
+ @include angular-material-theme(
+   ngx-mtc-custom-theme(
+     mat-palette($primary-map),
+     mat-palette($accent-map),
+     mat-palette($warn-map)
+   )
+ );
 ```
 
+### Set up secondary theme
 ```scss
-  // Pure CSS
-  body {
-    background-color: var(--mtc-background-background);
-  }
-  button {
-    background-color: var(--primary);
-    color: var(--primary-contrast);
-  }
-  button:hover {
-    background-color: var(--primary-700);
-    color: var(--primary-700-contrast);
-  }
-  button.accent {
-    background-color: var(--accent);
-  }
+ body.theme2 {
+   --is-dark-theme: 0;
+   @include ngx-mtc-update-theme('primary', #142148, 45%);
+   @include ngx-mtc-update-theme('accent', #658e14, 50%);
+   @include ngx-mtc-update-theme('warn', #750101, 50%);
+ }
+```
+
+### Usage
+```scss
+button {
+   color: mat-contrast($primary-map, 500);
+   background-color: mat-color($primary-map, 500);
+   &:hover {
+     color: mat-contrast($primary-map, 700);
+     background-color: mat-color($primary-map, 700, 92%);
+   }
+ }
 ```

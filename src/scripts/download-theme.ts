@@ -1,42 +1,24 @@
-document.addEventListener('DOMContentLoaded', event => {
-    fetch('https://raw.githubusercontent.com/Artik-Man/material-theme-creator/master/core.scss')
-        .then(resp => resp.text())
-        .then(resp => {
-            document.getElementById('code').innerHTML = resp;
+const form = document.getElementById('form');
+const themeName = document.getElementById('theme-name') as HTMLInputElement;
 
-            document.querySelectorAll('pre code').forEach(block => {
-                hljs.highlightBlock(block);
-            });
-        });
-
-    const thm = document.body;
-
-
-    document.querySelectorAll('[data-range]').forEach(label => {
-        const [v, theme, unit] = label.dataset.range.split(',');
-        const input = label.querySelector('input');
-        const output = label.querySelector('output');
-
-        input.addEventListener('input', e => {
-            thm.style.setProperty(`--${theme}-${v}`, e.target.value + (unit || ''));
-            output.value = e.target.value;
-        });
-    });
-
+form.addEventListener('submit', evt => {
+    evt.preventDefault();
+    const name = themeName.value.trim() || 'primary'
+    const content = getCSSContent(name);
+    download(name, content);
 });
 
-const downloadTheme = (form) => {
-    const theme = new FormData(form).get('theme').trim() || 'primary';
+const getCSSContent = (theme: string): string => {
     const styles = window.getComputedStyle(document.body);
-    const css = `    
-:root {
+    return `    
+body {
     /* 
       Change this parameters to update your theme 
     */
-    --${theme}-h: ${styles.getPropertyValue('--${theme}-h')};
-    --${theme}-s: ${styles.getPropertyValue('--${theme}-s')};
-    --${theme}-l: ${styles.getPropertyValue('--${theme}-l')};
-    --${theme}-contrast-threshold: ${styles.getPropertyValue('--${theme}-contrast-threshold')};
+    --${theme}-h: ${styles.getPropertyValue(`--${theme}-h`)};
+    --${theme}-s: ${styles.getPropertyValue(`--${theme}-s`)};
+    --${theme}-l: ${styles.getPropertyValue(`--${theme}-l`)};
+    --${theme}-contrast-threshold: ${styles.getPropertyValue(`--${theme}-contrast-threshold`)};
     
     
     /* 
@@ -81,6 +63,9 @@ const downloadTheme = (form) => {
     --${theme}-400: hsl(var(--${theme}-400-h), var(--${theme}-400-s), var(--${theme}-400-l));
     --${theme}-400-contrast: hsl(0, 0%, calc(((((1 - var(--mtc-l-400)) * 100 + var(--mtc-l-400) * var(--${theme}-l)) * 1%) - var(--${theme}-contrast-threshold, 50%)) * (-100)));
 
+    --${theme}-500-h: var(--${theme}-h);
+    --${theme}-500-s: calc(var(--${theme}-s) * 1%);
+    --${theme}-500-l: calc(var(--${theme}-l) * 1%);
     --${theme}-500: var(--${theme});
     --${theme}-500-contrast: hsl(0, 0%, calc(((var(--${theme}-l) * 1%) - var(--${theme}-contrast-threshold, 50%)) * (-100)));
 
@@ -131,8 +116,9 @@ const downloadTheme = (form) => {
     --${theme}-A700-l: calc(var(--mtc-l-A700) * 100%);
     --${theme}-A700: hsl(var(--${theme}-A700-h), var(--${theme}-A700-s), var(--${theme}-A700-l));
     --${theme}-A700-contrast: hsl(0, 0%, calc((var(--mtc-l-A700) * 100% - var(--${theme}-contrast-threshold, 50%)) * (-100)));
+}
 
-    
+:root {
     /*
       Color weights
     */
@@ -171,96 +157,14 @@ const downloadTheme = (form) => {
     --mtc-light-l: ${styles.getPropertyValue('--mtc-light-l')};
 }
     `;
+}
 
+const download = (name: string, content: string): void => {
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(css));
-    element.setAttribute('download', `${theme}.css`);
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+    element.setAttribute('download', `${name}.css`);
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
 }
-
-const test = (index = 'A100', accuracy = 0.01, start = {h: 0, s: 0, l: 0}, end = {h: 1, s: 1, l: 1}) => {
-
-    const materialVariableElements = {};
-    const creatorVariableElements = {};
-
-    [...document.querySelector('.themes').children].forEach((theme, i) => {
-        if (i % 2 === 0) {
-            [...theme.children].forEach(el => {
-                const point = materialVariableElements[el.innerText];
-                if (point) {
-                    point.push(el);
-                } else {
-                    materialVariableElements[el.innerText] = [el];
-                }
-            })
-        } else {
-            [...theme.children].forEach(el => {
-                const point = creatorVariableElements[el.innerText];
-                if (point) {
-                    point.push(el);
-                } else {
-                    creatorVariableElements[el.innerText] = [el];
-                }
-            })
-        }
-    });
-
-
-    const distance = (c1, c2) => {
-        return Math.sqrt(Math.pow(c1.r - c2.r, 2) + Math.pow(c1.g - c2.g, 2) + Math.pow(c1.b - c2.b, 2))
-    };
-
-    const getColor = (element) => {
-        const color = window.getComputedStyle(element).getPropertyValue('background-color');
-        const [r, g, b] = color.match(/\d+/g).map(x => +x);
-        return {r, g, b}
-    };
-
-    const setVariable = (element, index, variables) => {
-        Object.keys(variables).forEach(property => {
-            element.style.setProperty(`--${property}${index}`, variables[property]);
-        })
-    };
-
-
-    let variables = {
-        h: start.h,
-        s: start.s,
-        l: start.l
-    };
-
-    let lastDistance = 999999999;
-    for (let h = start.h; h <= end.h; h += accuracy) {
-        for (let s = start.s; s <= end.s; s += accuracy) {
-            for (let l = start.l; l <= end.l; l += accuracy) {
-                let currentDistance = 0;
-                creatorVariableElements[index].forEach((currentElement, i) => {
-                    const varElement = currentElement.parentElement;
-                    setVariable(varElement, index, {h, s, l});
-                    const refElement = materialVariableElements[index][i];
-                    const refColor = getColor(refElement);
-                    const currentColor = getColor(currentElement);
-                    currentDistance += distance(refColor, currentColor);
-                });
-                if (currentDistance < lastDistance) {
-                    lastDistance = currentDistance;
-                    variables = {h, s, l};
-                    console.log(index, currentDistance, variables);
-                }
-            }
-        }
-    }
-
-    creatorVariableElements[index].forEach(currentElement => {
-        setVariable(currentElement.parentElement, index, variables);
-    });
-
-
-    console.log(index, variables);
-    return {
-        [index]: variables
-    }
-};

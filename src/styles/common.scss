@@ -1,4 +1,10 @@
 // output: false
+@use "~@material/slider/slider";
+@use "~@material/button";
+
+@include button.core-styles();
+@include slider.core-styles();
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -9,3 +15,4 @@
   border: 0;
   clip: rect(0 0 0 0)
 }
+

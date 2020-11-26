@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 2.1.1
+  Version: 3.0.0
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -9,264 +9,6 @@
 
 */
 
-// Using with pure css
-//
-//@include mtc-init();
-//body {
-//  @include create-variables-from-color('primary', #149c75, 52%);
-//  @include create-variables-from-color('warn', #d61f0c);
-//
-//  a {
-//    color: var(--primary);
-//    &:hover{
-//      color: var(--primary-900);
-//    }
-//  }
-//
-//  .warning {
-//    background: var(--warn-100);
-//    color: var(--warn-700);
-//  }
-//}
-
-
-// Using with angular material (create theme from 3 colors)
-//
-//@include mtc-init();
-//
-//:root {
-//  @include mtc-base-light-theme();
-//  // @include mtc-base-dark-theme();
-//}
-//
-//body {
-//  @include create-variables-from-color('primary', #149c75, 52%);
-//  @include create-variables-from-color('accent', #19a4b6, 52%);
-//  @include create-variables-from-color('warn', #d61f0c, 52%);
-//
-//  $primary-map: create-theme-map('primary');
-//  $accent-map: create-theme-map('accent');
-//  $warn-map: create-theme-map('warn');
-//
-//  @include angular-material-theme(
-//      mtc-custom-theme(
-//          mat-palette($primary-map),
-//          mat-palette($accent-map),
-//          mat-palette($warn-map)
-//      )
-//  );
-//}
-//
-//body.dark {
-//  @include mtc-base-dark-theme();
-//}
-
-
-// Using with angular material (create theme from 3 color maps)
-//
-//@include mtc-init();
-//
-//:root {
-//  @include mtc-base-light-theme();
-//  // @include mtc-base-dark-theme();
-//}
-//
-//body {
-//  @include create-variables-from-map('primary', $mat-teal);
-//  @include create-variables-from-map('accent', $mat-purple);
-//  @include create-variables-from-map('warn', $mat-red);
-//
-//  $primary-map: create-theme-map('primary');
-//  $accent-map: create-theme-map('accent');
-//  $warn-map: create-theme-map('warn');
-//
-//  @include angular-material-theme(
-//      mtc-custom-theme(
-//          mat-palette($primary-map),
-//          mat-palette($accent-map),
-//          mat-palette($warn-map)
-//      )
-//  );
-//}
-//
-//body.dark {
-//  @include mtc-base-dark-theme();
-//}
-
-
-/// Creates a theme-map for use in Angular Material
-/// @param {string} $theme-name
-/// @return {mat-palette} palette with CSS Custom Properties
-@function create-theme-map($theme-name) {
-  @return (
-          50: #{'var(--' + $theme-name + '-50, #eee)'},
-          100:#{'var(--' + $theme-name + '-100, #ddd)'},
-          200:#{'var(--' + $theme-name + '-200, #ccc)'},
-          300:#{'var(--' + $theme-name + '-300, #aaa)'},
-          400:#{'var(--' + $theme-name + '-400, #999)'},
-          500:#{'var(--' + $theme-name + '-500, #777)'},
-          600:#{'var(--' + $theme-name + '-600, #666)'},
-          700:#{'var(--' + $theme-name + '-700, #555)'},
-          800:#{'var(--' + $theme-name + '-800, #333)'},
-          900:#{'var(--' + $theme-name + '-900, #222)'},
-          A100:#{'var(--' + $theme-name + '-A100, #c00)'},
-          A200:#{'var(--' + $theme-name + '-A200, #900)'},
-          A400:#{'var(--' + $theme-name + '-A400, #700)'},
-          A700:#{'var(--' + $theme-name + '-A700, #500)'},
-          contrast: (
-                  50: #{'var(--' + $theme-name + '-50-contrast, 50%)'},
-                  200:#{'var(--' + $theme-name + '-200-contrast, 50%)'},
-                  300:#{'var(--' + $theme-name + '-300-contrast, 50%)'},
-                  100:#{'var(--' + $theme-name + '-100-contrast, 50%)'},
-                  400:#{'var(--' + $theme-name + '-400-contrast, 50%)'},
-                  500:#{'var(--' + $theme-name + '-500-contrast, 50%)'},
-                  600:#{'var(--' + $theme-name + '-600-contrast, 50%)'},
-                  700:#{'var(--' + $theme-name + '-700-contrast, 50%)'},
-                  800:#{'var(--' + $theme-name + '-800-contrast, 50%)'},
-                  900:#{'var(--' + $theme-name + '-900-contrast, 50%)'},
-                  A100:#{'var(--' + $theme-name + '-A100-contrast, 50%)'},
-                  A200:#{'var(--' + $theme-name + '-A200-contrast, 50%)'},
-                  A400:#{'var(--' + $theme-name + '-A400-contrast, 50%)'},
-                  A700:#{'var(--' + $theme-name + '-A700-contrast, 50%)'},
-          )
-  );
-}
-
-
-/// Creates CSS Custom Properties for mat-palette from mat-palette
-/// @param {string} $theme-name (example: 'primary');
-/// @param {mat-palette} $theme-map: SASS Map (https://sass-lang.com/documentation/values/maps);
-/// You can use theme-map from ~@angular/material/theming (e.g. $mat-orange or $mat-light-green...)
-///
-/// Theme Map Example:
-///  (
-///     50: #ffebee,
-///    100: #ffcdd2,
-///    200: #ef9a9a,
-///    300: #e57373,
-///    400: #ef5350,
-///    500: #f44336,
-///    600: #e53935,
-///    700: #d32f2f,
-///    800: #c62828,
-///    900: #b71c1c,
-///    A100: #ff8a80,
-///    A200: #ff5252,
-///    A400: #ff1744,
-///    A700: #d50000,
-///    contrast: (
-///       50: #000,
-///      100: #000,
-///      200: #000,
-///      300: #000,
-///      400: #000,
-///      500: #fff,
-///      600: #fff,
-///      700: #fff,
-///      800: #fff,
-///      900: #fff,
-///      A100: #000,
-///      A200: #fff,
-///      A400: #fff,
-///      A700: #fff,
-///    )
-///  )
-///
-/// @return CSS Custom Properties:
-///  --primary: hsl(...);
-///  --primary-50: hsl(...);
-///  --primary-50-contrast: hsl(...);
-///  --primary-100: hsl(...);
-///  --primary-100-contrast: hsl(...);
-///  ...
-///  --primary-A700: hsl(...);
-///  --primary-A700-contrast: hsl(...);
-@mixin create-variables-from-map($theme-name, $theme-map) {
-  // color: var(--primary)
-  --#{$theme-name}: #{map-get($theme-map, 500)};
-
-  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
-  @for $i from 1 through 14 {
-    // color: var(--primary-300)
-    $index: nth($arr_names, $i);
-    --#{$theme-name}-#{$index}: #{map-get($theme-map, $index)};
-    --#{$theme-name}-#{$index}-contrast: #{map-get(map-get($theme-map, contrast), $index)};
-  }
-}
-
-
-/// Creates CSS Custom Properties for mat-palette from one color
-/// @param {string} $theme-name (example: 'primary');
-/// @param {color} $color CSS Color (#hex/rgb,hsl);
-/// @param {percent} $contrast-threshold: 0%..100% (default: 50%);
-///
-/// @return CSS Custom Properties:
-///  --primary: hsl(...);
-///  --primary-50: hsl(...);
-///  --primary-50-contrast: hsl(...);
-///  --primary-100: hsl(...);
-///  --primary-100-contrast: hsl(...);
-///  ...
-///  --primary-A700: hsl(...);
-///  --primary-A700-contrast: hsl(...);
-@mixin create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
-  @include create-color($color, $theme-name);
-
-  --#{$theme-name + '-contrast-threshold'}: #{$contrast-threshold};
-
-  $theme-h: '--' + $theme-name + '-h';
-  $theme-s: '--' + $theme-name + '-s';
-  $theme-l: '--' + $theme-name + '-l';
-
-  $arr_50_400: 50, 100, 200, 300, 400;
-  @for $i from 1 through 5 {
-    $index: nth($arr_50_400, $i);
-    --#{$theme-name}-#{$index}-h: var(#{$theme-h});
-    --#{$theme-name}-#{$index}-s: calc(((var(#{$theme-s}) - var(--mtc-light-s)) * var(#{'--mtc-s-' + $index}) + var(--mtc-light-s)) * 1%);
-    --#{$theme-name}-#{$index}-l: calc(((var(#{$theme-l}) - var(--mtc-light-l)) * var(#{'--mtc-l-' + $index}) + var(--mtc-light-l)) * 1%);
-    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
-    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc(((((1 - var(#{'--mtc-l-' + $index})) * 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
-  }
-
-  --#{$theme-name + '-500'}: var(--#{$theme-name});
-  --#{$theme-name + '-500-contrast'}: hsl(0, 0%, calc(((var(#{$theme-l}) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
-
-  $arr_600_900: 600, 700, 800, 900;
-  @for $i from 1 through 4 {
-    $index: nth($arr_600_900, $i);
-    --#{$theme-name}-#{$index}-h: var(#{$theme-h});
-    --#{$theme-name}-#{$index}-s: calc(((1 - var(#{'--mtc-s-' + $index})) * 100 + var(#{'--mtc-s-' + $index}) * var(#{$theme-s})) * 1%);
-    --#{$theme-name}-#{$index}-l: calc(((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%);
-    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
-    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc(((((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
-  }
-
-  $arr_A00_A700: A100, A200, A400, A700;
-  @for $i from 1 through 4 {
-    $index: nth($arr_A00_A700, $i);
-    --#{$theme-name}-#{$index}-h: calc(var(#{$theme-h}) * var(#{'--mtc-h-' + $index}));
-    --#{$theme-name}-#{$index}-s: calc(var(#{'--mtc-s-' + $index}) * 100%);
-    --#{$theme-name}-#{$index}-l: calc(var(#{'--mtc-l-' + $index}) * 100%);
-    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
-    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--mtc-l-' + $index}) * 100% - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
-  }
-}
-
-/// Returns the Hue, Lightness and Saturation for CSS Color
-/// @param {color} $color CSS Color (#hex/rgb/hsl);
-/// @param {string} $name (example: 'primary');
-/// @param {number} $alpha - color opacity [0% - 100%] / [0.0 - 1.0]
-/// @return CSS Custom Properties:
-///  --primary-h: 212;
-///  --primary-s: 95;
-///  --primary-l: 80;
-///  --primary: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 100%);
-@mixin create-color($color, $name, $alpha: 100%) {
-  --#{$name}-h: #{str-slice(hue($color) + '', 0, -4)};
-  --#{$name}-s: #{str-slice(saturation($color) + '', 0, -2)};
-  --#{$name}-l: #{str-slice(lightness($color) + '', 0, -2)};
-  --#{$name}: hsla(var(--#{$name}-h), calc(var(--#{$name}-s) * 1%), calc(var(--#{$name}-l) * 1%), #{$alpha});
-}
 
 /// Creates CSS Variables used in the "create-variables-from-color" mixin
 @mixin mtc-init() {
@@ -310,121 +52,97 @@
   }
 }
 
-/// Creates base colors CSS Variables for angular material theme (light)
-@mixin mtc-base-light-theme() {
-  --mtc-foreground-base: black;
-  --mtc-foreground-divider: #{rgba(black, 0.12)};
-  --mtc-foreground-dividers: #{rgba(black, 0.12)};
-  --mtc-foreground-disabled: #{rgba(black, 0.38)};
-  --mtc-foreground-disabled-button: #{rgba(black, 0.26)};
-  --mtc-foreground-disabled-text: #{rgba(black, 0.38)};
-  --mtc-foreground-elevation: #{rgba(black, 0.26)};
-  --mtc-foreground-hint-text: #{rgba(black, 0.38)};
-  --mtc-foreground-secondary-text: #{rgba(black, 0.54)};
-  --mtc-foreground-icon: #{rgba(black, 0.54)};
-  --mtc-foreground-icons: #{rgba(black, 0.54)};
-  --mtc-foreground-text: #{rgba(black, 0.87)};
-  --mtc-foreground-slider-min: #{rgba(black, 0.87)};
-  --mtc-foreground-slider-off: #{rgba(black, 0.26)};
-  --mtc-foreground-slider-off-active: #{rgba(black, 0.38)};
 
-  --mtc-background-status-bar: #e0e0e0;
-  --mtc-background-app-bar: #f5f5f5;
-  --mtc-background-background: #fafafa;
-  --mtc-background-hover: #{ rgba(black, 0.04)};
-  --mtc-background-card: white;
-  --mtc-background-dialog: white;
-  --mtc-background-disabled-button: #{rgba(black, 0.12)};
-  --mtc-background-raised-button: white;
-  --mtc-background-focused-button: #{rgba(black, 0.12)};
-  --mtc-background-selected-button: #e0e0e0;
-  --mtc-background-selected-disabled-button: #bdbdbd;
-  --mtc-background-disabled-button-toggle: #eeeeee;
-  --mtc-background-unselected-chip: #e0e0e0;
-  --mtc-background-disabled-list-option: #eeeeee;
-  --mtc-background-tooltip: #616161;
+/// Creates CSS Custom Properties for mat-palette from one color
+/// @param {string} $theme-name (example: 'primary');
+/// @param {color} $color CSS Color (#hex/rgb,hsl);
+/// @param {percent} $contrast-threshold: 0%..100% (default: 50%);
+///
+/// @return CSS Custom Properties:
+///  --primary: hsl(...);
+///  --primary-50: hsl(...);
+///  --primary-50-contrast: hsl(...);
+///  --primary-100: hsl(...);
+///  --primary-100-contrast: hsl(...);
+///  ...
+///  --primary-A700: hsl(...);
+///  --primary-A700-contrast: hsl(...);
+@mixin mtc-create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
+  @include mtc-update-theme($theme-name, $color, $contrast-threshold);
+
+  --#{$theme-name}: hsla(var(--#{$theme-name}-h), calc(var(--#{$theme-name}-s) * 1%), calc(var(--#{$theme-name}-l) * 1%), #{alpha($color)});
+
+  $theme-h: '--' + $theme-name + '-h';
+  $theme-s: '--' + $theme-name + '-s';
+  $theme-l: '--' + $theme-name + '-l';
+
+  $arr_50_400: 50, 100, 200, 300, 400;
+  @for $i from 1 through 5 {
+    $index: nth($arr_50_400, $i);
+    --#{$theme-name}-#{$index}-h: var(#{$theme-h});
+    --#{$theme-name}-#{$index}-s: calc(((var(#{$theme-s}) - var(--mtc-light-s)) * var(#{'--mtc-s-' + $index}) + var(--mtc-light-s)) * 1%);
+    --#{$theme-name}-#{$index}-l: calc(((var(#{$theme-l}) - var(--mtc-light-l)) * var(#{'--mtc-l-' + $index}) + var(--mtc-light-l)) * 1%);
+    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc(((((1 - var(#{'--mtc-l-' + $index})) * 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
+  }
+
+  --#{$theme-name+ '-500-h'}: var(#{$theme-h});
+  --#{$theme-name+ '-500-s'}: calc(var(#{$theme-s}) * 1%);
+  --#{$theme-name+ '-500-l'}: calc(var(#{$theme-l}) * 1%);
+
+  --#{$theme-name + '-500'}: var(--#{$theme-name});
+  --#{$theme-name + '-500-contrast'}: hsl(0, 0%, calc(((var(#{$theme-l}) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
+
+  $arr_600_900: 600, 700, 800, 900;
+  @for $i from 1 through 4 {
+    $index: nth($arr_600_900, $i);
+    --#{$theme-name}-#{$index}-h: var(#{$theme-h});
+    --#{$theme-name}-#{$index}-s: calc(((1 - var(#{'--mtc-s-' + $index})) * 100 + var(#{'--mtc-s-' + $index}) * var(#{$theme-s})) * 1%);
+    --#{$theme-name}-#{$index}-l: calc(((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%);
+    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc(((((1 - var(#{'--mtc-l-' + $index})) * var(#{$theme-l}) * var(#{$theme-l}) / 100 + var(#{'--mtc-l-' + $index}) * var(#{$theme-l})) * 1%) - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
+  }
+
+  $arr_A00_A700: A100, A200, A400, A700;
+  @for $i from 1 through 4 {
+    $index: nth($arr_A00_A700, $i);
+    --#{$theme-name}-#{$index}-h: calc(var(#{$theme-h}) * var(#{'--mtc-h-' + $index}));
+    --#{$theme-name}-#{$index}-s: calc(var(#{'--mtc-s-' + $index}) * 100%);
+    --#{$theme-name}-#{$index}-l: calc(var(#{'--mtc-l-' + $index}) * 100%);
+    --#{$theme-name}-#{$index}: hsl(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l));
+    --#{$theme-name}-#{$index}-contrast: hsl(0, 0%, calc((var(#{'--mtc-l-' + $index}) * 100% - var(#{'--' + $theme-name + '-contrast-threshold'}, 50%)) * (-100)));
+  }
 }
 
-/// Creates base colors CSS Variables for angular material theme (dark)
-@mixin mtc-base-dark-theme() {
-  --mtc-foreground-base: white;
-  --mtc-foreground-divider: #{rgba(white, 0.12)};
-  --mtc-foreground-dividers: #{rgba(white, 0.12)};
-  --mtc-foreground-disabled: #{rgba(white, 0.5)};
-  --mtc-foreground-disabled-button: #{ rgba(white, 0.3)};
-  --mtc-foreground-disabled-text: #{rgba(white, 0.5)};
-  --mtc-foreground-elevation: #{rgba(black, 0.26)};
-  --mtc-foreground-hint-text: #{rgba(white, 0.5)};
-  --mtc-foreground-secondary-text: #{rgba(white, 0.7)};
-  --mtc-foreground-icon: white;
-  --mtc-foreground-icons: white;
-  --mtc-foreground-text: white;
-  --mtc-foreground-slider-min: white;
-  --mtc-foreground-slider-off: #{rgba(white, 0.3)};
-  --mtc-foreground-slider-off-active: #{rgba(white, 0.3)};
-
-  --mtc-background-status-bar: black;
-  --mtc-background-app-bar: #212121;
-  --mtc-background-background: #303030;
-  --mtc-background-hover: #{rgba(white, 0.04)};
-  --mtc-background-card: #424242;
-  --mtc-background-dialog: #424242;
-  --mtc-background-disabled-button: #{rgba(white, 0.12)};
-  --mtc-background-raised-button: #424242;
-  --mtc-background-focused-button: #{rgba(white, 0.12)};
-  --mtc-background-selected-button: #212121;
-  --mtc-background-selected-disabled-button: #424242;
-  --mtc-background-disabled-button-toggle: #000;
-  --mtc-background-unselected-chip: #616161;
-  --mtc-background-disabled-list-option: #000;
-  --mtc-background-tooltip: #616161;
+/// Returns CSS Custom Properties: Hue, Lightness, Saturation for CSS Color and contrast threshold for this theme
+/// @param {string} $theme-name (example: 'primary');
+/// @param {color} $color CSS Color (#hex/rgb/hsl);
+/// @param {number} $contrast-threshold - contrast threshold for theme
+/// @return CSS Custom Properties:
+///  --primary-h: 212;
+///  --primary-s: 95;
+///  --primary-l: 80;
+///  --primary-contrast-threshold: 50%;
+@mixin mtc-update-theme($theme-name, $color, $contrast-threshold: 50%) {
+  --#{$theme-name}-h: #{str-slice(hue($color) + '', 0, -4)};
+  --#{$theme-name}-s: #{str-slice(saturation($color) + '', 0, -2)};
+  --#{$theme-name}-l: #{str-slice(lightness($color) + '', 0, -2)};
+  --#{$theme-name}-contrast-threshold: #{$contrast-threshold};
 }
 
-/// Set base colors CSS Variables into angular material
-/// @param {mat-palette} $primary primary palette
-/// @param {mat-palette} $accent accent palette
-/// @param {mat-palette} $warn warn palette
-/// @param {boolean} $is-dark is theme dark theme
-/// @return {mat-theme} theme for angular-material-theme function. `@include angular-material-theme(mtc-custom-theme(...));`
-@function mtc-custom-theme($primary, $accent, $warn, $is-dark: false) {
-  @return (
-          primary: $primary,
-          accent: $accent,
-          warn: $warn,
-          is-dark: $is-dark,
-          foreground: (
-                  base: var(--mtc-foreground-base),
-                  divider: var(--mtc-foreground-divider),
-                  dividers: var(--mtc-foreground-dividers),
-                  disabled: var(--mtc-foreground-disabled),
-                  disabled-button: var(--mtc-foreground-disabled-button),
-                  disabled-text: var(--mtc-foreground-disabled-text),
-                  elevation: var(--mtc-foreground-elevation),
-                  hint-text: var(--mtc-foreground-hint-text),
-                  secondary-text: var(--mtc-foreground-secondary-text),
-                  icon: var(--mtc-foreground-icon),
-                  icons: var(--mtc-foreground-icons),
-                  text: var(--mtc-foreground-text),
-                  slider-min: var(--mtc-foreground-slider-min),
-                  slider-off: var(--mtc-foreground-slider-off),
-                  slider-off-active: var(--mtc-foreground-slider-off-active),
-          ),
-          background: (
-                  status-bar: var(--mtc-background-status-bar),
-                  app-bar: var(--mtc-background-app-bar),
-                  background: var(--mtc-background-background),
-                  hover: var(--mtc-background-hover),
-                  card: var(--mtc-background-card),
-                  dialog: var(--mtc-background-dialog),
-                  disabled-button: var(--mtc-background-disabled-button),
-                  raised-button: var(--mtc-background-raised-button),
-                  focused-button: var(--mtc-background-focused-button),
-                  selected-button: var(--mtc-background-selected-button),
-                  selected-disabled-button: var(--mtc-background-selected-disabled-button),
-                  disabled-button-toggle: var(--mtc-background-disabled-button-toggle),
-                  unselected-chip: var(--mtc-background-unselected-chip),
-                  disabled-list-option: var(--mtc-background-disabled-list-option),
-                  tooltip: var(--mtc-background-tooltip),
-          )
-  );
+/// Returns color (variable). Example: mtc-color('primary', 400, 95%)
+/// @param {string} $theme-name (example: 'primary');
+/// @param {string} $index: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700];
+/// @param {number} $alpha (default: 100%)
+/// @returns hsla(...color)
+@function mtc-color($theme-name, $index: 500, $alpha: 100%) {
+  @return hsla(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l), #{$alpha});
+}
+
+/// Returns contrast color (variable). Example: mtc-color-contrast('primary', 400)
+/// @param {string} $theme-name (example: 'primary');
+/// @param {string} $index: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700];
+/// @returns black or white
+@function mtc-color-contrast($theme-name, $index: 500) {
+  @return var(--#{$theme-name}-#{$index}-contrast);
 }

@@ -1,0 +1,199 @@
+// output: false
+
+
+.page {
+  --is-dark-theme: 0;
+  --background: hsl(0, 0%, calc((1 - var(--is-dark-theme)) * 85% + 15%));
+  --text-color: hsl(0, 0%, calc(var(--is-dark-theme) * 100%));
+  color: var(--text-color);
+  transition: color .2s ease-in-out .4s;
+
+  @media (prefers-color-scheme: dark) {
+    --is-dark-theme: 1;
+  }
+  @media (prefers-color-scheme: light) {
+    --is-dark-theme: 0;
+  }
+}
+
+#switch-theme {
+  position: absolute;
+
+  &:focus-visible {
+    + .page {
+      .switch-theme {
+        outline: auto;
+      }
+    }
+  }
+
+  &:checked + .page {
+    @media (prefers-color-scheme: dark) {
+      --is-dark-theme: 0;
+    }
+    @media (prefers-color-scheme: light) {
+      --is-dark-theme: 1;
+    }
+
+    .switch-theme {
+      .icon {
+        @media (prefers-color-scheme: dark) {
+          .moon {
+            transform: translateY(var(--size));
+            transition: all .5s cubic-bezier(0.9, -0.65, 0.45, 0.55);
+          }
+
+          .sun {
+            transform: translateY(0%);
+            transition: all 0.5s cubic-bezier(0.4, 0.45, 0.45, 1.4) 0.4s;
+          }
+        }
+
+        @media (prefers-color-scheme: light) {
+          .moon {
+            transform: translateY(0%);
+            transition: all 0.5s cubic-bezier(0.4, 0.45, 0.45, 1.4) 0.4s;
+            opacity: 1;
+          }
+
+          .sun {
+            transform: translateY(var(--size));
+            transition: all .5s cubic-bezier(0.9, -0.65, 0.45, 0.55);
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-background {
+  background-color: var(--background);
+  width: calc(var(--is-dark-theme) * 200vmax);
+  height: calc(var(--is-dark-theme) * 200vmax);
+  top: calc(var(--is-dark-theme) * -50vmax);
+  left: calc(var(--is-dark-theme) * -50vmax);
+  position: fixed;
+  border-radius: 50%;
+  transition: all .2s linear .4s;
+  z-index: -1;
+}
+
+.switch-theme {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  --size: 72px;
+  --icon-size: 48px;
+  width: var(--size);
+  height: var(--size);
+
+  .icon {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    animation: rocking infinite 5s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    svg {
+      opacity: 0;
+      animation: show .2s forwards .4s;
+      position: absolute;
+      top: calc((var(--size) - var(--icon-size)) / 2);
+      left: calc((var(--size) - var(--icon-size)) / 2);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .moon {
+        transform: translateY(var(--size));
+        transition: all .5s cubic-bezier(0.9, -0.65, 0.45, 0.55);
+        opacity: 0;
+      }
+
+      .sun {
+        transform: translateY(0%);
+        transition: all 0.5s cubic-bezier(0.4, 0.45, 0.45, 1.4) 0.4s;
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .moon {
+        transform: translateY(0%);
+        transition: all 0.5s cubic-bezier(0.4, 0.45, 0.45, 1.4) 0.4s;
+        opacity: 1;
+      }
+
+      .sun {
+        transform: translateY(var(--size));
+        transition: all .5s cubic-bezier(0.9, -0.65, 0.45, 0.55);
+        opacity: 0;
+      }
+    }
+  }
+
+  .prompt {
+    position: absolute;
+    top: -64px;
+    left: 76px;
+    margin-left: 21px;
+    font-family: cursive;
+    font-size: 1.4em;
+    line-height: 1;
+    text-shadow: 0 0 2px var(--background);
+    transform: rotate(-25deg);
+    animation: show-prompt forwards 5s;
+    z-index: -1;
+
+    svg {
+      position: absolute;
+      top: 0;
+      right: 100%;
+    }
+  }
+
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rocking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes show-prompt {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  10% {
+    display: block;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,126 @@
+code[class*="language-"],
+pre[class*="language-"] {
+  color: hsl(0, 0%, calc((var(--is-dark-theme)) * 70% + 20%));
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection,
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: var(--my-theme);
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: hsl(0, 0%, calc((1 - var(--is-dark-theme)) * 70% + 20%));
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: hsl(calc(var(--my-theme-h) + 20), 20%, 60%);
+}
+
+.token.punctuation {
+  color: hsl(calc(var(--my-theme-h) + 280), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: hsl(calc(var(--my-theme-h) + 70), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: hsl(calc(var(--my-theme-h) + 0), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: hsl(calc(var(--my-theme-h) + 210), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: hsl(calc(var(--my-theme-h) + 150), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.function,
+.token.class-name {
+  color: hsl(calc(var(--my-theme-h) + 100), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: hsl(calc(var(--my-theme-h) + 90), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

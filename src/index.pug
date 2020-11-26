@@ -1,0 +1,334 @@
+include ./components/slider
+include ./components/textfield
+include ./components/button
+
+-const points = '50,100,200,300,400,500,600,700,800,900,A100,A200,A400,A700'.split(',');
+-const themes = new Array(38).fill(0);
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title="Material Theme Creator"
+
+        link(rel="stylesheet" href="styles.css")
+    body
+        input(type="checkbox" id="switch-theme" class="visually-hidden")
+        .page
+            .theme-background
+            main
+                .header
+                    include  ./components/switch-theme
+                    h1="Material Theme Creator"
+                a(href="https://github.com/Artik-Man/material-theme-creator")="GitHub"
+                section
+                    h2="Create custom theme from one color in real time"
+
+                    .create-theme
+                        h3 Hue
+                        .value.-h
+                        +slider(0,360,260,1,"Hue","creator-h")
+                        h3 Saturation
+                        .value.-s
+                        +slider(0,100,80,1,"Saturation","creator-s")
+                        h3 Lightness
+                        .value.-l
+                        +slider(0,100,60,1,"Lightness","creator-l")
+                        h3 Contrast threshold
+                        .value.-cc="70%"
+                        +slider(0,100,70,1,"Contrast threshold","creator-cc")
+
+                    .your-theme
+
+                        each point in points
+                            span.point(data-point=point)=point
+                                .info
+                                    | var(--my-theme-#{point}) <br><br>
+                                    | hsla(<br>
+                                    | &nbsp; var(--my-theme-#{point})-h,<br>
+                                    | &nbsp; var(--my-theme-#{point})-s,<br>
+                                    | &nbsp; var(--my-theme-#{point})-l,<br>
+                                    | &nbsp; 100%,<br>
+                                    | )
+                    form.download-theme#form
+                        +textfield('theme-name', "Theme name", 'my-theme')
+                        +button("Download theme")
+
+                section
+                    h2 Оглавление
+                    ul.table-of-contents
+                        li
+                            a(href="#article-how-it-works") How it works?
+                        li
+                            a(href="#article-how-to-use-it") Как это использовать?
+                            ol
+                                li
+                                    a(href="#acricle-pure-css") Не хочу ничего устанавливать (использование с pure CSS)
+                                li
+                                    a(href="#article-scss") Использую SCSS
+                                li
+                                    a(href="#article-angular-material") Использую Angular Material
+                        li
+                            a(href="#article-testing") Тестирование
+
+
+                section
+                    h2#article-how-it-works How it works?
+                    p
+                        | Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления
+                        | цветов темы.
+                    pre
+                        code.language-scss
+                            | :root {
+                            |   --primary-h: 260;
+                            |   --primary-s: 80%;
+                            |   --primary-l: 40%;
+                            |   --primary: hsl( var(--primary-h), var(--primary-s), var(--primary-l) );
+                            | }
+                    p Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру?
+                        | Для этого нужно произвести некие вычисления.
+                    pre
+                        code.language-scss
+                            | :root {
+                            |   --primary-400: hsl(
+                            |                       calc( var(--primary-h) * var(--h-400) ),
+                            |                       calc( var(--primary-s) * var(--s-400) ),
+                            |                       calc( var(--primary-l) * var(--l-400) )
+                            |                   );
+                            |   --primary-500: hsl(
+                            |                       calc( var(--primary-h) * var(--h-500) ),
+                            |                       calc( var(--primary-s) * var(--s-500) ),
+                            |                       calc( var(--primary-l) * var(--l-500) )
+                            |                   );
+                            | }
+
+                section
+                    h2#article-how-to-use-it Как это использовать
+                    section
+                        h3#acricle-pure-css 1. Не хочу ничего устанавливать (использование с pure CSS)
+                        p Вы можете скачать непосредственно сгенерированную тему, нажав на кнопку "Download theme" выше. И подключить её к вашему сайту любым удобным для вас способом. Например, так:
+                        pre
+                            code.language-html
+                                | &lt;link href="./my-theme.css" rel="stylesheet"&gt;
+                        p Затем, если хотите, создать стиль для второй темы, например:
+                        pre
+                            code.language-css
+                                | .secondary-theme {
+                                |    --my-theme-h: 190;
+                                |    --my-theme-s: 80;
+                                |    --my-theme-l: 40;
+                                |    --my-theme-contrast-threshold: 50%;
+                                | }
+                        p Какой-нибудь кнопкой можно применять эту тему:
+                        pre
+                            code.language-javascript
+                                | const changeThemeButton = document.querySelector('button.change-theme-bth');
+                                | changeThemeButton.addEventListener('click', () => {
+                                |     document.body.classList.toggle('secondary-theme');
+                                | });
+
+                        p Как применять тему на своих элементах? Вам будут доступны 14 цветов, а также контрастные к ним цвета. Разберём на примере:
+                        pre
+                            code.language-scss
+                                |  button {
+                                |      background-color: var(--my-theme);
+                                |      color: var(--my-theme-contrast);
+                                |      &:hover {
+                                |          background-color: var(--my-theme-700);
+                                |          color: var(--my-theme-700-contrast);
+                                |      }
+                                |  }
+
+                        p А где же прозрачные цвета? Всё просто: вы можете самостоятельно настраивать прозрачность у цветов.
+                        pre
+                            code.language-scss
+                                |      background-color: hsla(
+                                |                           var(--my-theme-500-h),
+                                |                           var(--my-theme-500-s),
+                                |                           var(--my-theme-500-l),
+                                |                           62% /* alpha */
+                                |                        );
+
+                    section
+                        h3#article-scss 2. Хочу использовать SCSS
+                        p При использовании SCSS у вас открываются дополнительные возможности по управлению темой.
+                        p Установка:
+                        pre
+                            code.language-bash
+                                | npm install material-theme-creator
+                        p Использование:
+                        pre
+                            code.language-scss
+                                | @import "~material-theme-creator/core";
+                                |
+                                | // Инициализируем root переменные
+                                | @include mtc-init();
+                                |
+                                | body {
+                                |   // Создадим тему на основе какого-то цвета
+                                |   // Для этого передадим:
+                                |   //   1. название темы
+                                |   //   2. цвет, на основе которого мы будем строить тему
+                                |   //   3. порог контрастности темы
+                                |   @include mtc-create-variables-from-color('primary', #cc3300, 50%);
+                                | }
+                                |
+                                | body.secondary-theme {
+                                |   @include mtc-update-theme('primary', #6200ee, 55%);
+                                | }
+                                |
+                                | button {
+                                |   color: mtc-color-contrast('primary');
+                                |   background-color: mtc-color('primary');
+                                |   &:hover {
+                                |     color: mtc-color-contrast('primary', 700);
+                                |     background-color: mtc-color('primary', 700, 92%);
+                                |   }
+                                | }
+                    section
+                        h3#article-angular-material 3. Использую&nbsp;
+                            a(href="https://material.angular.io/" target="_blank") Angular Material
+                        p Вы можете использовать дополнительный модуль, позволяющий перевести темы Angular Material на использование CSS Custom Properties.
+                        section
+                            h4 3.1 Подключение
+                                pre
+                                    code.language-scss
+                                        | @import "~material-theme-creator/ngx-mtc";
+                                        | @import '~@angular/material/theming';
+                                        |
+                                        | @include mat-core();
+                                        | @include ngx-mtc-init();
+                                        |
+                                        | $primary-map: ngx-mtc-create-theme-map('primary');
+                                        | $accent-map: ngx-mtc-create-theme-map('accent');
+                                        | $warn-map: ngx-mtc-create-theme-map('warn');
+
+                        p У нас есть два варианта для создания тем.
+                        section.use-it
+                            h4 3.2
+                                b &nbsp; ПРЕДПОЧТИТЕЛЬНО! &nbsp;
+                                | Если вы хотите создавать тему из одного цвета
+                            p В случае этого способа, каждая тема будет состоять всего из нескольких строк кода
+                            pre
+                                code.language-scss
+                                    | body {
+                                    |   --is-dark-theme: 1; // Is dark theme? 1 or 0;
+                                    |   @include ngx-mtc-theme-base(); // Creates base colors
+                                    |
+                                    |   // Creates theme colors
+                                    |   @include ngx-mtc-create-variables-from-color('primary', #009688, 38%);
+                                    |   @include ngx-mtc-create-variables-from-color('accent', #2196f3, 57%);
+                                    |   @include ngx-mtc-create-variables-from-color('warn', #f44336, 62%);
+                                    | }
+                                    |
+                                    | // Creates Angular Material Theme
+                                    | @include angular-material-theme(
+                                    |   ngx-mtc-custom-theme(
+                                    |     mat-palette($primary-map),
+                                    |     mat-palette($accent-map),
+                                    |     mat-palette($warn-map)
+                                    |   )
+                                    | );
+                            p И код второй темы:
+                            pre
+                                code.language-scss
+                                    | body.theme2 {
+                                    |   --is-dark-theme: 0;
+                                    |   @include ngx-mtc-update-theme('primary', #142148, 45%);
+                                    |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
+                                    |   @include ngx-mtc-update-theme('warn', #750101, 50%);
+                                    | }
+
+                        section.dont-use-it
+                            h4 3.3
+                                b &nbsp; НЕ РЕКОМЕНДУЕТСЯ! &nbsp;
+                                | Если вы просто хотите использовать CSS Custom Properties в Angular Material Themes и использовать существующие Material темы.
+                            p Из-за использования миксина angular-material-theme(), это создаёт очень много CSS-кода для каждой темы.
+                            pre
+                                code.language-scss
+                                    | body {
+                                    |   @include ngx-mtc-create-variables-from-map('primary', $mat-teal);
+                                    |   @include ngx-mtc-create-variables-from-map('accent', $mat-deep-purple);
+                                    |   @include ngx-mtc-create-variables-from-map('warn', $mat-red);
+                                    | }
+                                    |
+                                    | // Light theme
+                                    | @include angular-material-theme(
+                                    |            mat-light-theme(
+                                    |              mat-palette($primary-map),
+                                    |              mat-palette($accent-map),
+                                    |              mat-palette($warn-map)
+                                    |            )
+                                    |          );
+                                    |
+                                    | // Dark theme
+                                    | @include angular-material-theme(
+                                    |            mat-dark-theme(
+                                    |              mat-palette($primary-map),
+                                    |              mat-palette($accent-map),
+                                    |              mat-palette($warn-map)
+                                    |            )
+                                    |          );
+                                    |
+
+                            p Вторую тему в этом случае рекомендуется выносить в отдельный файл стилей и подключать так:
+                            pre
+                                code.language-html
+                                    | &lt;link href="./secondary-theme.css" rel="stylesheet"&gt;
+                            p И код второй темы:
+                            pre
+                                code.language-scss
+                                    | // secondary-theme.scss
+                                    | body {
+                                    |   @include ngx-mtc-update-theme('primary', #142148, 45%);
+                                    |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
+                                    |   @include ngx-mtc-update-theme('warn', #750101, 50%);
+                                    | }
+                                    |
+                                    | // Если, например, главная тема и вторая тема являются
+                                    | //   светлыми (или тёмным), то на этом можно остановиться.
+                                    | // Но если, например, главная тема светлая, а вторая тема тёмная,
+                                    | //   то нужно дописать следующие строки:
+                                    |
+                                    | // Light theme
+                                    | @include angular-material-theme(
+                                    |            mat-light-theme(
+                                    |              mat-palette($primary-map),
+                                    |              mat-palette($accent-map),
+                                    |              mat-palette($warn-map)
+                                    |            )
+                                    |          );
+                                    |
+                                    | // Dark theme
+                                    | @include angular-material-theme(
+                                    |            mat-dark-theme(
+                                    |              mat-palette($primary-map),
+                                    |              mat-palette($accent-map),
+                                    |              mat-palette($warn-map)
+                                    |            )
+                                    |          );
+
+
+                        section
+                            h4 3.4 Использование
+                                p Use standard Angular material mat-color and mat-contrast to extract individual colors from a palette.
+                                pre
+                                    code.language-scss
+                                        | button {
+                                        |   color: mat-contrast($primary-map, 500);
+                                        |   background-color: mat-color($primary-map, 500);
+                                        |   &:hover {
+                                        |     color: mat-contrast($primary-map, 700);
+                                        |     background-color: mat-color($primary-map, 700, 92%);
+                                        |   }
+                                        | }
+                section
+                    h2#article-testing
+                        | Тестирование [
+                        code @mixin mtc-create-variables-from-color
+                        | ]
+                    .themes
+                        each theme in themes
+                            .theme
+                                each point in points
+                                    span.point(data-point=point)=point

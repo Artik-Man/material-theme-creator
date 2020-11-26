@@ -1,0 +1,11 @@
+mixin slider(min,max,value,step,label,id)
+    .mdc-slider.mdc-slider--discrete(data-step=step data-id=id)
+        .mdc-slider__track
+            .mdc-slider__track--inactive
+            .mdc-slider__track--active
+                .mdc-slider__track--active_fill
+        .mdc-slider__thumb(role="slider" tabindex="0" aria-label=label aria-valuemin=min aria-valuemax=max aria-valuenow=value)
+            .mdc-slider__value-indicator-container
+                .mdc-slider__value-indicator
+                    span.mdc-slider__value-indicator-text=value
+            .mdc-slider__thumb-knob

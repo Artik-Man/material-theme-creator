@@ -1,0 +1,4 @@
+mixin textfield(id, label, value, type='text')
+    label.pure-material-textfield-standard
+        input.mdc-text-field__input(type=type placeholder=label id=id value=value)
+        span=label
