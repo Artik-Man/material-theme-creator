@@ -132,7 +132,7 @@
   --mtc-background-disabled-list-option: hsl(0, 0%, calc(((1 - var(--is-dark-theme)) * (93 - 0) + 0) * 1%)); // 93 -> 0
   --mtc-background-tooltip: hsl(0, 0%, 38%);
 
-  --mtc-foreground-base: hsl(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%)); // 0 - 100
+  --mtc-foreground-base: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), 10%); // 0 - 100
   --mtc-foreground-divider: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), 12%); // 0 - 100
   --mtc-foreground-dividers: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), 12%); // 0 - 100
   --mtc-foreground-disabled: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), 50%); // 0 - 100
