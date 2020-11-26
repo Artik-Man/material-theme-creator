@@ -108,77 +108,6 @@
   }
 }
 
-
-/// Creates base colors CSS Variables for angular material theme (light)
-@mixin ngx-mtc-base-light-theme() {
-  --mtc-foreground-base: black;
-  --mtc-foreground-divider: #{rgba(black, 0.12)};
-  --mtc-foreground-dividers: #{rgba(black, 0.12)};
-  --mtc-foreground-disabled: #{rgba(black, 0.38)};
-  --mtc-foreground-disabled-button: #{rgba(black, 0.26)};
-  --mtc-foreground-disabled-text: #{rgba(black, 0.38)};
-  --mtc-foreground-elevation: #{rgba(black, 0.26)};
-  --mtc-foreground-hint-text: #{rgba(black, 0.38)};
-  --mtc-foreground-secondary-text: #{rgba(black, 0.54)};
-  --mtc-foreground-icon: #{rgba(black, 0.54)};
-  --mtc-foreground-icons: #{rgba(black, 0.54)};
-  --mtc-foreground-text: #{rgba(black, 0.87)};
-  --mtc-foreground-slider-min: #{rgba(black, 0.87)};
-  --mtc-foreground-slider-off: #{rgba(black, 0.26)};
-  --mtc-foreground-slider-off-active: #{rgba(black, 0.38)};
-
-  --mtc-background-status-bar: hsl(0, 0%, 88%);
-  --mtc-background-app-bar: hsl(0, 0%, 96%);
-  --mtc-background-background: hsl(0, 0%, 98%);
-  --mtc-background-hover: #{ rgba(#000000, 0.04)};
-  --mtc-background-card: #ffffff;
-  --mtc-background-dialog: white;
-  --mtc-background-disabled-button: #{rgba(black, 0.12)};
-  --mtc-background-raised-button: white;
-  --mtc-background-focused-button: #{rgba(black, 0.12)};
-  --mtc-background-selected-button: hsl(0, 0%, 88%);
-  --mtc-background-selected-disabled-button: hsl(0, 0%, 74%);
-  --mtc-background-disabled-button-toggle: hsl(0, 0%, 93%);
-  --mtc-background-unselected-chip: hsl(0, 0%, 88%);
-  --mtc-background-disabled-list-option: hsl(0, 0%, 93%);
-  --mtc-background-tooltip: hsl(0, 0%, 38%);
-}
-
-/// Creates base colors CSS Variables for angular material theme (dark)
-@mixin ngx-mtc-base-dark-theme() {
-  --mtc-foreground-base: white;
-  --mtc-foreground-divider: #{rgba(white, 0.12)};
-  --mtc-foreground-dividers: #{rgba(white, 0.12)};
-  --mtc-foreground-disabled: #{rgba(white, 0.5)};
-  --mtc-foreground-disabled-button: #{ rgba(white, 0.3)};
-  --mtc-foreground-disabled-text: #{rgba(white, 0.5)};
-  --mtc-foreground-elevation: #{rgba(black, 0.26)};
-  --mtc-foreground-hint-text: #{rgba(white, 0.5)};
-  --mtc-foreground-secondary-text: #{rgba(white, 0.7)};
-  --mtc-foreground-icon: white;
-  --mtc-foreground-icons: white;
-  --mtc-foreground-text: white;
-  --mtc-foreground-slider-min: white;
-  --mtc-foreground-slider-off: #{rgba(white, 0.3)};
-  --mtc-foreground-slider-off-active: #{rgba(white, 0.3)};
-
-  --mtc-background-status-bar: black;
-  --mtc-background-app-bar: hsl(0, 0%, 13%);
-  --mtc-background-background: hsl(0, 0%, 19%);
-  --mtc-background-hover: #{rgba(white, 0.04)};
-  --mtc-background-card: hsl(0, 0%, 26%);
-  --mtc-background-dialog: hsl(0, 0%, 26%);
-  --mtc-background-disabled-button: #{rgba(white, 0.12)};
-  --mtc-background-raised-button: hsl(0, 0%, 26%);
-  --mtc-background-focused-button: #{rgba(white, 0.12)};
-  --mtc-background-selected-button: hsl(0, 0%, 13%);
-  --mtc-background-selected-disabled-button: hsl(0, 0%, 26%);
-  --mtc-background-disabled-button-toggle: #000;
-  --mtc-background-unselected-chip: hsl(0, 0%, 38%);
-  --mtc-background-disabled-list-option: #000;
-  --mtc-background-tooltip: hsl(0, 0%, 38%);
-}
-
 /// Creates base colors CSS Variables for angular material theme.
 /// IMPORTANT: --is-dark-theme: 1; (or 0) property!
 @mixin ngx-mtc-theme-base() {
@@ -209,7 +138,7 @@
   --mtc-foreground-disabled: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), 50%); // 0 - 100
   --mtc-foreground-disabled-button: hsla(0, 0%, calc((var(--is-dark-theme) * (38 - 26) + 26) * 1%), 26%); // 26 - 38
   --mtc-foreground-disabled-text: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), calc((var(--is-dark-theme) * (50 - 38) + 38) * 1%)); // 0 - 100, 38 - 50
-  --mtc-foreground-elevation: black;
+  --mtc-foreground-elevation: hsla(0, 0%, 0%, 26%);
   --mtc-foreground-hint-text: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), calc((var(--is-dark-theme) * (50 - 38) + 38) * 1%)); // 0 - 100, 38 - 50
   --mtc-foreground-secondary-text: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), calc((var(--is-dark-theme) * (70 - 54) + 54) * 1%)); // 0 - 100, 54 - 70
   --mtc-foreground-icon: hsla(0, 0%, calc((var(--is-dark-theme) * (100 - 0) + 0) * 1%), calc((var(--is-dark-theme) * (100 - 54) + 54) * 1%)); // 0 - 100, 54 - 100
