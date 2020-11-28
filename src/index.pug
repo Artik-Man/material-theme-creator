@@ -1,6 +1,5 @@
 include ./components/slider
 include ./components/textfield
-include ./components/button
 
 -const points = '50,100,200,300,400,500,600,700,800,900,A100,A200,A400,A700'.split(',');
 -const themes = new Array(38).fill(0);
@@ -10,7 +9,6 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
         title="Material Theme Creator"
-
         link(rel="stylesheet" href="styles.css")
     body
         input(type="checkbox" id="switch-theme" class="visually-hidden")
@@ -22,7 +20,7 @@ html(lang="en")
                     h1="Material Theme Creator"
                 a(href="https://github.com/Artik-Man/material-theme-creator")="GitHub"
                 section
-                    h2="Create custom theme from one color in real time"
+                    h2 Create custom&nbsp;theme from&nbsp;one&nbsp;color in&nbsp;real&nbsp;time. It's&nbsp;pure&nbsp;CSS, without&nbsp;JavaScript
 
                     .create-theme
                         h3 Hue
@@ -52,31 +50,34 @@ html(lang="en")
                                     | )
                     form.download-theme#form
                         +textfield('theme-name', "Theme name", 'my-theme')
-                        +button("Download theme")
+                        button.mdc-button.mdc-button--raised
+                            span.mdc-button__label Download
+                                span.hidden-xs &nbsp;theme
 
                 section
-                    h2 Оглавление
+                    h2 Table of contents
                     ul.table-of-contents
                         li
-                            a(href="#article-how-it-works") How it works?
+                            a(href="#article-how-it-works") How it works
                         li
-                            a(href="#article-how-to-use-it") Как это использовать?
+                            a(href="#article-how-to-use-it") How to use it
                             ol
                                 li
-                                    a(href="#acricle-pure-css") Не хочу ничего устанавливать (использование с pure CSS)
+                                    a(href="#acricle-pure-css") Pure CSS using
                                 li
-                                    a(href="#article-scss") Использую SCSS
+                                    a(href="#article-scss") Using with SCSS
                                 li
-                                    a(href="#article-angular-material") Использую Angular Material
+                                    a(href="#article-angular-material") Using with Angular Material
                         li
-                            a(href="#article-testing") Тестирование
+                            a(href="#article-testing") Testing
 
 
                 section
-                    h2#article-how-it-works How it works?
-                    p
-                        | Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления
-                        | цветов темы.
+                    h2#article-how-it-works How it works
+
+                    p Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления цветов темы.
+                    p We used CSS Custom Properties and HSL color space to theme colors dynamically calculation.
+
                     pre
                         code.language-scss
                             | :root {
@@ -85,8 +86,10 @@ html(lang="en")
                             |   --primary-l: 40%;
                             |   --primary: hsl( var(--primary-h), var(--primary-s), var(--primary-l) );
                             | }
-                    p Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру?
-                        | Для этого нужно произвести некие вычисления.
+
+                    p Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру? Для этого нужно произвести некие вычисления.
+                    p Here we are built a color from H,S and L components of HSL color space. But how to create a theme? We need to make some calculations.
+
                     pre
                         code.language-scss
                             | :root {
@@ -102,15 +105,24 @@ html(lang="en")
                             |                   );
                             | }
 
+                    p На самом деле всё немного сложнее, но для понимания алгоритма достаточно этого участка кода.
+                    p In fact, it is a little more complicated, but this piece of code is enough to understand the algorithm.
+
                 section
-                    h2#article-how-to-use-it Как это использовать
+                    h2#article-how-to-use-it How to use it
                     section
-                        h3#acricle-pure-css 1. Не хочу ничего устанавливать (использование с pure CSS)
+                        h3#acricle-pure-css 1. Pure CSS using
+
                         p Вы можете скачать непосредственно сгенерированную тему, нажав на кнопку "Download theme" выше. И подключить её к вашему сайту любым удобным для вас способом. Например, так:
+                        p You can download your theme by clicking on the button above and connect to your page in any way convenient for you. For example:
+
                         pre
                             code.language-html
                                 | &lt;link href="./my-theme.css" rel="stylesheet"&gt;
+
                         p Затем, если хотите, создать стиль для второй темы, например:
+                        p After that you can create second theme style:
+
                         pre
                             code.language-css
                                 | .secondary-theme {
@@ -119,7 +131,10 @@ html(lang="en")
                                 |    --my-theme-l: 40;
                                 |    --my-theme-contrast-threshold: 50%;
                                 | }
+
                         p Какой-нибудь кнопкой можно применять эту тему:
+                        p And by clicking on some button you can apply the theme:
+
                         pre
                             code.language-javascript
                                 | const changeThemeButton = document.querySelector('button.change-theme-bth');
@@ -128,6 +143,8 @@ html(lang="en")
                                 | });
 
                         p Как применять тему на своих элементах? Вам будут доступны 14 цветов, а также контрастные к ним цвета. Разберём на примере:
+                        p How to use theme in your components? You will have access to 14 theme colors and contrast colors with them. See example:
+
                         pre
                             code.language-scss
                                 |  button {
@@ -140,6 +157,8 @@ html(lang="en")
                                 |  }
 
                         p А где же прозрачные цвета? Всё просто: вы можете самостоятельно настраивать прозрачность у цветов.
+                        p Where is transparency colors? It's easy: you can set up opacity by yourself.
+
                         pre
                             code.language-scss
                                 |      background-color: hsla(
@@ -150,26 +169,30 @@ html(lang="en")
                                 |                        );
 
                     section
-                        h3#article-scss 2. Хочу использовать SCSS
-                        p При использовании SCSS у вас открываются дополнительные возможности по управлению темой.
-                        p Установка:
+                        h3#article-scss 2. Using with SCSS
+
+                        p При использовании SCSS у вас открываются дополнительные возможности по управлению темой. <br> Установка:
+                        p You will have more management capabilities if you use SCSS. <br> Installation:
+
                         pre
                             code.language-bash
                                 | npm install material-theme-creator
-                        p Использование:
+
+                        p Using:
+
                         pre
                             code.language-scss
                                 | @import "~material-theme-creator/core";
                                 |
-                                | // Инициализируем root переменные
+                                | // Initializing root variables
                                 | @include mtc-init();
                                 |
                                 | body {
-                                |   // Создадим тему на основе какого-то цвета
-                                |   // Для этого передадим:
-                                |   //   1. название темы
-                                |   //   2. цвет, на основе которого мы будем строить тему
-                                |   //   3. порог контрастности темы
+                                |   // Creating a theme based on some color
+                                |   // Pass arguments to the mixin:
+                                |   //   1. theme name
+                                |   //   2. some color
+                                |   //   3. contrast threshold (for fonts)
                                 |   @include mtc-create-variables-from-color('primary', #cc3300, 50%);
                                 | }
                                 |
@@ -186,11 +209,14 @@ html(lang="en")
                                 |   }
                                 | }
                     section
-                        h3#article-angular-material 3. Использую&nbsp;
+                        h3#article-angular-material 3. Using with &nbsp;
                             a(href="https://material.angular.io/" target="_blank") Angular Material
-                        p Вы можете использовать дополнительный модуль, позволяющий перевести темы Angular Material на использование CSS Custom Properties.
+
+                        p Вы можете использовать ngx-mtc модуль, позволяющий перевести темы Angular Material на использование CSS Custom Properties.
+                        p You can to use ngx-mtc module to convert Angular Material themes to use CSS Custom Properties.
+
                         section
-                            h4 3.1 Подключение
+                            h4 3.1 Setup
                                 pre
                                     code.language-scss
                                         | @import "~material-theme-creator/ngx-mtc";
@@ -203,12 +229,16 @@ html(lang="en")
                                         | $accent-map: ngx-mtc-create-theme-map('accent');
                                         | $warn-map: ngx-mtc-create-theme-map('warn');
 
-                        p У нас есть два варианта для создания тем.
-                        section.use-it
-                            h4 3.2
-                                b &nbsp; ПРЕДПОЧТИТЕЛЬНО! &nbsp;
-                                | Если вы хотите создавать тему из одного цвета
-                            p В случае этого способа, каждая тема будет состоять всего из нескольких строк кода
+                        p У нас есть два варианта для создания тем:
+                        p We have two variants to themes creation:
+
+                        section.attention-section.info
+                            p.label Recommended
+                            h4 3.2 Если вы хотите создавать тему из одного цвета
+
+                            p В случае этого способа, каждая тема будет состоять всего из нескольких строк кода.
+                            p In this case, each theme will consist of just a few lines of code.
+
                             pre
                                 code.language-scss
                                     | body {
@@ -229,7 +259,9 @@ html(lang="en")
                                     |     mat-palette($warn-map)
                                     |   )
                                     | );
-                            p И код второй темы:
+
+                            p Second theme code:
+
                             pre
                                 code.language-scss
                                     | body.theme2 {
@@ -239,11 +271,13 @@ html(lang="en")
                                     |   @include ngx-mtc-update-theme('warn', #750101, 50%);
                                     | }
 
-                        section.dont-use-it
-                            h4 3.3
-                                b &nbsp; НЕ РЕКОМЕНДУЕТСЯ! &nbsp;
-                                | Если вы просто хотите использовать CSS Custom Properties в Angular Material Themes и использовать существующие Material темы.
+                        section.attention-section.warning
+                            p.label Not recommended
+                            h4 3.3 Если вы просто хотите использовать CSS Custom Properties в Angular Material Themes и использовать существующие Material темы.
+
                             p Из-за использования миксина angular-material-theme(), это создаёт очень много CSS-кода для каждой темы.
+                            p this generates a lot of CSS for each theme due to the angular-material-theme() mixin.
+
                             pre
                                 code.language-scss
                                     | body {
@@ -262,20 +296,24 @@ html(lang="en")
                                     |          );
                                     |
                                     | // Dark theme
-                                    | @include angular-material-theme(
-                                    |            mat-dark-theme(
-                                    |              mat-palette($primary-map),
-                                    |              mat-palette($accent-map),
-                                    |              mat-palette($warn-map)
-                                    |            )
-                                    |          );
+                                    | // @include angular-material-theme(
+                                    | //            mat-dark-theme(
+                                    | //              mat-palette($primary-map),
+                                    | //              mat-palette($accent-map),
+                                    | //              mat-palette($warn-map)
+                                    | //            )
+                                    | //          );
                                     |
 
                             p Вторую тему в этом случае рекомендуется выносить в отдельный файл стилей и подключать так:
+
                             pre
                                 code.language-html
                                     | &lt;link href="./secondary-theme.css" rel="stylesheet"&gt;
+
                             p И код второй темы:
+                            p Secondary theme code:
+
                             pre
                                 code.language-scss
                                     | // secondary-theme.scss
@@ -291,13 +329,13 @@ html(lang="en")
                                     | //   то нужно дописать следующие строки:
                                     |
                                     | // Light theme
-                                    | @include angular-material-theme(
-                                    |            mat-light-theme(
-                                    |              mat-palette($primary-map),
-                                    |              mat-palette($accent-map),
-                                    |              mat-palette($warn-map)
-                                    |            )
-                                    |          );
+                                    | // @include angular-material-theme(
+                                    | //            mat-light-theme(
+                                    | //              mat-palette($primary-map),
+                                    | //              mat-palette($accent-map),
+                                    | //              mat-palette($warn-map)
+                                    | //            )
+                                    | //          );
                                     |
                                     | // Dark theme
                                     | @include angular-material-theme(
@@ -310,7 +348,7 @@ html(lang="en")
 
 
                         section
-                            h4 3.4 Использование
+                            h4 3.4 Using
                                 p Use standard Angular material mat-color and mat-contrast to extract individual colors from a palette.
                                 pre
                                     code.language-scss
@@ -324,7 +362,7 @@ html(lang="en")
                                         | }
                 section
                     h2#article-testing
-                        | Тестирование [
+                        | Testing [
                         code @mixin mtc-create-variables-from-color
                         | ]
                     .themes

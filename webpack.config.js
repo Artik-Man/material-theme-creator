@@ -11,7 +11,7 @@ module.exports = {
         // contentBase: './',
         compress: true,
         host: '0.0.0.0',
-        port: 9000,
+        port: 4200,
         overlay: true
     },
     entry: './src/scripts/index.ts',

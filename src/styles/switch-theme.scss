@@ -1,6 +1,5 @@
 // output: false
 
-
 .page {
   --is-dark-theme: 0;
   --background: hsl(0, 0%, calc((1 - var(--is-dark-theme)) * 85% + 15%));
