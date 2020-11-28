@@ -25,7 +25,7 @@ html(lang="en")
                     .create-theme
                         h3 Hue
                         .value.-h
-                        +slider(0,360,260,1,"Hue","creator-h")
+                        +slider(0,360,220,1,"Hue","creator-h")
                         h3 Saturation
                         .value.-s
                         +slider(0,100,80,1,"Saturation","creator-s")
@@ -33,8 +33,8 @@ html(lang="en")
                         .value.-l
                         +slider(0,100,60,1,"Lightness","creator-l")
                         h3 Contrast threshold
-                        .value.-cc="70%"
-                        +slider(0,100,70,1,"Contrast threshold","creator-cc")
+                        .value.-cc="65%"
+                        +slider(0,100,65,1,"Contrast threshold","creator-cc")
 
                     .your-theme
 
@@ -76,8 +76,7 @@ html(lang="en")
                     h2#article-how-it-works How it works
 
                     p Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления цветов темы.
-                    p We used CSS Custom Properties and HSL color space to theme colors dynamically calculation.
-
+                    p We use CSS Custom Properties and HSL color space for dynamic theme colors’ calculation.
                     pre
                         code.language-scss
                             | :root {
@@ -88,7 +87,7 @@ html(lang="en")
                             | }
 
                     p Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру? Для этого нужно произвести некие вычисления.
-                    p Here we are built a color from H,S and L components of HSL color space. But how to create a theme? We need to make some calculations.
+                    p So we have already created a color consisting of H, S and L components of the HSL color space. But how is it possible create a whole theme palette? We need to do some calculations for this.
 
                     pre
                         code.language-scss
@@ -114,7 +113,7 @@ html(lang="en")
                         h3#acricle-pure-css 1. Pure CSS using
 
                         p Вы можете скачать непосредственно сгенерированную тему, нажав на кнопку "Download theme" выше. И подключить её к вашему сайту любым удобным для вас способом. Например, так:
-                        p You can download your theme by clicking on the button above and connect to your page in any way convenient for you. For example:
+                        p You can download your theme by clicking on the button "Download theme" which is located above. Then you should connect it to your page in any convenient way. For example:
 
                         pre
                             code.language-html
@@ -133,7 +132,7 @@ html(lang="en")
                                 | }
 
                         p Какой-нибудь кнопкой можно применять эту тему:
-                        p And by clicking on some button you can apply the theme:
+                        p And you can apply the theme with some button:
 
                         pre
                             code.language-javascript
@@ -143,7 +142,7 @@ html(lang="en")
                                 | });
 
                         p Как применять тему на своих элементах? Вам будут доступны 14 цветов, а также контрастные к ним цвета. Разберём на примере:
-                        p How to use theme in your components? You will have access to 14 theme colors and contrast colors with them. See example:
+                        p How can you use theme on your elements? You will have access to 14 theme colors and also some contrasting colors to them. See example:
 
                         pre
                             code.language-scss
@@ -157,7 +156,7 @@ html(lang="en")
                                 |  }
 
                         p А где же прозрачные цвета? Всё просто: вы можете самостоятельно настраивать прозрачность у цветов.
-                        p Where is transparency colors? It's easy: you can set up opacity by yourself.
+                        p Where are the transparent colors? It's simple. You can adjust the transparency of the theme colors by yourself.
 
                         pre
                             code.language-scss
@@ -172,7 +171,7 @@ html(lang="en")
                         h3#article-scss 2. Using with SCSS
 
                         p При использовании SCSS у вас открываются дополнительные возможности по управлению темой. <br> Установка:
-                        p You will have more management capabilities if you use SCSS. <br> Installation:
+                        p You can have more options to manage the theme if you use SCSS. <br> Installation:
 
                         pre
                             code.language-bash

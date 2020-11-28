@@ -13,7 +13,7 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  font-size: 16px;
+  font-size: clamp(16px, 1.7vmax, 20px);
   line-height: 1.5;
   font-weight: 300;
   background: linear-gradient(164deg, hsl(clamp(160, calc(var(--my-theme-h) + 160), 420), var(--my-theme-50-s), var(--my-theme-50-l)), white) fixed;

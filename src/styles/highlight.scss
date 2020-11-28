@@ -61,7 +61,7 @@ pre[class*="language-"] {
 }
 
 .token.punctuation {
-  color: hsl(calc(var(--my-theme-h) + 280), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+  color: hsl(calc(var(--my-theme-h) + 100), 90%, calc(var(--is-dark-theme) * 30% + 40%));
 }
 
 .token.namespace {
@@ -103,7 +103,7 @@ pre[class*="language-"] {
 
 .token.function,
 .token.class-name {
-  color: hsl(calc(var(--my-theme-h) + 100), 90%, calc(var(--is-dark-theme) * 30% + 40%));
+  color: hsl(calc(var(--my-theme-h) + 280), 90%, calc(var(--is-dark-theme) * 30% + 40%));
 }
 
 .token.regex,
