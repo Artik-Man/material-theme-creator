@@ -18,7 +18,11 @@ html(lang="en")
                 .header
                     include  ./components/switch-theme
                     h1="Material Theme Creator"
-                a(href="https://github.com/Artik-Man/material-theme-creator")="GitHub"
+                p
+                    a(href="https://github.com/Artik-Man/material-theme-creator" target="_blank")="GitHub"
+                    | &nbsp; | &nbsp;
+                    a(href="https://artik-man.github.io/material-theme-creator-demo-page/" target="_blank")="Demo page"
+
                 section
                     h2 Create custom&nbsp;theme from&nbsp;one&nbsp;color in&nbsp;real&nbsp;time. It's&nbsp;pure&nbsp;CSS, without&nbsp;JavaScript
 
@@ -63,11 +67,11 @@ html(lang="en")
                             a(href="#article-how-to-use-it") How to use it
                             ol
                                 li
-                                    a(href="#acricle-pure-css") Pure CSS using
+                                    a(href="#acricle-pure-css") Pure CSS usage
                                 li
-                                    a(href="#article-scss") Using with SCSS
+                                    a(href="#article-scss") Usage with SCSS
                                 li
-                                    a(href="#article-angular-material") Using with Angular Material
+                                    a(href="#article-angular-material") Usage with Angular Material
                         li
                             a(href="#article-testing") Testing
 
@@ -110,7 +114,7 @@ html(lang="en")
                 section
                     h2#article-how-to-use-it How to use it
                     section
-                        h3#acricle-pure-css 1. Pure CSS using
+                        h3#acricle-pure-css 1. Pure CSS usage
 
                         p Вы можете скачать непосредственно сгенерированную тему, нажав на кнопку "Download theme" выше. И подключить её к вашему сайту любым удобным для вас способом. Например, так:
                         p You can download your theme by clicking on the button "Download theme" which is located above. Then you should connect it to your page in any convenient way. For example:
@@ -168,7 +172,7 @@ html(lang="en")
                                 |                        );
 
                     section
-                        h3#article-scss 2. Using with SCSS
+                        h3#article-scss 2. Usage with SCSS
 
                         p При использовании SCSS у вас открываются дополнительные возможности по управлению темой. <br> Установка:
                         p You can have more options to manage the theme if you use SCSS. <br> Installation:
@@ -177,7 +181,7 @@ html(lang="en")
                             code.language-bash
                                 | npm install material-theme-creator
 
-                        p Using:
+                        p Usage:
 
                         pre
                             code.language-scss
@@ -208,7 +212,7 @@ html(lang="en")
                                 |   }
                                 | }
                     section
-                        h3#article-angular-material 3. Using with &nbsp;
+                        h3#article-angular-material 3. Usage with &nbsp;
                             a(href="https://material.angular.io/" target="_blank") Angular Material
 
                         p Вы можете использовать ngx-mtc модуль, позволяющий перевести темы Angular Material на использование CSS Custom Properties.
@@ -229,11 +233,11 @@ html(lang="en")
                                         | $warn-map: ngx-mtc-create-theme-map('warn');
 
                         p У нас есть два варианта для создания тем:
-                        p We have two variants to themes creation:
+                        p We have two variants for creating of themes:
 
                         section.attention-section.info
                             p.label Recommended
-                            h4 3.2 Если вы хотите создавать тему из одного цвета
+                            h4 3.2 If you want to create a theme from one color
 
                             p В случае этого способа, каждая тема будет состоять всего из нескольких строк кода.
                             p In this case, each theme will consist of just a few lines of code.
@@ -274,8 +278,8 @@ html(lang="en")
                             p.label Not recommended
                             h4 3.3 Если вы просто хотите использовать CSS Custom Properties в Angular Material Themes и использовать существующие Material темы.
 
-                            p Из-за использования миксина angular-material-theme(), это создаёт очень много CSS-кода для каждой темы.
-                            p this generates a lot of CSS for each theme due to the angular-material-theme() mixin.
+                            p Миксин angular-material-theme() создаёт очень много CSS-кода для каждой темы, поэтому использование этого способа не рекомендуется.
+                            p The angular-material-theme() mixin generates a lot of CSS code for each theme, so you shouldn't use this method.
 
                             pre
                                 code.language-scss
@@ -347,7 +351,7 @@ html(lang="en")
 
 
                         section
-                            h4 3.4 Using
+                            h4 3.4 Usage
                                 p Use standard Angular material mat-color and mat-contrast to extract individual colors from a palette.
                                 pre
                                     code.language-scss
