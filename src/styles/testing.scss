@@ -73,7 +73,7 @@
 
   @media (min-width: 700px) {
     .theme {
-      grid-template-columns: 120px repeat(14, 1fr);
+      grid-template-columns: 8em repeat(14, 1fr);
 
       &:before {
         grid-column-start: auto;
