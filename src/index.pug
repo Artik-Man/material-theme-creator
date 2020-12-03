@@ -24,7 +24,7 @@ html(lang="en")
                     a(href="https://artik-man.github.io/material-theme-creator-demo-page/" target="_blank")="Demo page"
 
                 section
-                    h2 Create custom&nbsp;theme from&nbsp;one&nbsp;color in&nbsp;real&nbsp;time. It's&nbsp;pure&nbsp;CSS, without&nbsp;JavaScript
+                    h2 Create a custom&nbsp;theme from&nbsp;one&nbsp;color in&nbsp;real&nbsp;time. It's&nbsp;pure&nbsp;CSS, without&nbsp;JavaScript
 
                     .create-theme
                         h3 Hue
@@ -59,7 +59,7 @@ html(lang="en")
                                 span.hidden-xs &nbsp;theme
 
                 section
-                    h2 Table of contents
+                    h2 Contents
                     ul.table-of-contents
                         li
                             a(href="#article-how-it-works") How it works
@@ -67,11 +67,11 @@ html(lang="en")
                             a(href="#article-how-to-use-it") How to use it
                             ol
                                 li
-                                    a(href="#acricle-pure-css") Pure CSS usage
+                                    a(href="#acricle-pure-css") Pure CSS use
                                 li
-                                    a(href="#article-scss") Usage with SCSS
+                                    a(href="#article-scss") Use with SCSS
                                 li
-                                    a(href="#article-angular-material") Usage with Angular Material
+                                    a(href="#article-angular-material") Use with Angular Material
                         li
                             a(href="#article-testing") Testing
 
@@ -79,7 +79,6 @@ html(lang="en")
                 section
                     h2#article-how-it-works How it works
 
-                    p Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления цветов темы.
                     p We use CSS Custom Properties and HSL color space for dynamic theme colors’ calculation.
                     pre
                         code.language-scss
@@ -90,8 +89,7 @@ html(lang="en")
                             |   --primary: hsl( var(--primary-h), var(--primary-s), var(--primary-l) );
                             | }
 
-                    p Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру? Для этого нужно произвести некие вычисления.
-                    p So we have already created a color consisting of H, S and L components of the HSL color space. But how is it possible create a whole theme palette? We need to do some calculations for this.
+                    p We have already created a color consisting of H, S and L components of the HSL color space. But how can we create the whole theme palette? We need to do some calculations for this.
 
                     pre
                         code.language-scss
@@ -108,23 +106,20 @@ html(lang="en")
                             |                   );
                             | }
 
-                    p На самом деле всё немного сложнее, но для понимания алгоритма достаточно этого участка кода.
-                    p In fact, it is a little more complicated, but this piece of code is enough to understand the algorithm.
+                    p In fact, the code is a bit more complicated, but this piece of code is enough to understand the algorithm.
 
                 section
                     h2#article-how-to-use-it How to use it
                     section
-                        h3#acricle-pure-css 1. Pure CSS usage
+                        h3#acricle-pure-css 1. Pure CSS use
 
-                        p Вы можете скачать непосредственно сгенерированную тему, нажав на кнопку "Download theme" выше. И подключить её к вашему сайту любым удобным для вас способом. Например, так:
-                        p You can download your theme by clicking on the button "Download theme" which is located above. Then you should connect it to your page in any convenient way. For example:
+                        p You can download your theme by clicking on the button "Download theme" which is located above. Then you should include it to your page in any convenient way. For example:
 
                         pre
                             code.language-html
                                 | &lt;link href="./my-theme.css" rel="stylesheet"&gt;
 
-                        p Затем, если хотите, создать стиль для второй темы, например:
-                        p After that you can create second theme style:
+                        p After that you can create the second theme style:
 
                         pre
                             code.language-css
@@ -135,7 +130,6 @@ html(lang="en")
                                 |    --my-theme-contrast-threshold: 50%;
                                 | }
 
-                        p Какой-нибудь кнопкой можно применять эту тему:
                         p And you can apply the theme with some button:
 
                         pre
@@ -145,8 +139,7 @@ html(lang="en")
                                 |     document.body.classList.toggle('secondary-theme');
                                 | });
 
-                        p Как применять тему на своих элементах? Вам будут доступны 14 цветов, а также контрастные к ним цвета. Разберём на примере:
-                        p How can you use theme on your elements? You will have access to 14 theme colors and also some contrasting colors to them. See example:
+                        p How can you use theme on your elements? 14 theme colors will be available for you. For each of these colors you will have access to one contrasting color. See example:
 
                         pre
                             code.language-scss
@@ -159,8 +152,7 @@ html(lang="en")
                                 |      }
                                 |  }
 
-                        p А где же прозрачные цвета? Всё просто: вы можете самостоятельно настраивать прозрачность у цветов.
-                        p Where are the transparent colors? It's simple. You can adjust the transparency of the theme colors by yourself.
+                        p How can we set transparency of the color? You can adjust it yourself:
 
                         pre
                             code.language-scss
@@ -172,27 +164,26 @@ html(lang="en")
                                 |                        );
 
                     section
-                        h3#article-scss 2. Usage with SCSS
+                        h3#article-scss 2. Use with SCSS
 
-                        p При использовании SCSS у вас открываются дополнительные возможности по управлению темой. <br> Установка:
                         p You can have more options to manage the theme if you use SCSS. <br> Installation:
 
                         pre
                             code.language-bash
                                 | npm install material-theme-creator
 
-                        p Usage:
+                        p Use:
 
                         pre
                             code.language-scss
                                 | @import "~material-theme-creator/core";
                                 |
-                                | // Initializing root variables
+                                | // root variables initializing
                                 | @include mtc-init();
                                 |
                                 | body {
                                 |   // Creating a theme based on some color
-                                |   // Pass arguments to the mixin:
+                                |   // Passing arguments to the mixin:
                                 |   //   1. theme name
                                 |   //   2. some color
                                 |   //   3. contrast threshold (for fonts)
@@ -212,11 +203,10 @@ html(lang="en")
                                 |   }
                                 | }
                     section
-                        h3#article-angular-material 3. Usage with &nbsp;
+                        h3#article-angular-material 3. Use with &nbsp;
                             a(href="https://material.angular.io/" target="_blank") Angular Material
 
-                        p Вы можете использовать ngx-mtc модуль, позволяющий перевести темы Angular Material на использование CSS Custom Properties.
-                        p You can to use ngx-mtc module to convert Angular Material themes to use CSS Custom Properties.
+                        p You can use ngx-mtc module to convert Angular Material themes to use CSS Custom Properties.
 
                         section
                             h4 3.1 Setup
@@ -232,14 +222,12 @@ html(lang="en")
                                         | $accent-map: ngx-mtc-create-theme-map('accent');
                                         | $warn-map: ngx-mtc-create-theme-map('warn');
 
-                        p У нас есть два варианта для создания тем:
                         p We have two variants for creating of themes:
 
                         section.attention-section.info
                             p.label Recommended
-                            h4 3.2 If you want to create a theme from one color
+                            h4 3.2 Creating theme from one color
 
-                            p В случае этого способа, каждая тема будет состоять всего из нескольких строк кода.
                             p In this case, each theme will consist of just a few lines of code.
 
                             pre
@@ -276,9 +264,8 @@ html(lang="en")
 
                         section.attention-section.warning
                             p.label Not recommended
-                            h4 3.3 Если вы просто хотите использовать CSS Custom Properties в Angular Material Themes и использовать существующие Material темы.
+                            h4 3.3 Converting true Angular Material themes to using CSS Custom Properties
 
-                            p Миксин angular-material-theme() создаёт очень много CSS-кода для каждой темы, поэтому использование этого способа не рекомендуется.
                             p The angular-material-theme() mixin generates a lot of CSS code for each theme, so you shouldn't use this method.
 
                             pre
@@ -308,7 +295,7 @@ html(lang="en")
                                     | //          );
                                     |
 
-                            p Вторую тему в этом случае рекомендуется выносить в отдельный файл стилей и подключать так:
+                            p In this case, it is recommended to move the secondary theme to an external CSS file and include it as follows:
 
                             pre
                                 code.language-html
