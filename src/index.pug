@@ -123,7 +123,7 @@ html(lang="en")
 
                         pre
                             code.language-css
-                                | .secondary-theme {
+                                | .second-theme {
                                 |    --my-theme-h: 190;
                                 |    --my-theme-s: 80;
                                 |    --my-theme-l: 40;
@@ -136,7 +136,7 @@ html(lang="en")
                             code.language-javascript
                                 | const changeThemeButton = document.querySelector('button.change-theme-bth');
                                 | changeThemeButton.addEventListener('click', () => {
-                                |     document.body.classList.toggle('secondary-theme');
+                                |     document.body.classList.toggle('second-theme');
                                 | });
 
                         p How can you use theme on your elements? 14 theme colors will be available for you. For each of these colors you will have access to one contrasting color. See example:
@@ -190,7 +190,7 @@ html(lang="en")
                                 |   @include mtc-create-variables-from-color('primary', #cc3300, 50%);
                                 | }
                                 |
-                                | body.secondary-theme {
+                                | body.second-theme {
                                 |   @include mtc-update-theme('primary', #6200ee, 55%);
                                 | }
                                 |
@@ -295,18 +295,17 @@ html(lang="en")
                                     | //          );
                                     |
 
-                            p In this case, it is recommended to move the secondary theme to an external CSS file and include it as follows:
+                            p In this case the second theme is recommended to be moved into the external CSS file and included as follows:
 
                             pre
                                 code.language-html
-                                    | &lt;link href="./secondary-theme.css" rel="stylesheet"&gt;
+                                    | &lt;link href="./second-theme.css" rel="stylesheet"&gt;
 
-                            p И код второй темы:
-                            p Secondary theme code:
+                            p Second theme code:
 
                             pre
                                 code.language-scss
-                                    | // secondary-theme.scss
+                                    | // second-theme.scss
                                     | body {
                                     |   @include ngx-mtc-update-theme('primary', #142148, 45%);
                                     |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
