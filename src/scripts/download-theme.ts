@@ -9,9 +9,9 @@ form.addEventListener('submit', evt => {
 });
 
 const getCSSContent = (theme: string): string => {
-    const styles = window.getComputedStyle(document.body);
+    const styles = window.getComputedStyle(document.documentElement);
     return `    
-body {
+:root {
     /* 
       Change this parameters to update your theme 
     */
@@ -19,8 +19,9 @@ body {
     --${theme}-s: ${styles.getPropertyValue(`--${theme}-s`)};
     --${theme}-l: ${styles.getPropertyValue(`--${theme}-l`)};
     --${theme}-contrast-threshold: ${styles.getPropertyValue(`--${theme}-contrast-threshold`)};
+}
     
-    
+:root {  
     /* 
       This is your CSS variables. 
       Example:

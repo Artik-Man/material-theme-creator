@@ -4,7 +4,7 @@ const theme = '--my-theme';
 
 const setVariable: (property: string, value: string) => void
     = debounce((property, value) => {
-    document.body.style.setProperty(property, value)
+    document.documentElement.style.setProperty(property, value)
 }, 100);
 
 const h = new MDCSlider(document.querySelector('[data-id=creator-h]'));

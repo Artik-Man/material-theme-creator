@@ -64,7 +64,7 @@ html(lang="en")
                         li
                             a(href="#article-how-it-works") How it works
                         li
-                            a(href="#article-how-to-use-it") How to use it
+                            a(href="#article-how-to-use-it") How to use Material Theme Creator
                             ol
                                 li
                                     a(href="#acricle-pure-css") Pure CSS use
@@ -109,7 +109,7 @@ html(lang="en")
                     p In fact, the code is a bit more complicated, but this piece of code is enough to understand the algorithm.
 
                 section
-                    h2#article-how-to-use-it How to use it
+                    h2#article-how-to-use-it How to use Material Theme Creator
                     section
                         h3#acricle-pure-css 1. Pure CSS use
 
@@ -136,7 +136,7 @@ html(lang="en")
                             code.language-javascript
                                 | const changeThemeButton = document.querySelector('button.change-theme-bth');
                                 | changeThemeButton.addEventListener('click', () => {
-                                |     document.body.classList.toggle('second-theme');
+                                |     document.documentElement.classList.toggle('second-theme');
                                 | });
 
                         p How can you use theme on your elements? 14 theme colors will be available for you. For each of these colors you will have access to one contrasting color. See example:
@@ -181,7 +181,7 @@ html(lang="en")
                                 | // root variables initializing
                                 | @include mtc-init();
                                 |
-                                | body {
+                                | :root {
                                 |   // Creating a theme based on some color
                                 |   // Passing arguments to the mixin:
                                 |   //   1. theme name
@@ -190,7 +190,7 @@ html(lang="en")
                                 |   @include mtc-create-variables-from-color('primary', #cc3300, 50%);
                                 | }
                                 |
-                                | body.second-theme {
+                                | .second-theme {
                                 |   @include mtc-update-theme('primary', #6200ee, 55%);
                                 | }
                                 |
@@ -222,7 +222,7 @@ html(lang="en")
                                         | $accent-map: ngx-mtc-create-theme-map('accent');
                                         | $warn-map: ngx-mtc-create-theme-map('warn');
 
-                        p We have two variants for creating of themes:
+                        p We have two options for creating of themes:
 
                         section.attention-section.info
                             p.label Recommended
@@ -232,7 +232,7 @@ html(lang="en")
 
                             pre
                                 code.language-scss
-                                    | body {
+                                    | :root {
                                     |   --is-dark-theme: 1; // Is dark theme? 1 or 0;
                                     |   @include ngx-mtc-theme-base(); // Creates base colors
                                     |
@@ -251,11 +251,11 @@ html(lang="en")
                                     |   )
                                     | );
 
-                            p Second theme code:
+                            p The second theme code:
 
                             pre
                                 code.language-scss
-                                    | body.theme2 {
+                                    | .second-theme {
                                     |   --is-dark-theme: 0;
                                     |   @include ngx-mtc-update-theme('primary', #142148, 45%);
                                     |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
@@ -270,7 +270,7 @@ html(lang="en")
 
                             pre
                                 code.language-scss
-                                    | body {
+                                    | :root {
                                     |   @include ngx-mtc-create-variables-from-map('primary', $mat-teal);
                                     |   @include ngx-mtc-create-variables-from-map('accent', $mat-deep-purple);
                                     |   @include ngx-mtc-create-variables-from-map('warn', $mat-red);
@@ -301,21 +301,20 @@ html(lang="en")
                                 code.language-html
                                     | &lt;link href="./second-theme.css" rel="stylesheet"&gt;
 
-                            p Second theme code:
+                            p The second theme code:
 
                             pre
                                 code.language-scss
                                     | // second-theme.scss
-                                    | body {
+                                    | :root {
                                     |   @include ngx-mtc-update-theme('primary', #142148, 45%);
                                     |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
                                     |   @include ngx-mtc-update-theme('warn', #750101, 50%);
                                     | }
                                     |
-                                    | // Если, например, главная тема и вторая тема являются
-                                    | //   светлыми (или тёмным), то на этом можно остановиться.
-                                    | // Но если, например, главная тема светлая, а вторая тема тёмная,
-                                    | //   то нужно дописать следующие строки:
+                                    |
+                                    | // If both themes are light or dark, then you can skip
+                                    | //   the following part of code to save the user's traffic
                                     |
                                     | // Light theme
                                     | // @include angular-material-theme(
@@ -337,8 +336,8 @@ html(lang="en")
 
 
                         section
-                            h4 3.4 Usage
-                                p Use standard Angular material mat-color and mat-contrast to extract individual colors from a palette.
+                            h4 3.4 How to use it
+                                p Use standard Angular material mat-color and mat-contrast mixins to extract specific colors from the theme.
                                 pre
                                     code.language-scss
                                         | button {
