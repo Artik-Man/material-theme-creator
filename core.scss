@@ -146,3 +146,22 @@
 @function mtc-color-contrast($theme-name, $index: 500) {
   @return var(--#{$theme-name}-#{$index}-contrast);
 }
+
+/// Create diapason for transition light-dark. Use --is-dark-theme [0..1] variable to change number inside diapason
+/// @param {number} $min - from
+/// @param {number} $max - to
+/// @param {any} $unit - 1%, 1deg, 1px, ...
+/// @param {var} $dark-theme-variable
+/// @return {calc(...)} diapason
+@function light-to-dark($min:0, $max:100, $unit: 1%, $dark-theme-variable: --is-dark-theme) {
+  // L0 -> D100: calc((var(--is-dark-theme) * (max - min) + min) * 1%)
+  // L100 -> D0: calc(((1 - var(--is-dark-theme)) * (max - min) + min) * 1%)
+  $base: var(#{$dark-theme-variable});
+  @if ($min > $max) {
+    $temp: $min;
+    $min: $max;
+    $max: $temp;
+    $base: calc(1 - var(#{$dark-theme-variable}));
+  }
+  @return calc((#{$base} * (#{$max} - #{$min}) + #{$min}) * #{$unit});
+}
