@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 3.0.3
+  Version: 3.0.4
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -153,7 +153,7 @@
 /// @param {any} $unit - 1%, 1deg, 1px, ...
 /// @param {var} $dark-theme-variable
 /// @return {calc(...)} diapason
-@function light-to-dark($min:0, $max:100, $unit: 1%, $dark-theme-variable: --is-dark-theme) {
+@function mtc-theme-component($min:0, $max:100, $unit: 1, $dark-theme-variable: --is-dark-theme) {
   // L0 -> D100: calc((var(--is-dark-theme) * (max - min) + min) * 1%)
   // L100 -> D0: calc(((1 - var(--is-dark-theme)) * (max - min) + min) * 1%)
   $base: var(#{$dark-theme-variable});
@@ -164,4 +164,17 @@
     $base: calc(1 - var(#{$dark-theme-variable}));
   }
   @return calc((#{$base} * (#{$max} - #{$min}) + #{$min}) * #{$unit});
+}
+
+/// Create color-construction for transition light-dark. Use --is-dark-theme [0..1] variable to change color
+/// @param $light {color} - light-theme color
+/// @param $dark {color} - dark-theme color
+/// @return {color} CSS color hsla(...)
+@function mtc-theme-color($light, $dark) {
+  @return hsla(
+                  #{mtc-theme-component(hue($light), hue($dark))},
+                  #{mtc-theme-component(saturation($light), saturation($dark))},
+                  #{mtc-theme-component(lightness($light), lightness($dark))},
+                  #{mtc-theme-component(opacity($light), opacity($dark), 100)}
+  )
 }

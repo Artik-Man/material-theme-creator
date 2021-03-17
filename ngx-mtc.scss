@@ -110,39 +110,46 @@
 
 /// Creates base colors CSS Variables for angular material theme.
 /// IMPORTANT: --is-dark-theme: 1; (or 0) property!
+/// IMPORTANT: @import '~@angular/material/theming';
 @mixin ngx-mtc-theme-base() {
+  @function get-background-color($name) {
+    @return mtc-theme-color(map-get($mat-light-theme-background, $name), map-get($mat-dark-theme-background, $name))
+  }
 
-  --mtc-background-status-bar: hsl(0, 0%, #{light-to-dark(88, 0)});
-  --mtc-background-app-bar: hsl(0, 0%, #{light-to-dark(96, 13)}); // 96 -> 13
-  --mtc-background-background: hsl(0, 0%, #{light-to-dark(98, 19)}); // 98 -> 19
-  --mtc-background-hover: hsla(0, 0%, #{light-to-dark(0, 100)}, 4%); // 0 -> 100
-  --mtc-background-card: hsl(0, 0%, #{light-to-dark(100, 26)}); // 100 -> 26
-  --mtc-background-dialog: hsl(0, 0%, #{light-to-dark(100, 26)}); // 100 -> 26
-  --mtc-background-disabled-button: hsla(0, 0%, #{light-to-dark(0, 100)}, 12%); // 0 -> 100
-  --mtc-background-raised-button: hsl(0, 0%, #{light-to-dark(100, 26)}); // 100 - 26
-  --mtc-background-focused-button: hsla(0, 0%, #{light-to-dark(0, 100)}, 12%); // 0 - 100
-  --mtc-background-selected-button: hsl(0, 0%, #{light-to-dark(88, 13)}); // 88 -> 13
-  --mtc-background-selected-disabled-button: hsl(0, 0%, #{light-to-dark(74, 26)}); // 74 -> 26
-  --mtc-background-disabled-button-toggle: hsl(0, 0%, #{light-to-dark(93, 0)}); // 93 -> 0
-  --mtc-background-unselected-chip: hsl(0, 0%, #{light-to-dark(88, 38)}); // 88 -> 38
-  --mtc-background-disabled-list-option: hsl(0, 0%, #{light-to-dark(93, 0)}); // 93 -> 0
-  --mtc-background-tooltip: hsl(0, 0%, 38%);
+  --mtc-background-status-bar: get-background-color('status-bar');
+  --mtc-background-app-bar: get-background-color('app-bar');
+  --mtc-background-background: get-background-color('background');
+  --mtc-background-hover: get-background-color('hover');
+  --mtc-background-card: get-background-color('card');
+  --mtc-background-dialog: get-background-color('dialog');
+  --mtc-background-disabled-button: get-background-color('disabled-button');
+  --mtc-background-raised-button: get-background-color('raised-button');
+  --mtc-background-focused-button: get-background-color('focused-button');
+  --mtc-background-selected-button: get-background-color('selected-button');
+  --mtc-background-selected-disabled-button: get-background-color('selected-disabled-button');
+  --mtc-background-disabled-button-toggle: get-background-color('disabled-button-toggle');
+  --mtc-background-unselected-chip: get-background-color('unselected-chip');
+  --mtc-background-disabled-list-option: get-background-color('disabled-list-option');
+  --mtc-background-tooltip: get-background-color('tooltip');
 
-  --mtc-foreground-base: hsla(0, 0%, #{light-to-dark(0, 100)}, 10%); // 0 -> 100
-  --mtc-foreground-divider: hsla(0, 0%, #{light-to-dark(0, 100)}, 12%); // 0 -> 100
-  --mtc-foreground-dividers: hsla(0, 0%, #{light-to-dark(0, 100)}, 12%); // 0 -> 100
-  --mtc-foreground-disabled: hsla(0, 0%, #{light-to-dark(0, 100)}, 50%); // 0 -> 100
-  --mtc-foreground-disabled-button: hsla(0, 0%, #{light-to-dark(26, 38)}, 26%); // 26 -> 38
-  --mtc-foreground-disabled-text: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(38, 50)}); // 0 -> 100, 38 -> 50
+  @function get-foreground-color($name) {
+    @return mtc-theme-color(map-get($mat-light-theme-foreground, $name), map-get($mat-dark-theme-foreground, $name))
+  }
+  --mtc-foreground-base: hsla(0, 0%, #{mtc-theme-component(0, 100, 1%)}, 10%);
+  --mtc-foreground-divider: get-foreground-color('divider');
+  --mtc-foreground-dividers: get-foreground-color('dividers');
+  --mtc-foreground-disabled: get-foreground-color('disabled');
+  --mtc-foreground-disabled-button: get-foreground-color('disabled-button');
+  --mtc-foreground-disabled-text: get-foreground-color('disabled-text');
   --mtc-foreground-elevation: hsla(0, 0%, 0%, 26%);
-  --mtc-foreground-hint-text: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(38, 50)}); // 0 -> 100, 38 -> 50
-  --mtc-foreground-secondary-text: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(54, 70)}); // 0 -> 100, 54 -> 70
-  --mtc-foreground-icon: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(54, 100)}); // 0 -> 100, 54 -> 100
-  --mtc-foreground-icons: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(54, 100)}); // 0 -> 100, 54 -> 100
-  --mtc-foreground-text: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(87, 100)}); // 0 -> 100, 87 -> 100
-  --mtc-foreground-slider-min: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(87, 100)}); // 0 -> 100, 87 -> 100
-  --mtc-foreground-slider-off: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(26, 30)}); // 0 -> 100, 26 -> 30
-  --mtc-foreground-slider-off-active: hsla(0, 0%, #{light-to-dark(0, 100)}, #{light-to-dark(38, 30)}); // 0 -> 100, 38 -> 30
+  --mtc-foreground-hint-text: get-foreground-color('hint-text');
+  --mtc-foreground-secondary-text: get-foreground-color('secondary-text');
+  --mtc-foreground-icon: get-foreground-color('icon');
+  --mtc-foreground-icons: get-foreground-color('icons');
+  --mtc-foreground-text: get-foreground-color('text');
+  --mtc-foreground-slider-min: get-foreground-color('slider-min');
+  --mtc-foreground-slider-off: get-foreground-color('slider-off');
+  --mtc-foreground-slider-off-active: get-foreground-color('slider-off-active');
 }
 
 /// Set base colors CSS Variables into angular material
