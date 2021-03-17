@@ -123,37 +123,37 @@
 /// IMPORTANT: @import '~@angular/material/theming';
 @mixin ngx-mtc-theme-base() {
 
-  --mtc-background-status-bar: get-background-color('status-bar');
-  --mtc-background-app-bar: get-background-color('app-bar');
-  --mtc-background-background: get-background-color('background');
-  --mtc-background-hover: get-background-color('hover');
-  --mtc-background-card: get-background-color('card');
-  --mtc-background-dialog: get-background-color('dialog');
-  --mtc-background-disabled-button: get-background-color('disabled-button');
-  --mtc-background-raised-button: get-background-color('raised-button');
-  --mtc-background-focused-button: get-background-color('focused-button');
-  --mtc-background-selected-button: get-background-color('selected-button');
-  --mtc-background-selected-disabled-button: get-background-color('selected-disabled-button');
-  --mtc-background-disabled-button-toggle: get-background-color('disabled-button-toggle');
-  --mtc-background-unselected-chip: get-background-color('unselected-chip');
-  --mtc-background-disabled-list-option: get-background-color('disabled-list-option');
-  --mtc-background-tooltip: get-background-color('tooltip');
+  --mtc-background-status-bar: #{get-background-color('status-bar')};
+  --mtc-background-app-bar: #{get-background-color('app-bar')};
+  --mtc-background-background: #{get-background-color('background')};
+  --mtc-background-hover: #{get-background-color('hover')};
+  --mtc-background-card: #{get-background-color('card')};
+  --mtc-background-dialog: #{get-background-color('dialog')};
+  --mtc-background-disabled-button: #{get-background-color('disabled-button')};
+  --mtc-background-raised-button: #{get-background-color('raised-button')};
+  --mtc-background-focused-button: #{get-background-color('focused-button')};
+  --mtc-background-selected-button: #{get-background-color('selected-button')};
+  --mtc-background-selected-disabled-button: #{get-background-color('selected-disabled-button')};
+  --mtc-background-disabled-button-toggle: #{get-background-color('disabled-button-toggle')};
+  --mtc-background-unselected-chip: #{get-background-color('unselected-chip')};
+  --mtc-background-disabled-list-option: #{get-background-color('disabled-list-option')};
+  --mtc-background-tooltip: #{get-background-color('tooltip')};
 
   --mtc-foreground-base: hsla(0, 0%, #{mtc-theme-component(0, 100, 1%)}, 10%);
-  --mtc-foreground-divider: get-foreground-color('divider');
-  --mtc-foreground-dividers: get-foreground-color('dividers');
-  --mtc-foreground-disabled: get-foreground-color('disabled');
-  --mtc-foreground-disabled-button: get-foreground-color('disabled-button');
-  --mtc-foreground-disabled-text: get-foreground-color('disabled-text');
+  --mtc-foreground-divider: #{get-foreground-color('divider')};
+  --mtc-foreground-dividers: #{get-foreground-color('dividers')};
+  --mtc-foreground-disabled: #{get-foreground-color('disabled')};
+  --mtc-foreground-disabled-button: #{get-foreground-color('disabled-button')};
+  --mtc-foreground-disabled-text: #{get-foreground-color('disabled-text')};
   --mtc-foreground-elevation: hsla(0, 0%, 0%, 26%);
-  --mtc-foreground-hint-text: get-foreground-color('hint-text');
-  --mtc-foreground-secondary-text: get-foreground-color('secondary-text');
-  --mtc-foreground-icon: get-foreground-color('icon');
-  --mtc-foreground-icons: get-foreground-color('icons');
-  --mtc-foreground-text: get-foreground-color('text');
-  --mtc-foreground-slider-min: get-foreground-color('slider-min');
-  --mtc-foreground-slider-off: get-foreground-color('slider-off');
-  --mtc-foreground-slider-off-active: get-foreground-color('slider-off-active');
+  --mtc-foreground-hint-text: #{get-foreground-color('hint-text')};
+  --mtc-foreground-secondary-text: #{get-foreground-color('secondary-text')};
+  --mtc-foreground-icon: #{get-foreground-color('icon')};
+  --mtc-foreground-icons: #{get-foreground-color('icons')};
+  --mtc-foreground-text: #{get-foreground-color('text')};
+  --mtc-foreground-slider-min: #{get-foreground-color('slider-min')};
+  --mtc-foreground-slider-off: #{get-foreground-color('slider-off')};
+  --mtc-foreground-slider-off-active: #{get-foreground-color('slider-off-active')};
 }
 
 /// Set base colors CSS Variables into angular material
