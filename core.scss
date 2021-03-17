@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 3.0.6
+  Version: 3.0.7
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -175,6 +175,6 @@
                   #{mtc-theme-component(hue($light), hue($dark))},
                   #{mtc-theme-component(saturation($light), saturation($dark))},
                   #{mtc-theme-component(lightness($light), lightness($dark))},
-                  #{mtc-theme-component(opacity($light), opacity($dark), 100)}
+                  #{mtc-theme-component(opacity($light), opacity($dark), 100%)}
   )
 }
