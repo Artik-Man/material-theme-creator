@@ -108,13 +108,20 @@
   }
 }
 
+/// IMPORTANT: @import '~@angular/material/theming';
+@function get-background-color($name) {
+  @return mtc-theme-color(map-get($mat-light-theme-background, $name), map-get($mat-dark-theme-background, $name))
+}
+
+/// IMPORTANT: @import '~@angular/material/theming';
+@function get-foreground-color($name) {
+  @return mtc-theme-color(map-get($mat-light-theme-foreground, $name), map-get($mat-dark-theme-foreground, $name))
+}
+
 /// Creates base colors CSS Variables for angular material theme.
 /// IMPORTANT: --is-dark-theme: 1; (or 0) property!
 /// IMPORTANT: @import '~@angular/material/theming';
 @mixin ngx-mtc-theme-base() {
-  @function get-background-color($name) {
-    @return mtc-theme-color(map-get($mat-light-theme-background, $name), map-get($mat-dark-theme-background, $name))
-  }
 
   --mtc-background-status-bar: get-background-color('status-bar');
   --mtc-background-app-bar: get-background-color('app-bar');
@@ -132,9 +139,6 @@
   --mtc-background-disabled-list-option: get-background-color('disabled-list-option');
   --mtc-background-tooltip: get-background-color('tooltip');
 
-  @function get-foreground-color($name) {
-    @return mtc-theme-color(map-get($mat-light-theme-foreground, $name), map-get($mat-dark-theme-foreground, $name))
-  }
   --mtc-foreground-base: hsla(0, 0%, #{mtc-theme-component(0, 100, 1%)}, 10%);
   --mtc-foreground-divider: get-foreground-color('divider');
   --mtc-foreground-dividers: get-foreground-color('dividers');
