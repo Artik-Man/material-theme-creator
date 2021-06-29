@@ -6,7 +6,8 @@ PLUS Converting Angular Material themes to CSS Custom Properties (Variables)
 [Full Documentation: artik-man.github.io/material-theme-creator](https://artik-man.github.io/material-theme-creator/)
 
 ## How it works?
-Мы используем CSS Custom Properties и цветовое пространство HSL для динамического вычисления цветов темы.
+We use CSS Custom Properties and HSL color space for dynamic theme colors’ calculation.
+
 ```css
 :root {
     --primary-h: 260;
@@ -15,7 +16,7 @@ PLUS Converting Angular Material themes to CSS Custom Properties (Variables)
     --primary: hsl( var(--primary-h), var(--primary-s), var(--primary-l) );
 }
 ```
-Так мы уже построили цвет из HSL-компонент. Но как построить целую палитру? Для этого нужно произвести некие вычисления.
+We have already created a color consisting of H, S and L components of the HSL color space. But how can we create the whole theme palette? We need to do some calculations for this.
 ```css
  :root {
    --primary-400: hsl(
@@ -30,6 +31,9 @@ PLUS Converting Angular Material themes to CSS Custom Properties (Variables)
                    );
  }
 ```
+In fact, the code is a bit more complicated, but this piece of code is enough to understand the algorithm.
+
+
 ## Installation
   ```
 npm install material-theme-creator
@@ -40,15 +44,15 @@ npm install material-theme-creator
 ```scss
  @import "~material-theme-creator/core";
 
- // Инициализируем root переменные
+ // root variables initializing
  @include mtc-init();
 
  body {
-   // Создадим тему на основе какого-то цвета
-   // Для этого передадим:
-   //   1. название темы
-   //   2. цвет, на основе которого мы будем строить тему
-   //   3. порог контрастности темы
+  // Creating a theme based on some color
+  // Passing arguments to the mixin:
+  //   1. theme name
+  //   2. some color
+  //   3. contrast threshold (for fonts)
    @include mtc-create-variables-from-color('primary', #cc3300, 50%);
  }
 
@@ -67,7 +71,9 @@ npm install material-theme-creator
 ```
 
 ## 3 Create theme (Angular)
-### Initialization
+You can use ngx-mtc module to convert Angular Material themes to use CSS Custom Properties.
+
+### Setup
 ```scss
 @import "~material-theme-creator/ngx-mtc";
 @import '~@angular/material/theming';
@@ -81,6 +87,7 @@ $warn-map: ngx-mtc-create-theme-map('warn');
 ```
 
 ### Set up main theme
+
 ```scss
 body {
    --is-dark-theme: 1; // Is dark theme? 1 or 0;
@@ -102,7 +109,7 @@ body {
  );
 ```
 
-### Set up secondary theme
+### Set up second theme
 ```scss
  body.theme2 {
    --is-dark-theme: 0;
@@ -112,7 +119,9 @@ body {
  }
 ```
 
-### Usage
+### How to use it
+Use standard Angular material mat-color and mat-contrast mixins to extract specific colors from the theme.
+
 ```scss
 button {
    color: mat-contrast($primary-map, 500);
