@@ -1,4 +1,5 @@
 @use "core" as mtc;
+@use '~@angular/material' as mat;
 
 /// @deprecated
 @mixin ngx-mtc-init() {
@@ -144,12 +145,12 @@
 
 /// IMPORTANT: @import '~@angular/material/theming';
 @function get-background-color($name) {
-  @return mtc.theme-color(map-get($mat-light-theme-background, $name), map-get($mat-dark-theme-background, $name))
+  @return mtc.theme-color(map-get(mat.$light-theme-background-palette, $name), map-get(mat.$dark-theme-background-palette, $name))
 }
 
 /// IMPORTANT: @import '~@angular/material/theming';
 @function get-foreground-color($name) {
-  @return mtc.theme-color(map-get($mat-light-theme-foreground, $name), map-get($mat-dark-theme-foreground, $name))
+  @return mtc.theme-color(map-get(mat.$light-theme-foreground-palette, $name), map-get(mat.$dark-theme-foreground-palette, $name))
 }
 
 /// @deprecated
