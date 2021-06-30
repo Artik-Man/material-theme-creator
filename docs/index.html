@@ -34,89 +34,99 @@ changeThemeButton.addEventListener('click', () => {
                           var(--my-theme-500-s),
                           var(--my-theme-500-l),
                           62% /* alpha */
-                       );</code></pre></section><section><h3 id="article-scss">2. Use with SCSS</h3><p>You can have more options to manage the theme if you use SCSS.<br>Installation:</p><pre><code class="language-bash">npm install material-theme-creator</code></pre><p>Use:</p><pre><code class="language-scss">@import "~material-theme-creator/core";
+                       );</code></pre></section><section><h3 id="article-scss">2. Use with SCSS</h3><p>You can have more options to manage the theme if you use SCSS.<br>Installation:</p><pre><code class="language-bash">npm install material-theme-creator</code></pre><p>Use:</p><pre><code class="language-scss">@use "~material-theme-creator/core" as mtc;
 
 // root variables initializing
-@include mtc-init();
+@include mtc.init();
 
-:root {
-  // Creating a theme based on some color
-  // Passing arguments to the mixin:
-  //   1. theme name
-  //   2. some color
-  //   3. contrast threshold (for fonts)
-  @include mtc-create-variables-from-color('primary', #cc3300, 50%);
+body {
+    // Creating a theme based on some color
+    // Passing arguments to the mixin:
+    //   1. theme name
+    //   2. some color
+    //   3. contrast threshold (for fonts)
+     @include mtc.create-variables-from-color('primary', #cc3300, 50%);
 }
 
-.second-theme {
-  @include mtc-update-theme('primary', #6200ee, 55%);
+body.secondary-theme {
+    @include mtc.update-theme('primary', #6200ee, 55%);
 }
 
 button {
-  color: mtc-color-contrast('primary');
-  background-color: mtc-color('primary');
-  &:hover {
-    color: mtc-color-contrast('primary', 700);
-    background-color: mtc-color('primary', 700, 92%);
-  }
-}</code></pre></section><section><h3 id="article-angular-material">3. Use with &nbsp;<a href="https://material.angular.io/" target="_blank">Angular Material</a></h3><p>You can use ngx-mtc module to convert Angular Material themes to use CSS Custom Properties.</p><section><h4>3.1 Setup<pre><code class="language-scss">@import "~material-theme-creator/ngx-mtc";
+    color: mtc.color-contrast('primary');
+    background-color: mtc.color('primary');
+    &:hover {
+        color: mtc.color-contrast('primary', 700);
+        background-color: mtc.color('primary', 700, 92%);
+    }
+}</code></pre></section><section><h3 id="article-angular-material">3. Use with &nbsp;<a href="https://material.angular.io/" target="_blank">Angular Material</a></h3><p>You can use ngx-mtc module to convert Angular Material themes to use CSS Custom Properties.</p><section><h4>3.1 Setup<pre><code class="language-scss">@use '~@angular/material' as mat;
+@use "~material-theme-creator/ngx-mtc" as ngx-mtc;
 @import '~@angular/material/theming';
 
-@include mat-core();
-@include ngx-mtc-init();
+@include mat.core();
+@include ngx-mtc.init();
 
-$primary-map: ngx-mtc-create-theme-map('primary');
-$accent-map: ngx-mtc-create-theme-map('accent');
-$warn-map: ngx-mtc-create-theme-map('warn');</code></pre></h4></section><p>We have two options for creating of themes:</p><section class="attention-section info"><p class="label">Recommended</p><h4>3.2 Creating theme from one color</h4><p>In this case, each theme will consist of just a few lines of code.</p><pre><code class="language-scss">:root {
-  --is-dark-theme: 1; // Is dark theme? 1 or 0;
-  @include ngx-mtc-theme-base(); // Creates base colors
+$primary-map: ngx-mtc.create-theme-map('primary');
+$accent-map: ngx-mtc.create-theme-map('accent');
+$warn-map: ngx-mtc.create-theme-map('warn');</code></pre></h4></section><p>We have two options for creating of themes:</p><section class="attention-section info"><p class="label">Recommended</p><h4>3.2 Creating theme from one color</h4><p>In this case, each theme will consist of just a few lines of code.</p><pre><code class="language-scss">:root {
+    --is-dark-theme: 1; // Is dark theme? 1 or 0;
+    @include ngx-mtc.theme-base(); // Creates base colors
 
-  // Creates theme colors
-  @include ngx-mtc-create-variables-from-color('primary', #009688, 38%);
-  @include ngx-mtc-create-variables-from-color('accent', #2196f3, 57%);
-  @include ngx-mtc-create-variables-from-color('warn', #f44336, 62%);
+    // Creates theme colors
+    @include ngx-mtc.create-variables-from-color('primary', #009688, 38%);
+    @include ngx-mtc.create-variables-from-color('accent', #2196f3, 57%);
+    @include ngx-mtc.create-variables-from-color('warn', #f44336, 62%);
 }
 
-// Creates Angular Material Theme
-@include angular-material-theme(
-  ngx-mtc-custom-theme(
-    mat-palette($primary-map),
-    mat-palette($accent-map),
-    mat-palette($warn-map)
-  )
-);</code></pre><p>The second theme code:</p><pre><code class="language-scss">.second-theme {
-  --is-dark-theme: 0;
-  @include ngx-mtc-update-theme('primary', #142148, 45%);
-  @include ngx-mtc-update-theme('accent', #658e14, 50%);
-  @include ngx-mtc-update-theme('warn', #750101, 50%);
-}</code></pre></section><section class="attention-section warning"><p class="label">Not recommended</p><h4>3.3 Converting true Angular Material themes to using CSS Custom Properties</h4><p>The angular-material-theme() mixin generates a lot of CSS code for each theme, so you shouldn't use this method.</p><pre><code class="language-scss">:root {
-  @include ngx-mtc-create-variables-from-map('primary', $mat-teal);
-  @include ngx-mtc-create-variables-from-map('accent', $mat-deep-purple);
-  @include ngx-mtc-create-variables-from-map('warn', $mat-red);
+$primary-palette: mat.define-palette($primary-map);
+$accent-palette: mat.define-palette($accent-map);
+$warn-palette: mat.define-palette($warn-map);
+
+// Custom theme
+$theme: ngx-mtc.ngx-mtc-custom-theme(
+    $primary-palette,
+    $accent-palette,
+    $warn-palette,
+);
+
+    // Creates Angular Material Theme
+@include mat.all-component-themes($theme);</code></pre><p>The second theme code:</p><pre><code class="language-scss"></code>html.second-theme {
+    --is - dark - theme: 0;
+    @include ngx-mtc.update-theme('primary', #142148, 45%);
+    @include ngx-mtc.update-theme('accent', #658e14, 50%);
+    @include ngx-mtc.update-theme('warn', #750101, 50%);
+}</pre></section><section class="attention-section warning"><p class="label">Not recommended</p><h4>3.3 Converting true Angular Material themes to using CSS Custom Properties</h4><p>The mat.define-light-theme() mixin generates a lot of CSS code for each theme, so you shouldn't use this method.</p><pre><code class="language-scss">:root {
+  @include ngx-mtc.create-variables-from-map('primary', $mat-teal);
+  @include ngx-mtc.create-variables-from-map('accent', $mat-deep-purple);
+  @include ngx-mtc.create-variables-from-map('warn', $mat-red);
 }
 
 // Light theme
-@include angular-material-theme(
-           mat-light-theme(
-             mat-palette($primary-map),
-             mat-palette($accent-map),
-             mat-palette($warn-map)
-           )
-         );
+@include mat.core-theme(
+    mat.define-light-theme((
+        color: (
+            primary: $primary-map,
+            accent: $accent-map,
+            warn: $warn-map
+        )
+    ))
+);
 
 // Dark theme
-// @include angular-material-theme(
-//            mat-dark-theme(
-//              mat-palette($primary-map),
-//              mat-palette($accent-map),
-//              mat-palette($warn-map)
-//            )
-//          );
+// @include mat.core-theme(
+//     mat.define-dark-theme((
+//         color: (
+//             primary: $primary-map,
+//             accent: $accent-map,
+//             warn: $warn-map
+//         )
+//     ))
+// );
 </code></pre><p>In this case the second theme is recommended to be moved into the external CSS file and included as follows:</p><pre><code class="language-html">&lt;link href="./second-theme.css" rel="stylesheet"&gt;</code></pre><p>The second theme code:</p><pre><code class="language-scss">// second-theme.scss
 :root {
-  @include ngx-mtc-update-theme('primary', #142148, 45%);
-  @include ngx-mtc-update-theme('accent', #658e14, 50%);
-  @include ngx-mtc-update-theme('warn', #750101, 50%);
+  @include ngx-mtc.update-theme('primary', #142148, 45%);
+  @include ngx-mtc.update-theme('accent', #658e14, 50%);
+  @include ngx-mtc.update-theme('warn', #750101, 50%);
 }
 
 
@@ -124,26 +134,30 @@ $warn-map: ngx-mtc-create-theme-map('warn');</code></pre></h4></section><p>We ha
 //   the following part of code to save the user's traffic
 
 // Light theme
-// @include angular-material-theme(
-//            mat-light-theme(
-//              mat-palette($primary-map),
-//              mat-palette($accent-map),
-//              mat-palette($warn-map)
-//            )
-//          );
+@include mat.core-theme(
+    mat.define-light-theme((
+        color: (
+            primary: $primary-map,
+            accent: $accent-map,
+            warn: $warn-map
+        )
+    ))
+);
 
 // Dark theme
-@include angular-material-theme(
-           mat-dark-theme(
-             mat-palette($primary-map),
-             mat-palette($accent-map),
-             mat-palette($warn-map)
-           )
-         );</code></pre></section><section><h4>3.4 How to use it<p>Use standard Angular material mat-color and mat-contrast mixins to extract specific colors from the theme.</p><pre><code class="language-scss">button {
-  color: mat-contrast($primary-map, 500);
-  background-color: mat-color($primary-map, 500);
+// @include mat.core-theme(
+//     mat.define-dark-theme((
+//         color: (
+//             primary: $primary-map,
+//             accent: $accent-map,
+//             warn: $warn-map
+//         )
+//     ))
+// );</code></pre></section><section><h4>3.4 How to use it<p>Use standard Angular material mat-color and mat-contrast mixins to extract specific colors from the theme.</p><pre><code class="language-scss">button {
+  color: mat.contrast($primary-map, 500);
+  background-color: mat.color($primary-map, 500);
   &:hover {
-    color: mat-contrast($primary-map, 700);
-    background-color: mat-color($primary-map, 700, 92%);
+    color: mat.contrast($primary-map, 700);
+    background-color: mat.color($primary-map, 700, 92%);
   }
 }</code></pre></h4></section></section></section><section><h2 id="article-testing">Testing [<code>@mixin mtc-create-variables-from-color</code>]</h2><div class="themes"><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div><div class="theme"><span class="point" data-point="50">50</span><span class="point" data-point="100">100</span><span class="point" data-point="200">200</span><span class="point" data-point="300">300</span><span class="point" data-point="400">400</span><span class="point" data-point="500">500</span><span class="point" data-point="600">600</span><span class="point" data-point="700">700</span><span class="point" data-point="800">800</span><span class="point" data-point="900">900</span><span class="point" data-point="A100">A100</span><span class="point" data-point="A200">A200</span><span class="point" data-point="A400">A400</span><span class="point" data-point="A700">A700</span></div></div></section></main></div><script src="./main.js"></script></body></html>

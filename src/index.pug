@@ -176,32 +176,32 @@ html(lang="en")
 
                         pre
                             code.language-scss
-                                | @import "~material-theme-creator/core";
-                                |
-                                | // root variables initializing
-                                | @include mtc-init();
-                                |
-                                | :root {
-                                |   // Creating a theme based on some color
-                                |   // Passing arguments to the mixin:
-                                |   //   1. theme name
-                                |   //   2. some color
-                                |   //   3. contrast threshold (for fonts)
-                                |   @include mtc-create-variables-from-color('primary', #cc3300, 50%);
-                                | }
-                                |
-                                | .second-theme {
-                                |   @include mtc-update-theme('primary', #6200ee, 55%);
-                                | }
-                                |
-                                | button {
-                                |   color: mtc-color-contrast('primary');
-                                |   background-color: mtc-color('primary');
-                                |   &:hover {
-                                |     color: mtc-color-contrast('primary', 700);
-                                |     background-color: mtc-color('primary', 700, 92%);
-                                |   }
-                                | }
+                              | @use "~material-theme-creator/core" as mtc;
+                              |
+                              | // root variables initializing
+                              | @include mtc.init();
+                              |
+                              | body {
+                              |     // Creating a theme based on some color
+                              |     // Passing arguments to the mixin:
+                              |     //   1. theme name
+                              |     //   2. some color
+                              |     //   3. contrast threshold (for fonts)
+                              |      @include mtc.create-variables-from-color('primary', #cc3300, 50%);
+                              | }
+                              |
+                              | body.secondary-theme {
+                              |     @include mtc.update-theme('primary', #6200ee, 55%);
+                              | }
+                              |
+                              | button {
+                              |     color: mtc.color-contrast('primary');
+                              |     background-color: mtc.color('primary');
+                              |     &:hover {
+                              |         color: mtc.color-contrast('primary', 700);
+                              |         background-color: mtc.color('primary', 700, 92%);
+                              |     }
+                              | }
                     section
                         h3#article-angular-material 3. Use with &nbsp;
                             a(href="https://material.angular.io/" target="_blank") Angular Material
@@ -212,15 +212,16 @@ html(lang="en")
                             h4 3.1 Setup
                                 pre
                                     code.language-scss
-                                        | @import "~material-theme-creator/ngx-mtc";
-                                        | @import '~@angular/material/theming';
-                                        |
-                                        | @include mat-core();
-                                        | @include ngx-mtc-init();
-                                        |
-                                        | $primary-map: ngx-mtc-create-theme-map('primary');
-                                        | $accent-map: ngx-mtc-create-theme-map('accent');
-                                        | $warn-map: ngx-mtc-create-theme-map('warn');
+                                      | @use '~@angular/material' as mat;
+                                      | @use "~material-theme-creator/ngx-mtc" as ngx-mtc;
+                                      | @import '~@angular/material/theming';
+                                      |
+                                      | @include mat.core();
+                                      | @include ngx-mtc.init();
+                                      |
+                                      | $primary-map: ngx-mtc.create-theme-map('primary');
+                                      | $accent-map: ngx-mtc.create-theme-map('accent');
+                                      | $warn-map: ngx-mtc.create-theme-map('warn');
 
                         p We have two options for creating of themes:
 
@@ -232,67 +233,76 @@ html(lang="en")
 
                             pre
                                 code.language-scss
-                                    | :root {
-                                    |   --is-dark-theme: 1; // Is dark theme? 1 or 0;
-                                    |   @include ngx-mtc-theme-base(); // Creates base colors
-                                    |
-                                    |   // Creates theme colors
-                                    |   @include ngx-mtc-create-variables-from-color('primary', #009688, 38%);
-                                    |   @include ngx-mtc-create-variables-from-color('accent', #2196f3, 57%);
-                                    |   @include ngx-mtc-create-variables-from-color('warn', #f44336, 62%);
-                                    | }
-                                    |
-                                    | // Creates Angular Material Theme
-                                    | @include angular-material-theme(
-                                    |   ngx-mtc-custom-theme(
-                                    |     mat-palette($primary-map),
-                                    |     mat-palette($accent-map),
-                                    |     mat-palette($warn-map)
-                                    |   )
-                                    | );
+                                  | :root {
+                                  |     --is-dark-theme: 1; // Is dark theme? 1 or 0;
+                                  |     @include ngx-mtc.theme-base(); // Creates base colors
+                                  |
+                                  |     // Creates theme colors
+                                  |     @include ngx-mtc.create-variables-from-color('primary', #009688, 38%);
+                                  |     @include ngx-mtc.create-variables-from-color('accent', #2196f3, 57%);
+                                  |     @include ngx-mtc.create-variables-from-color('warn', #f44336, 62%);
+                                  | }
+                                  |
+                                  | $primary-palette: mat.define-palette($primary-map);
+                                  | $accent-palette: mat.define-palette($accent-map);
+                                  | $warn-palette: mat.define-palette($warn-map);
+                                  |
+                                  | // Custom theme
+                                  | $theme: ngx-mtc.ngx-mtc-custom-theme(
+                                  |     $primary-palette,
+                                  |     $accent-palette,
+                                  |     $warn-palette,
+                                  | );
+                                  |
+                                  |     // Creates Angular Material Theme
+                                  | @include mat.all-component-themes($theme);
 
                             p The second theme code:
 
                             pre
                                 code.language-scss
-                                    | .second-theme {
-                                    |   --is-dark-theme: 0;
-                                    |   @include ngx-mtc-update-theme('primary', #142148, 45%);
-                                    |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
-                                    |   @include ngx-mtc-update-theme('warn', #750101, 50%);
-                                    | }
+                                | html.second-theme {
+                                |     --is - dark - theme: 0;
+                                |     @include ngx-mtc.update-theme('primary', #142148, 45%);
+                                |     @include ngx-mtc.update-theme('accent', #658e14, 50%);
+                                |     @include ngx-mtc.update-theme('warn', #750101, 50%);
+                                | }
 
                         section.attention-section.warning
                             p.label Not recommended
                             h4 3.3 Converting true Angular Material themes to using CSS Custom Properties
 
-                            p The angular-material-theme() mixin generates a lot of CSS code for each theme, so you shouldn't use this method.
+                            p The mat.define-light-theme() mixin generates a lot of CSS code for each theme, so you shouldn't use this method.
 
                             pre
                                 code.language-scss
                                     | :root {
-                                    |   @include ngx-mtc-create-variables-from-map('primary', $mat-teal);
-                                    |   @include ngx-mtc-create-variables-from-map('accent', $mat-deep-purple);
-                                    |   @include ngx-mtc-create-variables-from-map('warn', $mat-red);
+                                    |   @include ngx-mtc.create-variables-from-map('primary', $mat-teal);
+                                    |   @include ngx-mtc.create-variables-from-map('accent', $mat-deep-purple);
+                                    |   @include ngx-mtc.create-variables-from-map('warn', $mat-red);
                                     | }
                                     |
                                     | // Light theme
-                                    | @include angular-material-theme(
-                                    |            mat-light-theme(
-                                    |              mat-palette($primary-map),
-                                    |              mat-palette($accent-map),
-                                    |              mat-palette($warn-map)
-                                    |            )
-                                    |          );
+                                    | @include mat.core-theme(
+                                    |     mat.define-light-theme((
+                                    |         color: (
+                                    |             primary: $primary-map,
+                                    |             accent: $accent-map,
+                                    |             warn: $warn-map
+                                    |         )
+                                    |     ))
+                                    | );
                                     |
                                     | // Dark theme
-                                    | // @include angular-material-theme(
-                                    | //            mat-dark-theme(
-                                    | //              mat-palette($primary-map),
-                                    | //              mat-palette($accent-map),
-                                    | //              mat-palette($warn-map)
-                                    | //            )
-                                    | //          );
+                                    | // @include mat.core-theme(
+                                    | //     mat.define-dark-theme((
+                                    | //         color: (
+                                    | //             primary: $primary-map,
+                                    | //             accent: $accent-map,
+                                    | //             warn: $warn-map
+                                    | //         )
+                                    | //     ))
+                                    | // );
                                     |
 
                             p In this case the second theme is recommended to be moved into the external CSS file and included as follows:
@@ -307,9 +317,9 @@ html(lang="en")
                                 code.language-scss
                                     | // second-theme.scss
                                     | :root {
-                                    |   @include ngx-mtc-update-theme('primary', #142148, 45%);
-                                    |   @include ngx-mtc-update-theme('accent', #658e14, 50%);
-                                    |   @include ngx-mtc-update-theme('warn', #750101, 50%);
+                                    |   @include ngx-mtc.update-theme('primary', #142148, 45%);
+                                    |   @include ngx-mtc.update-theme('accent', #658e14, 50%);
+                                    |   @include ngx-mtc.update-theme('warn', #750101, 50%);
                                     | }
                                     |
                                     |
@@ -317,22 +327,26 @@ html(lang="en")
                                     | //   the following part of code to save the user's traffic
                                     |
                                     | // Light theme
-                                    | // @include angular-material-theme(
-                                    | //            mat-light-theme(
-                                    | //              mat-palette($primary-map),
-                                    | //              mat-palette($accent-map),
-                                    | //              mat-palette($warn-map)
-                                    | //            )
-                                    | //          );
+                                    | @include mat.core-theme(
+                                    |     mat.define-light-theme((
+                                    |         color: (
+                                    |             primary: $primary-map,
+                                    |             accent: $accent-map,
+                                    |             warn: $warn-map
+                                    |         )
+                                    |     ))
+                                    | );
                                     |
                                     | // Dark theme
-                                    | @include angular-material-theme(
-                                    |            mat-dark-theme(
-                                    |              mat-palette($primary-map),
-                                    |              mat-palette($accent-map),
-                                    |              mat-palette($warn-map)
-                                    |            )
-                                    |          );
+                                    | // @include mat.core-theme(
+                                    | //     mat.define-dark-theme((
+                                    | //         color: (
+                                    | //             primary: $primary-map,
+                                    | //             accent: $accent-map,
+                                    | //             warn: $warn-map
+                                    | //         )
+                                    | //     ))
+                                    | // );
 
 
                         section
@@ -341,11 +355,11 @@ html(lang="en")
                                 pre
                                     code.language-scss
                                         | button {
-                                        |   color: mat-contrast($primary-map, 500);
-                                        |   background-color: mat-color($primary-map, 500);
+                                        |   color: mat.contrast($primary-map, 500);
+                                        |   background-color: mat.color($primary-map, 500);
                                         |   &:hover {
-                                        |     color: mat-contrast($primary-map, 700);
-                                        |     background-color: mat-color($primary-map, 700, 92%);
+                                        |     color: mat.contrast($primary-map, 700);
+                                        |     background-color: mat.color($primary-map, 700, 92%);
                                         |   }
                                         | }
                 section

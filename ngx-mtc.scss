@@ -1,13 +1,16 @@
-@import "core";
+@use "core" as mtc;
 
-/// Creates CSS Variables used in the "create-variables-from-color" mixin
+/// @deprecated
 @mixin ngx-mtc-init() {
-  @include mtc-init();
+  @include mtc.init();
 }
 
-/// Creates a theme-map for use in Angular Material
-/// @param {string} $theme-name
-/// @return {mat-palette} palette with CSS Custom Properties
+/// Creates CSS Variables used in the "create-variables-from-color" mixin
+@mixin init() {
+  @include mtc.init();
+}
+
+/// @deprecated
 @function ngx-mtc-create-theme-map($theme-name) {
   @return (
           50: #{'var(--' + $theme-name + '-50, #eee)'},
@@ -43,8 +46,48 @@
   );
 }
 
+/// Creates a theme-map for use in Angular Material
+/// @param {string} $theme-name
+/// @return {mat-palette} palette with CSS Custom Properties
+@function create-theme-map($theme-name) {
+  @return ngx-mtc-create-theme-map($theme-name);
+}
+
+/// @deprecated
 @mixin ngx-mtc-create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
-  @include mtc-create-variables-from-color($theme-name, $color, $contrast-threshold: 50%);
+  @include mtc.create-variables-from-color($theme-name, $color, $contrast-threshold: 50%);
+}
+
+/// Creates CSS Custom Properties for mat-palette from one color
+/// @param {string} $theme-name (example: 'primary');
+/// @param {color} $color CSS Color (#hex/rgb,hsl);
+/// @param {percent} $contrast-threshold: 0%..100% (default: 50%);
+///
+/// @return CSS Custom Properties:
+///  --primary: hsl(...);
+///  --primary-50: hsl(...);
+///  --primary-50-contrast: hsl(...);
+///  --primary-100: hsl(...);
+///  --primary-100-contrast: hsl(...);
+///  ...
+///  --primary-A700: hsl(...);
+///  --primary-A700-contrast: hsl(...);
+@mixin create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
+  @include mtc.create-variables-from-color($theme-name, $color, $contrast-threshold);
+}
+
+/// @deprecated
+@mixin ngx-mtc-create-variables-from-map($theme-name, $theme-map) {
+  // color: var(--primary)
+  --#{$theme-name}: #{map-get($theme-map, 500)};
+
+  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
+  @for $i from 1 through 14 {
+    // color: var(--primary-300)
+    $index: nth($arr_names, $i);
+    --#{$theme-name}-#{$index}: #{map-get($theme-map, $index)};
+    --#{$theme-name}-#{$index}-contrast: #{map-get(map-get($theme-map, contrast), $index)};
+  }
 }
 
 /// Creates CSS Custom Properties for mat-palette from mat-palette
@@ -95,32 +138,21 @@
 ///  ...
 ///  --primary-A700: hsl(...);
 ///  --primary-A700-contrast: hsl(...);
-@mixin ngx-mtc-create-variables-from-map($theme-name, $theme-map) {
-  // color: var(--primary)
-  --#{$theme-name}: #{map-get($theme-map, 500)};
-
-  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
-  @for $i from 1 through 14 {
-    // color: var(--primary-300)
-    $index: nth($arr_names, $i);
-    --#{$theme-name}-#{$index}: #{map-get($theme-map, $index)};
-    --#{$theme-name}-#{$index}-contrast: #{map-get(map-get($theme-map, contrast), $index)};
-  }
+@mixin create-variables-from-map($theme-name, $theme-map) {
+  @include ngx-mtc-create-variables-from-map($theme-name, $theme-map);
 }
 
 /// IMPORTANT: @import '~@angular/material/theming';
 @function get-background-color($name) {
-  @return mtc-theme-color(map-get($mat-light-theme-background, $name), map-get($mat-dark-theme-background, $name))
+  @return mtc.theme-color(map-get($mat-light-theme-background, $name), map-get($mat-dark-theme-background, $name))
 }
 
 /// IMPORTANT: @import '~@angular/material/theming';
 @function get-foreground-color($name) {
-  @return mtc-theme-color(map-get($mat-light-theme-foreground, $name), map-get($mat-dark-theme-foreground, $name))
+  @return mtc.theme-color(map-get($mat-light-theme-foreground, $name), map-get($mat-dark-theme-foreground, $name))
 }
 
-/// Creates base colors CSS Variables for angular material theme.
-/// IMPORTANT: --is-dark-theme: 1; (or 0) property!
-/// IMPORTANT: @import '~@angular/material/theming';
+/// @deprecated
 @mixin ngx-mtc-theme-base() {
 
   --mtc-background-status-bar: #{get-background-color('status-bar')};
@@ -156,11 +188,14 @@
   --mtc-foreground-slider-off-active: #{get-foreground-color('slider-off-active')};
 }
 
-/// Set base colors CSS Variables into angular material
-/// @param {mat-palette} $primary primary palette
-/// @param {mat-palette} $accent accent palette
-/// @param {mat-palette} $warn warn palette
-/// @return {mat-theme} theme for angular-material-theme function. `@include angular-material-theme(mtc-custom-theme(...));`
+/// Creates base colors CSS Variables for angular material theme.
+/// IMPORTANT: --is-dark-theme: 1; (or 0) property!
+/// IMPORTANT: @import '~@angular/material/theming';
+@mixin theme-base() {
+  @include ngx-mtc-theme-base();
+}
+
+/// @deprecated
 @function ngx-mtc-custom-theme($primary, $accent, $warn) {
   @return (
           primary: $primary,
@@ -204,10 +239,24 @@
   );
 }
 
-@mixin ngx-mtc-update-theme($theme-name, $color, $contrast-threshold: 50%) {
-  @include mtc-update-theme($theme-name, $color, $contrast-threshold)
+/// Set base colors CSS Variables into angular material
+/// @param {mat-palette} $primary primary palette
+/// @param {mat-palette} $accent accent palette
+/// @param {mat-palette} $warn warn palette
+/// @return {mat-theme} theme for angular-material-theme function. `@include angular-material-theme(mtc-custom-theme(...));`
+@function custom-theme($primary, $accent, $warn) {
+  @return ngx-mtc-custom-theme($primary, $accent, $warn);
 }
 
+/// @deprecated
+@mixin ngx-mtc-update-theme($theme-name, $color, $contrast-threshold: 50%) {
+  @include mtc.update-theme($theme-name, $color, $contrast-threshold)
+}
+
+/// Update theme
+@mixin update-theme($theme-name, $color, $contrast-threshold: 50%) {
+  @include mtc.update-theme($theme-name, $color, $contrast-threshold);
+}
 
 // FIX: "Could not find Angular Material core theme. Most Material components may not work as expected."
 .mat-theme-loaded-marker {

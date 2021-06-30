@@ -1,7 +1,7 @@
 /*
 
   Material Theme Creator
-  Version: 3.0.7
+  Version: 3.1.0
 
   Author: Artik Man [mail@artik.me, github.com/Artik-Man]
   Docs: https://artik-man.github.io/material-theme-creator/
@@ -9,8 +9,7 @@
 
 */
 
-
-/// Creates CSS Variables used in the "create-variables-from-color" mixin
+/// @deprecated
 @mixin mtc-init() {
   :root {
     --mtc-h-A100: 1;
@@ -52,21 +51,12 @@
   }
 }
 
+/// Creates CSS Variables used in the "create-variables-from-color" mixin
+@mixin init() {
+  @include mtc-init();
+}
 
-/// Creates CSS Custom Properties for mat-palette from one color
-/// @param {string} $theme-name (example: 'primary');
-/// @param {color} $color CSS Color (#hex/rgb,hsl);
-/// @param {percent} $contrast-threshold: 0%..100% (default: 50%);
-///
-/// @return CSS Custom Properties:
-///  --primary: hsl(...);
-///  --primary-50: hsl(...);
-///  --primary-50-contrast: hsl(...);
-///  --primary-100: hsl(...);
-///  --primary-100-contrast: hsl(...);
-///  ...
-///  --primary-A700: hsl(...);
-///  --primary-A700-contrast: hsl(...);
+/// @deprecated
 @mixin mtc-create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
   @include mtc-update-theme($theme-name, $color, $contrast-threshold);
 
@@ -114,6 +104,32 @@
   }
 }
 
+/// Creates CSS Custom Properties for mat-palette from one color
+/// @param {string} $theme-name (example: 'primary');
+/// @param {color} $color CSS Color (#hex/rgb,hsl);
+/// @param {percent} $contrast-threshold: 0%..100% (default: 50%);
+///
+/// @return CSS Custom Properties:
+///  --primary: hsl(...);
+///  --primary-50: hsl(...);
+///  --primary-50-contrast: hsl(...);
+///  --primary-100: hsl(...);
+///  --primary-100-contrast: hsl(...);
+///  ...
+///  --primary-A700: hsl(...);
+///  --primary-A700-contrast: hsl(...);
+@mixin create-variables-from-color($theme-name, $color, $contrast-threshold: 50%) {
+  @include mtc-create-variables-from-color($theme-name, $color, $contrast-threshold);
+}
+
+/// @deprecated
+@mixin mtc-update-theme($theme-name, $color, $contrast-threshold: 50%) {
+  --#{$theme-name}-h: #{str-slice(hue($color) + '', 0, -4)};
+  --#{$theme-name}-s: #{str-slice(saturation($color) + '', 0, -2)};
+  --#{$theme-name}-l: #{str-slice(lightness($color) + '', 0, -2)};
+  --#{$theme-name}-contrast-threshold: #{$contrast-threshold};
+}
+
 /// Returns CSS Custom Properties: Hue, Lightness, Saturation for CSS Color and contrast threshold for this theme
 /// @param {string} $theme-name (example: 'primary');
 /// @param {color} $color CSS Color (#hex/rgb/hsl);
@@ -123,11 +139,13 @@
 ///  --primary-s: 95;
 ///  --primary-l: 80;
 ///  --primary-contrast-threshold: 50%;
-@mixin mtc-update-theme($theme-name, $color, $contrast-threshold: 50%) {
-  --#{$theme-name}-h: #{str-slice(hue($color) + '', 0, -4)};
-  --#{$theme-name}-s: #{str-slice(saturation($color) + '', 0, -2)};
-  --#{$theme-name}-l: #{str-slice(lightness($color) + '', 0, -2)};
-  --#{$theme-name}-contrast-threshold: #{$contrast-threshold};
+@mixin update-theme($theme-name, $color, $contrast-threshold: 50%) {
+  @include mtc-update-theme($theme-name, $color, $contrast-threshold);
+}
+
+/// @deprecated
+@function mtc-color($theme-name, $index: 500, $alpha: 100%) {
+  @return hsla(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l), #{$alpha});
 }
 
 /// Returns color (variable). Example: mtc-color('primary', 400, 95%)
@@ -135,24 +153,24 @@
 /// @param {string} $index: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700];
 /// @param {number} $alpha (default: 100%)
 /// @returns hsla(...color)
-@function mtc-color($theme-name, $index: 500, $alpha: 100%) {
-  @return hsla(var(--#{$theme-name}-#{$index}-h), var(--#{$theme-name}-#{$index}-s), var(--#{$theme-name}-#{$index}-l), #{$alpha});
+@function color($theme-name, $index: 500, $alpha: 100%) {
+  @return mtc-color($theme-name, $index, $alpha);
+}
+
+/// @deprecated
+@function mtc-color-contrast($theme-name, $index: 500) {
+  @return var(--#{$theme-name}-#{$index}-contrast);
 }
 
 /// Returns contrast color (variable). Example: mtc-color-contrast('primary', 400)
 /// @param {string} $theme-name (example: 'primary');
 /// @param {string} $index: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700];
 /// @returns black or white
-@function mtc-color-contrast($theme-name, $index: 500) {
-  @return var(--#{$theme-name}-#{$index}-contrast);
+@function color-contrast($theme-name, $index: 500) {
+  @return mtc-color-contrast($theme-name, $index);
 }
 
-/// Create diapason for transition light-dark. Use --is-dark-theme [0..1] variable to change number inside diapason
-/// @param {number} $min - from
-/// @param {number} $max - to
-/// @param {any} $unit - 1%, 1deg, 1px, ...
-/// @param {var} $dark-theme-variable
-/// @return {calc(...)} diapason
+/// @deprecated
 @function mtc-theme-component($min:0, $max:100, $unit: 1, $dark-theme-variable: --is-dark-theme) {
   // L0 -> D100: calc((var(--is-dark-theme) * (max - min) + min) * 1%)
   // L100 -> D0: calc(((1 - var(--is-dark-theme)) * (max - min) + min) * 1%)
@@ -166,10 +184,17 @@
   @return calc((#{$base} * (#{$max} - #{$min}) + #{$min}) * #{$unit});
 }
 
-/// Create color-construction for transition light-dark. Use --is-dark-theme [0..1] variable to change color
-/// @param $light {color} - light-theme color
-/// @param $dark {color} - dark-theme color
-/// @return {color} CSS color hsla(...)
+/// Create diapason for transition light-dark. Use --is-dark-theme [0..1] variable to change number inside diapason
+/// @param {number} $min - from
+/// @param {number} $max - to
+/// @param {any} $unit - 1%, 1deg, 1px, ...
+/// @param {var} $dark-theme-variable
+/// @return {calc(...)} diapason
+@function theme-component($min:0, $max:100, $unit: 1, $dark-theme-variable: --is-dark-theme) {
+  @return mtc-theme-component($min, $max, $unit, $dark-theme-variable);
+}
+
+/// @deprecated
 @function mtc-theme-color($light, $dark) {
   @return hsla(
                   #{mtc-theme-component(hue($light), hue($dark))},
@@ -177,4 +202,12 @@
                   #{mtc-theme-component(lightness($light), lightness($dark))},
                   #{mtc-theme-component(opacity($light), opacity($dark), 100%)}
   )
+}
+
+/// Create color-construction for transition light-dark. Use --is-dark-theme [0..1] variable to change color
+/// @param $light {color} - light-theme color
+/// @param $dark {color} - dark-theme color
+/// @return {color} CSS color hsla(...)
+@function theme-color($light, $dark) {
+  @return mtc-theme-color($light, $dark);
 }
