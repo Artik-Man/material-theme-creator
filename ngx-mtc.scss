@@ -259,6 +259,31 @@
   @include mtc.update-theme($theme-name, $color, $contrast-threshold);
 }
 
+/// Returns color (variable). Example: mtc-color('primary', 400, 95%)
+/// @param {string} $theme-name (example: 'primary');
+/// @param {string} $index: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700];
+/// @param {number} $alpha (default: 100%)
+/// @returns hsla(...color)
+@function color($theme-name, $index: 500, $alpha: 100%) {
+  @return mtc.color($theme-name, $index, $alpha);
+}
+
+/// Returns contrast color (variable). Example: mtc-color-contrast('primary', 400)
+/// @param {string} $theme-name (example: 'primary');
+/// @param {string} $index: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700];
+/// @returns black or white
+@function color-contrast($theme-name, $index: 500) {
+  @return mtc.color-contrast($theme-name, $index);
+}
+
+/// Create color-construction for transition light-dark. Use --is-dark-theme [0..1] variable to change color
+/// @param $light {color} - light-theme color
+/// @param $dark {color} - dark-theme color
+/// @return {color} CSS color hsla(...)
+@function theme-color($light, $dark) {
+  @return mtc.theme-color($light, $dark);
+}
+
 // FIX: "Could not find Angular Material core theme. Most Material components may not work as expected."
 .mat-theme-loaded-marker {
   display: none;

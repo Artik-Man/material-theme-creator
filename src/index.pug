@@ -134,7 +134,7 @@ html(lang="en")
 
                         pre
                             code.language-javascript
-                                | const changeThemeButton = document.querySelector('button.change-theme-bth');
+                                | const changeThemeButton = document.querySelector('button.change-theme-btn');
                                 | changeThemeButton.addEventListener('click', () => {
                                 |     document.documentElement.classList.toggle('second-theme');
                                 | });
@@ -248,7 +248,7 @@ html(lang="en")
                                   | $warn-palette: mat.define-palette($warn-map);
                                   |
                                   | // Custom theme
-                                  | $theme: ngx-mtc.ngx-mtc-custom-theme(
+                                  | $theme: ngx-mtc.custom-theme(
                                   |     $primary-palette,
                                   |     $accent-palette,
                                   |     $warn-palette,
@@ -365,7 +365,7 @@ html(lang="en")
                 section
                     h2#article-testing
                         | Testing [
-                        code @mixin mtc-create-variables-from-color
+                        code @mixin create-variables-from-color
                         | ]
                     .themes
                         each theme in themes
