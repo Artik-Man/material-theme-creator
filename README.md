@@ -528,7 +528,7 @@ Based on CSS Custom Properties
 
 ```scss
 main {
-  background: ngx-mtc.theme-color(#f00, #0f0);
+  background: ngx-mtc.theme-color(#fff, #333);
 }
 ```
 
