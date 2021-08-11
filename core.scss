@@ -9,6 +9,13 @@
 
 */
 
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unit-less number
+@function strip-unit($number) {
+  @return ($number / ($number * 0 + 1));
+}
+
 /// @deprecated
 @mixin mtc-init() {
   :root {
@@ -130,9 +137,9 @@
 
 /// @deprecated
 @mixin mtc-update-theme($theme-name, $color, $contrast-threshold: 50%) {
-  --#{$theme-name}-h: #{str-slice(hue($color) + '', 0, -4)};
-  --#{$theme-name}-s: #{str-slice(saturation($color) + '', 0, -2)};
-  --#{$theme-name}-l: #{str-slice(lightness($color) + '', 0, -2)};
+  --#{$theme-name}-h: #{strip-unit(hue($color))};
+  --#{$theme-name}-s: #{strip-unit(saturation($color))};
+  --#{$theme-name}-l: #{strip-unit(lightness($color))};
   --#{$theme-name}-contrast-threshold: #{$contrast-threshold};
 }
 
@@ -190,6 +197,10 @@
   // L0 -> D100: calc((var(--is-dark-theme) * (max - min) + min) * 1%)
   // L100 -> D0: calc(((1 - var(--is-dark-theme)) * (max - min) + min) * 1%)
   $base: var(#{$dark-theme-variable});
+
+  $min: strip-unit($min);
+  $max: strip-unit($max);
+
   @if ($min > $max) {
     $temp: $min;
     $min: $max;
