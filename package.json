@@ -1,6 +1,6 @@
 {
   "name": "material-theme-creator",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "Converting Angular Material themes to CSS Custom Properties (Variables)",
   "main": "core.scss",
   "scripts": {
@@ -29,11 +29,11 @@
   "homepage": "https://artik-man.github.io/material-theme-creator/",
   "devDependencies": {
     "@angular/animations": "^12.0.0",
-    "@angular/cdk": "^12.1.1",
+    "@angular/cdk": "^12.0.0",
     "@angular/common": "^12.0.0",
     "@angular/core": "^12.0.0",
     "@angular/forms": "^12.0.0",
-    "@angular/material": "^12.1.1",
+    "@angular/material": "^12.0.0",
     "@material/button": "^8.0.0",
     "@material/slider": "^8.0.0",
     "@types/webpack": "^4.41.26",
