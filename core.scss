@@ -9,11 +9,13 @@
 
 */
 
+@use "sass:math";
+
 /// Remove the unit of a length
 /// @param {Number} $number - Number to remove unit from
 /// @return {Number} - Unit-less number
 @function strip-unit($number) {
-  @return ($number / ($number * 0 + 1));
+  @return math.div($number, $number * 0 + 1);
 }
 
 /// @deprecated
