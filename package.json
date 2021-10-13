@@ -1,6 +1,6 @@
 {
   "name": "material-theme-creator",
-  "version": "3.1.5",
+  "version": "3.2.0",
   "description": "Converting Angular Material themes to CSS Custom Properties (Variables)",
   "main": "core.scss",
   "scripts": {
@@ -46,7 +46,6 @@
     "prismjs": "^1.23.0",
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
-    "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "scss": "^0.2.4",
     "ts-loader": "^8.0.17",
@@ -55,5 +54,7 @@
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sass": "^1.40.1"
+  }
 }
