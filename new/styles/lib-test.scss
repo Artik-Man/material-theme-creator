@@ -1,0 +1,42 @@
+@use "../../core" as mtc;
+@use "../../ngx-mtc" as ngx-mtc;
+@use "~@angular/material" as mat;
+
+
+.test {
+  // Core
+  @include mtc.init();
+  @include mtc.create-variables-from-color('primary', #f00, 45%);
+  @include mtc.update-theme('primary', #0f0, 55%);
+
+  --is-dark-theme: 1;
+
+  background: mtc.color('primary', 400, 70%);
+
+  color: mtc.color-contrast('primary', 400);
+
+  border-top-color: hsl(123deg, 85%, #{mtc.theme-component(34, 72, 1%)});
+
+  border-right-color: mtc.theme-color(#f00, #0f0);
+
+  // Ngx
+  @include ngx-mtc.init();
+  @include ngx-mtc.create-variables-from-color('primary', #f00, 45%);
+  @include ngx-mtc.create-variables-from-map('primary', mat.$red-palette);
+  @include ngx-mtc.theme-base();
+  @include ngx-mtc.update-theme('primary', #0f0, 55%);
+
+  $primary-map: ngx-mtc.create-theme-map('primary');
+  $accent-map: ngx-mtc.create-theme-map('accent');
+  $warn-map: ngx-mtc.create-theme-map('warn');
+
+  $primary-palette: mat.define-palette($primary-map);
+  $accent-palette: mat.define-palette($accent-map);
+  $warn-palette: mat.define-palette($warn-map);
+
+  $theme: ngx-mtc.custom-theme($primary-palette, $accent-palette, $warn-palette);
+
+  border-bottom-color: ngx-mtc.color('primary', 400, 70%);
+  border-left-color: ngx-mtc.color-contrast('primary', 400);
+  outline-color: ngx-mtc.theme-color(#f00, #0f0);
+}

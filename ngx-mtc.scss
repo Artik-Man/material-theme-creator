@@ -1,5 +1,5 @@
 @use "core" as mtc;
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 /// @deprecated
 @mixin ngx-mtc-init() {

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Material Theme Creator</title>
+</head>
+<body>
+<label for="switch-theme" aria-label="Switch color scheme"></label>
+<input type="checkbox" id="switch-theme" class="visually-hidden">
+<div class="page">
+    <div class="theme-background"></div>
+    <header>
+        {% include "./templates/_switch-scheme.njk" %}
+        <h1>Material Theme Creator</h1>
+        <p>
+            <a href="https://github.com/Artik-Man/material-theme-creator" target="_blank">GitHub</a>
+            |
+            <a href="https://artik-man.github.io/material-theme-creator-demo-page/" target="_blank">Demo page</a>
+        </p>
+    </header>
+    <main>
+        <section>
+            <h2>
+                Create a custom&nbsp;theme from&nbsp;one&nbsp;color in&nbsp;real&nbsp;time.
+                It's&nbsp;pure&nbsp;CSS, without&nbsp;JavaScript
+            </h2>
+            <div class="create-theme">
+                {% import "./templates/_slider.njk" as slider %}
+
+                <h3>Hue</h3>
+                <div class="value -h"></div>
+                {{ slider.create(0, 360, 220, 1,'Hue', 'creator-h') }}
+
+
+                <h3>Saturation</h3>
+                <div class="value -s"></div>
+                {{ slider.create(0, 100, 80, 1,'Saturation', 'creator-s') }}
+
+
+                <h3>Lightness</h3>
+                <div class="value -l"></div>
+                {{ slider.create(0, 100, 60, 1,'Lightness', 'creator-l') }}
+
+
+                <h3>Contrast threshold</h3>
+                <div class="value -cc">65%</div>
+                {{ slider.create(0, 100, 65, 1,'Contrast threshold', 'creator-cc') }}
+
+
+            </div>
+            <div class="your-theme">
+                {% for point in points %}
+                    <span class="point" data-point="{{ point }}">
+                    <span class="info">
+                        var(--my-theme-{{ point }}) <br><br>
+                        hsla(<br>
+                         &nbsp; var(--my-theme-{{ point }})-h,<br>
+                         &nbsp; var(--my-theme-{{ point }})-s,<br>
+                         &nbsp; var(--my-theme-{{ point }})-l,<br>
+                         &nbsp; 100%,<br>
+                        )
+                    </span>
+                </span>
+                {% endfor %}
+            </div>
+            <form class="download-theme" id="form">
+                {% import "./templates/_textfield.njk" as textfield %}
+                {{ textfield.create('theme-name', "Theme name", 'my-theme') }}
+                <button class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label">Download<span class="hidden-xs">&nbsp;theme</span></span>
+                </button>
+            </form>
+        </section>
+        <section class="markdown">
+            {% set readme = markdown('./README.md') | safe %}
+            {{ readme }}
+        </section>
+
+    </main>
+    <footer>
+        <h2>Testing</h2>
+        <p>
+            <code>@mixin create-variables-from-color</code>
+        </p>
+        <div class="themes">
+            {% for theme in themes %}
+                <div class="theme">
+                    {% for point in points %}
+                        <span class="point" data-point="{{ point }}"></span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </footer>
+</div>
+<script defer src="highlight.js"></script>
+<script defer src="create-theme.js"></script>
+</body>
+</html>

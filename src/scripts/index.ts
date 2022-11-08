@@ -23,5 +23,4 @@ document.querySelectorAll('ul li').forEach(li => {
         a.textContent = text.nodeValue;
         li.replaceChild(a, text)
     }
-
 })

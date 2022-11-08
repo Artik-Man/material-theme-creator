@@ -8,14 +8,14 @@ PLUS Converting Angular Material themes to CSS Custom Properties (Variables)
 
 ## Contents
 
-- How it works?
-- How to use Material Theme Creator
-    - Pure CSS use
-    - Use with SCSS
-    - Use with Angular Material
-- Description of functionality
+- [How it works?](#how-it-works)
+- [How to use Material Theme Creator](#how-to-use-material-theme-creator)
+    - [Pure CSS use](#1-pure-css-use)
+    - [Use with SCSS](#2-use-with-scss)
+    - [Use with Angular Material](#3-use-with-angular-materialhttpsmaterialangulario)
+- [Description of functionality](#description-of-functionality)
 
-## How it works?
+## How it works? {#how-it-works}
 
 We use CSS Custom Properties and HSL color space for dynamic theme colors’ calculation.
 

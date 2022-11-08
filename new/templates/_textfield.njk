@@ -1,0 +1,7 @@
+{% macro create(id, label, value, type='text') %}
+    <label class="pure-material-textfield-standard">
+        <input type="{{ type }}" class="mdc-text-field__input" placeholder="{{ label }}" id="{{ id }}"
+               value="{{ value }}">
+        <span>{{ label }}</span>
+    </label>
+{% endmacro %}

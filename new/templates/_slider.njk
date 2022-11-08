@@ -1,0 +1,20 @@
+{% macro create(min, max, value, step, label, id) %}
+    <div class="mdc-slider mdc-slider--discrete" data-step="{{ step }}" data-id="{{ id }}">
+        <div class="mdc-slider__track">
+            <div class="mdc-slider__track--inactive"></div>
+            <div class="mdc-slider__track--active">
+                <div class="mdc-slider__track--active_fill"></div>
+            </div>
+        </div>
+
+        <div class="mdc-slider__thumb" role="slider" tabindex="0" aria-label="{{ label }}" aria-valuemin="{{ min }}"
+             aria-valuemax="{{ max }}" aria-valuenow="{{ value }}">
+            <div class="mdc-slider__value-indicator-container">
+                <div class="mdc-slider__value-indicator">
+                    <span class="mdc-slider__value-indicator-text">{{ value }}</span>
+                </div>
+            </div>
+            <div class="mdc-slider__thumb-knob"></div>
+        </div>
+    </div>
+{% endmacro %}

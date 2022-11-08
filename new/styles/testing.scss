@@ -1,0 +1,94 @@
+@use "~@angular/material" as mat;
+@use "core" as mtc;
+
+.themes {
+
+  $arr_colors: mat.$red-palette, mat.$pink-palette, mat.$purple-palette, mat.$deep-purple-palette, mat.$indigo-palette,
+  mat.$blue-palette, mat.$light-blue-palette, mat.$cyan-palette, mat.$teal-palette, mat.$green-palette,
+  mat.$light-green-palette, mat.$lime-palette, mat.$yellow-palette, mat.$amber-palette, mat.$orange-palette,
+  mat.$deep-orange-palette, mat.$brown-palette, mat.$grey-palette, mat.$blue-grey-palette;
+
+  $arr_thresholds: 62%, 58%, 65%, 65%, 65%, 58%, 54%, 45%, 38%, 47%, 47%, 38%, 20%, 20%, 38%, 60%, 60%, 60%, 62%;
+
+  $arr_names: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, A100, A200, A400, A700;
+
+  .theme {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    content-visibility: auto;
+    contain-intrinsic-size: 62px;
+
+    &:nth-child(2n) {
+      margin-bottom: 24px;
+    }
+
+    &:before {
+      display: flex;
+      align-items: center;
+      grid-column-start: 1;
+      grid-column-end: 8;
+      padding: 8px;
+    }
+
+    .point {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+    }
+
+
+    @for $t from 1 through 38 {
+      &:nth-child(#{$t}) {
+        @if ($t%2==0) {
+          &:before {
+            content: 'Theme Creator';
+          }
+          $theme-color: mat.get-color-from-palette(nth($arr_colors, $t/2), 500);
+          @include mtc.create-variables-from-color('theme-#{$t}', $theme-color, nth($arr_thresholds, $t / 2));
+
+          @for $i from 1 through 14 {
+            $point: nth($arr_names, $i);
+
+            .point[data-point="#{$point}"] {
+              background-color: var(--theme-#{$t}-#{$point});
+              color: var(--theme-#{$t}-#{$point}-contrast);
+            }
+          }
+        } @else {
+          &:before {
+            content: 'Google Material';
+          }
+
+          @for $c from 1 through 14 {
+            $point: nth($arr_names, $c);
+
+            .point[data-point="#{$point}"] {
+              background-color: mat.get-color-from-palette(nth($arr_colors, ($t + 1) / 2), $point);
+              color: mat.get-contrast-color-from-palette(nth($arr_colors, ($t + 1) / 2), $point);
+            }
+
+          }
+
+        }
+      }
+    }
+  }
+
+  @media (min-width: 700px) {
+    .theme {
+      grid-template-columns: 8em repeat(14, 1fr);
+
+      &:before {
+        grid-column-start: auto;
+        grid-column-end: auto;
+        padding: 0;
+      }
+
+      .point {
+
+      }
+    }
+  }
+
+}
